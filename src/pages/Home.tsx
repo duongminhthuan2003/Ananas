@@ -21,7 +21,7 @@ function Home() {
     return (
         <div>
             <div>
-                <div className="w-full h-screen flex justify-center relative overflow-hidden">
+                <div className="w-full h-[90vh] flex justify-center relative overflow-hidden">
                     <img
                         src={urbaslove24}
                         className="absolute w-full h-full object-cover object-center transform scale-[1.25] top-0 left-0"
