@@ -1,0 +1,66 @@
+@font-face {
+    font-family: "Be Vietnam Pro";
+    src: url("./assets/font/BeVietnamPro-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Be Vietnam Pro Medium";
+    src: url("./assets/font/BeVietnamPro-Medium.ttf") format("truetype");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Be Vietnam Pro Bold";
+    src: url("./assets/font/BeVietnamPro-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Be Vietnam Pro ExtraBold";
+    src: url("./assets/font/BeVietnamPro-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+}
+@font-face {
+    font-family: "Be Vietnam Pro ExtraLight";
+    src: url("./assets/font/BeVietnamPro-ExtraLight.ttf") format("truetype");
+    font-weight: 200;
+}
+@font-face {
+    font-family: "Bayon";
+    src: url("./assets/font/Bayon-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Anton SC";
+    src: url("./assets/font/AntonSC-Regular.ttf") format("truetype");
+}
+
+@theme {
+    --font-BeVietnamRegular: "Be Vietnam Pro", "sans-serif";
+    --font-BeVietnamMedium: "Be Vietnam Pro Medium", "sans-serif";
+    --font-BeVietnamBold: "Be Vietnam Pro Bold", "sans-serif";
+    --font-BeVietnamExtraBold: "Be Vietnam Pro ExtraBold", "sans-serif";
+    --font-BeVietnamExtraLight: "Be Vietnam Pro ExtraLight", "sans-serif";
+    --font-Bayon: "Bayon", "sans-serif";
+    --font-AntonSC: "Anton SC", "sans-serif";
+
+    --color-Ananas: rgb(241, 94, 44);
+}
+
+.track6-list::-webkit-scrollbar {
+    display: none;
+}
+
+.navbar {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Đảm bảo scroll vẫn hoạt động trên các trình duyệt khác */
+.track6-list {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+@import "tailwindcss";
