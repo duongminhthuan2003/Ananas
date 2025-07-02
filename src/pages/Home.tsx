@@ -21,16 +21,16 @@ function Home() {
     return (
         <div>
             <div>
-                <div className="w-full h-[90vh] flex justify-center relative overflow-hidden">
+                <div className="w-full h-[90vh] md:h-screen flex justify-center relative overflow-hidden">
                     <img
                         src={urbaslove24}
                         className="absolute w-full h-full object-cover object-center transform scale-[1.25] top-0 left-0"
                         alt="urbanlove24"
                     />
-                    <p className="absolute z-10 font-BeVietnamRegular text-Ananas top-48 text-sm">Mới ra mắt</p>
-                    <p className="absolute z-10 font-Bayon text-[56px] -my-4 top-56">URBAS LOVE 24+</p>
-                    <p className="absolute font-BeVietnamRegular top-[560px]">Giao hàng từ 01.11.2024</p>
-                    <div className="flex absolute top-[600px] w-full justify-center">
+                    <p className="absolute z-10 font-BeVietnamRegular text-Ananas top-[17vh] text-sm">Mới ra mắt</p>
+                    <p className="absolute z-10 font-Bayon text-[56px] -my-4 top-[21vh]">URBAS LOVE 24+</p>
+                    <p className="absolute font-BeVietnamRegular top-[70vh]">Giao hàng từ 01.11.2024</p>
+                    <div className="flex absolute top-[74vh] w-full justify-center">
                         <Button label="Đặt trước" onClick={() => console.log("Button clicked!")}/>
                     </div>
                 </div>
