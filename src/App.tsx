@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home.tsx';
 import Product from './pages/Product.tsx';
+import ProductDetail from './pages/ProductDetail.tsx';
 import logo from './assets/logo-black.png'
 import {useState} from "react";
 import MenuIcon from "./assets/svgicons/MenuIcon.tsx"
@@ -16,7 +17,7 @@ function App() {
 
     return (
         <div>
-            <nav className={`fixed flex flex-row w-full z-60 navbar px-3
+            <nav className={`fixed h-14 flex flex-row w-full z-60 navbar px-3
             ${isMobileMenuOpen ? '' : 'shadow-none border-none'}
             `}>
                 <Link to="/" className="m-0"><img src={logo} alt='Logo' className="h-14"                         onClick={() => setIsMobileMenuOpen(false)}
@@ -64,21 +65,21 @@ function App() {
                     <div className="flex flex-row gap-5">
                         <Link
                             to="/product"
-                            className="w-1/2 text-center border-2 shadow-md border-[#CCCCCC] font-BeVietnamRegular text-gray-800 bg-white py-3 rounded-lg my-2"
+                            className="w-1/2 text-center border-2 shadow-lg border-[#CCCCCC] font-BeVietnamRegular text-gray-800 bg-white py-3 rounded-lg my-2"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Đăng ký
                         </Link>
                         <Link
                             to="/product"
-                            className="w-1/2 text-center font-BeVietnamRegular text-white py-3 bg-Ananas rounded-lg transition-colors my-2"
+                            className="w-1/2 text-center items-center font-BeVietnamRegular text-white py-3 bg-Ananas rounded-lg transition-colors my-2"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Đăng nhập
                         </Link>
                     </div>
                     <div className="flex-1"></div>
-                    <div className="flex flex-row font-BeVietnamRegular gap-3 items-center p-4 bg-white w-full h-14 border-2 border-[#CCCCCC] rounded-lg">
+                    <div className="flex mb-14 flex-row font-BeVietnamRegular gap-3 items-center p-4 bg-white w-full h-14 border-2 border-[#CCCCCC] rounded-lg">
                         <HugeiconsIcon icon={Search01Icon} size={24} color="black" strokeWidth={1.2} />
                         <p className="text-gray-800">Tìm kiếm...</p>
                     </div>
@@ -97,6 +98,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/product" element={<Product/>}/>
+                    <Route path="/productdetail" element={<ProductDetail/>}/>
                 </Routes>
             </div>
         </div>

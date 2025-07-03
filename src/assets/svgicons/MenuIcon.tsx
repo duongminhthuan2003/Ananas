@@ -7,7 +7,7 @@ interface MenuIconProps {
 
 export default function MenuIcon({isOpen, onClick}: MenuIconProps) {
     return (
-        <button onClick={onClick}>
+        <button onClick={onClick} className="md:hidden">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

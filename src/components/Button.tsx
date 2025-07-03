@@ -14,7 +14,7 @@ const Button = ({ label, onClick }: ButtonProps) => {
             onClick={onClick}
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
-            className="relative text-sm font-BeVietnamRegular text-white rounded-lg md:py-3 md:px-6 py-2 px-6 z-20 overflow-hidden bg-[#F15E2C]"
+            className="relative font-BeVietnamRegular text-white rounded-lg md:py-3 md:px-6 py-2 px-6 z-20 overflow-hidden bg-[#F15E2C]"
             style={{
                 boxShadow: isHovered
                     ? "0 8px 20px rgba(241, 94, 44, 0.5)" // glow effect

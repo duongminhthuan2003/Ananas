@@ -16,8 +16,11 @@ import basasraw3 from '../assets/index/raw3.jpg'
 import saleoff from '../assets/index/saleoff.jpg'
 import Button from "../components/Button.tsx";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+    const navigate = useNavigate();
+
     return (
         <div>
             <div>
@@ -28,10 +31,10 @@ function Home() {
                         alt="urbanlove24"
                     />
                     <p className="absolute z-10 font-BeVietnamRegular text-Ananas top-[17vh] text-sm">Mới ra mắt</p>
-                    <p className="absolute z-10 font-Bayon text-[56px] -my-4 top-[21vh]">URBAS LOVE 24+</p>
+                    <p className="absolute z-10 font-Bayon text-[56px] -my-4 top-[21vh]">URBAS LOVE+ 24</p>
                     <p className="absolute font-BeVietnamRegular top-[70vh]">Giao hàng từ 01.11.2024</p>
                     <div className="flex absolute top-[74vh] w-full justify-center">
-                        <Button label="Đặt trước" onClick={() => console.log("Button clicked!")}/>
+                        <Button label="Đặt trước" onClick={() => navigate('/productdetail')}/>
                     </div>
                 </div>
             </div>

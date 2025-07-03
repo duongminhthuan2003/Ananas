@@ -3,19 +3,21 @@ import ananaslogoblack from "../assets/logo-black.png"
 import fbicon from "../assets/index/fb_icon.png"
 import igicon from "../assets/index/ig_icon.png"
 import yticon from "../assets/index/yt_icon.png"
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
 
 const Footer = () => {
     return (
         <footer className="flex flex-col justify-end w-full mt-12 md:mt-12 font-BeVietnamRegular">
             <div className="flex w-full bg-white h-auto mb-0 bottom-0">
                 <div className="my-auto top-0 bottom-0 w-full">
-                    <div className="flex flex-row w-9/12 md:w-10/12 mx-auto align-middle">
+                    <div className="flex flex-row mx-12 md:mx-48 align-middle">
                         <img src={ananaslogo} className="h-7 flex my-auto top-0 bottom-0 mr-2" alt="logo"/>
                         <img src={ananaslogoblack} className="flex h-10 w-24 object-cover my-auto top-0 bottom-0"
                              alt="logo"/>
                     </div>
 
-                    <div className="flex md:flex-row flex-col w-9/12 md:w-10/12 mx-auto mt-5 ">
+                    <div className="flex md:flex-row flex-col mx-12 md:mx-48 mt-8 ">
                         <div className="flex flex-col md:flex-row md:w-3/5 w-full gap-10">
                             <div className="md:w-1/3 w-full space-y-3">
                                 <p><strong>SẢN PHẨM</strong></p>
@@ -43,8 +45,13 @@ const Footer = () => {
 
                         <div className="md:w-2/5 w-full mt-8 md:mt-0">
                             <p><strong>LIÊN HỆ</strong></p>
-                            <input type="text" placeholder="Email"
-                                   className="border-2 w-full text-sm h-10 rounded-md mt-2 pl-3"/>
+                            <div className="flex flex-row">
+                                <input type="text" placeholder="Email"
+                                       className="border-2 border-[#CCCCCC] text-sm h-10 w-full rounded-l-md mt-2 pl-3"/>
+                                <div className="flex justify-center items-center h-10 w-10 mt-2 rounded-r-md aspect-square bg-Ananas">
+                                    <HugeiconsIcon icon={ArrowRight02Icon} color="#FFFFFF" size={20}/>
+                                </div>
+                            </div>
                             <div className="flex flex-row space-x-4 mt-3">
                                 <img src={fbicon} alt="Facebook Icon"
                                      className="h-5 w-5 opacity-55"/>
@@ -68,7 +75,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="h-10 md:mt-0 mt-16 w-full bg-[#F15E2C]"></div>
+            <div className="h-10 md:mt-0 mt-12 w-full bg-[#F15E2C]"></div>
         </footer>
     );
 };
