@@ -11,13 +11,13 @@ const Footer = () => {
         <footer className="flex flex-col justify-end w-full mt-12 md:mt-12 font-BeVietnamRegular">
             <div className="flex w-full bg-white h-auto mb-0 bottom-0">
                 <div className="my-auto top-0 bottom-0 w-full">
-                    <div className="flex flex-row mx-12 md:mx-48 align-middle">
+                    <div className="flex flex-row mx-8 md:mx-48 align-middle">
                         <img src={ananaslogo} className="h-7 flex my-auto top-0 bottom-0 mr-2" alt="logo"/>
                         <img src={ananaslogoblack} className="flex h-10 w-24 object-cover my-auto top-0 bottom-0"
                              alt="logo"/>
                     </div>
 
-                    <div className="flex md:flex-row flex-col mx-12 md:mx-48 mt-8 ">
+                    <div className="flex md:flex-row flex-col mx-8 md:mx-48 mt-8 ">
                         <div className="flex flex-col md:flex-row md:w-3/5 w-full gap-10">
                             <div className="md:w-1/3 w-full space-y-3">
                                 <p><strong>SẢN PHẨM</strong></p>

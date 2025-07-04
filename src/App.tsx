@@ -2,6 +2,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home.tsx';
 import Product from './pages/Product.tsx';
 import ProductDetail from './pages/ProductDetail.tsx';
+import News from './pages/News.tsx';
 import logo from './assets/logo-black.png'
 import {useState} from "react";
 import MenuIcon from "./assets/svgicons/MenuIcon.tsx"
@@ -49,7 +50,7 @@ function App() {
                         SALE OFF
                     </Link>
                     <Link
-                        to="/product"
+                        to="/news"
                         className="font-BeVietnamBold text-gray-800 hover:text-[#F15E2C] transition-colors my-2"
                         onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -98,6 +99,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/product" element={<Product/>}/>
+                    <Route path="/news" element={<News/>} />
                     <Route path="/productdetail" element={<ProductDetail/>}/>
                 </Routes>
             </div>

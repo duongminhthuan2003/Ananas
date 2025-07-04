@@ -70,7 +70,7 @@ function ProductDetail() {
                     }`}
                     onClick={() => setLiked(!liked)}
                     animate={liked ? {scale: [1, 15, 0.05, 1]} : {scale: 1}}
-                    transition={{duration: 0.3, ease: "easeInOut"}}
+                    transition={{duration: 0.25, ease: "easeInOut"}}
                 >
                     <HeartIcon liked={liked}/>
                 </motion.div>
@@ -78,7 +78,7 @@ function ProductDetail() {
 
             <div className="mx-8 my-10">
                 <p className="font-BeVietnamBold">MÔ TẢ SẢN PHẨM</p>
-                <ul className="list-disc ml-6 font-BeVietnamRegular space-y-3 my-3">
+                <ul className="list-disc ml-6 font-BeVietnamRegular space-y-3 my-3 text-sm">
                     <li>Chất liệu da Nappa kết hợp với sợi Eco Nylon (30% tái chế), bền và thân thiện với môi trường.</li>
                     <li>Khả năng chống nước tốt, phù hợp với nhiều loại thời tiết.</li>
                     <li>Phối màu Navy Blue và Blue Wash cá tính, dễ kết hợp trang phục.</li>

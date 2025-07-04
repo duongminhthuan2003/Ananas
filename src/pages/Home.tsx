@@ -24,16 +24,16 @@ function Home() {
     return (
         <div>
             <div>
-                <div className="w-full h-[90vh] md:h-screen flex justify-center relative overflow-hidden">
+                <div className="w-full h-[80vh] md:h-screen flex justify-center relative overflow-hidden">
                     <img
                         src={urbaslove24}
-                        className="absolute w-full h-full object-cover object-center transform scale-[1.25] top-0 left-0"
+                        className="absolute w-full h-full object-cover object-center transform scale-[1.5] top-0 left-0"
                         alt="urbanlove24"
                     />
                     <p className="absolute z-10 font-BeVietnamRegular text-Ananas top-[17vh] text-sm">Mới ra mắt</p>
                     <p className="absolute z-10 font-Bayon text-[56px] -my-4 top-[21vh]">URBAS LOVE+ 24</p>
-                    <p className="absolute font-BeVietnamRegular top-[70vh]">Giao hàng từ 01.11.2024</p>
-                    <div className="flex absolute top-[74vh] w-full justify-center">
+                    <p className="absolute font-BeVietnamRegular top-[60vh]">Giao hàng từ 01.11.2024</p>
+                    <div className="flex absolute top-[60vh] mt-10 w-full justify-center">
                         <Button label="Đặt trước" onClick={() => navigate('/productdetail')}/>
                     </div>
                 </div>
