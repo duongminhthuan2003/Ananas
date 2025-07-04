@@ -28,14 +28,14 @@ function ProductDetail() {
                     </div>
                 </div>
 
-                <img src={img4} alt="Urbas Love+ 24 4" className="w-full h-[20vh] object-cover"/>
+                <img src={img4} alt="Urbas Love+ 24 4" className="w-full h-[25vh] object-cover"/>
             </div>
 
-            <div className="mx-8 mt-4">
+            <div className="mx-8 mt-3">
                 <p className="font-BeVietnamRegular text-sm"><span className="text-gray-400">Sản phẩm {">"} Track 6 {">"}</span> Track 6 2.Blues</p>
             </div>
 
-            <div className="flex gap-1 flex-col mx-8 my-8">
+            <div className="flex gap-1 flex-col mx-8 my-6">
                 <p className="font-BeVietnamBold text-lg">TRACK 6 2.BLUES - LOW TOP</p>
                 <p className="font-BeVietnamRegular text-gray-400">Màu sắc: Bluewash</p>
                 <p className="font-BeVietnamBold text-lg text-Ananas">1.290.000 VNĐ</p>
@@ -44,7 +44,7 @@ function ProductDetail() {
             <div className="flex flex-row mx-8 my-3 font-BeVietnamRegular text-sm">
                 <div>
                     <p>Màu sắc</p>
-                    <div className="flex flex-row gap-3 mt-2">
+                    <div className="flex flex-row gap-2 mt-2">
                         <div className="w-7 rounded h-7 bg-[#444444]"></div>
                         <div className="w-7 rounded h-7 bg-[#444444]"></div>
                     </div>
@@ -65,10 +65,10 @@ function ProductDetail() {
 
                 <motion.div
                     className={`h-12 w-12 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 ${
-                        liked ? "bg-[#FFF0EA]" : "border-2 border-[#CCCCCC]"
+                        liked ? "border-2 border-[#FFF0EA] bg-[#FFF0EA]" : "border-2 border-[#CCCCCC] bg-white"
                     }`}
                     onClick={() => setLiked(!liked)}
-                    animate={liked ? {scale: [1, 15, 0.05, 1]} : {scale: 1}}
+                    animate={liked ? {scale: [1, 10, 0.1, 1]} : {scale: 1}}
                     transition={{duration: 0.25, ease: "easeInOut"}}
                 >
                     <HeartIcon liked={liked}/>
