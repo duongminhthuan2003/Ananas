@@ -28,24 +28,23 @@ function ProductDetail() {
                     </div>
                 </div>
 
-                {/* Ảnh cuối cùng chiếm full width */}
-                <img src={img4} alt="Urbas Love+ 24 4" className="w-full h-[300px] object-cover"/>
+                <img src={img4} alt="Urbas Love+ 24 4" className="w-full h-[20vh] object-cover"/>
             </div>
 
             <div className="mx-8 mt-4">
-                <p className="font-BeVietnamRegular"><span className="text-gray-400">Sản phẩm {">"} Track 6 {">"}</span> Track 6 2.Blues</p>
+                <p className="font-BeVietnamRegular text-sm"><span className="text-gray-400">Sản phẩm {">"} Track 6 {">"}</span> Track 6 2.Blues</p>
             </div>
 
-            <div className="flex gap-1 flex-col mx-8 my-3">
+            <div className="flex gap-1 flex-col mx-8 my-8">
                 <p className="font-BeVietnamBold text-lg">TRACK 6 2.BLUES - LOW TOP</p>
                 <p className="font-BeVietnamRegular text-gray-400">Màu sắc: Bluewash</p>
                 <p className="font-BeVietnamBold text-lg text-Ananas">1.290.000 VNĐ</p>
             </div>
 
-            <div className="flex flex-row mx-8 my-3 font-BeVietnamRegular">
+            <div className="flex flex-row mx-8 my-3 font-BeVietnamRegular text-sm">
                 <div>
                     <p>Màu sắc</p>
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row gap-3 mt-2">
                         <div className="w-7 rounded h-7 bg-[#444444]"></div>
                         <div className="w-7 rounded h-7 bg-[#444444]"></div>
                     </div>
