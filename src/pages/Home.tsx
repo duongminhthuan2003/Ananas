@@ -40,13 +40,13 @@ function Home() {
             </div>
 
             <div className="items-center justify-center relative w-10/12 mt-7 mx-auto">
-                <p className="font-BeVietnamBold my-5 text-md">Nổi bật</p>
+                <p className="font-BeVietnamBold my-5 text-lg">Nổi bật</p>
                 <div className="flex flex-col w-full gap-6">
                     <div className="w-full h-64 relative">
                         <div className="absolute bottom-0 z-20 p-5 flex flex-col gap-2">
                             <p className="text-white font-BeVietnamRegular">Your daily drive</p>
                             <p className="text-white font-BeVietnamBold">URBAS SC - CORN SILK</p>
-                            <div className="w-40">
+                            <div className="w-40 text-sm">
                                 <Button label="Mua ngay" onClick={() => {
                                 }}/>
                             </div>
@@ -59,7 +59,7 @@ function Home() {
                         <div className="absolute bottom-0 z-20 p-5 flex flex-col gap-2">
                             <p className="text-white font-BeVietnamRegular">Chong chóng tre nè Nobita!</p>
                             <p className="text-white font-BeVietnamBold">ANANAS x DORAEMON</p>
-                            <div className="w-40">
+                            <div className="w-40 text-sm">
                                 <Button label="Mua ngay" onClick={() => {
                                 }}/>
                             </div>
@@ -79,7 +79,7 @@ function Home() {
                         <img src={track6bluewash} alt="Track 6 Bluewash" className="h-[240px] aspect-square"/>
                         <p className="font-BeVietnamBold text-[14px] mt-2">Track 6 2.Blues - Bluewash</p>
                         <p className="font-BeVietnamRegular text-sm mt-2">1.290.000 VNĐ</p>
-                        <div className="mt-2 mb-4"><Button label="Mua ngay" onClick={() => {
+                        <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
                         }}/></div>
                     </div>
 
@@ -87,7 +87,7 @@ function Home() {
                         <img src={track6triplewhite} alt="Track 6 Bluewash" className="h-[240px] aspect-square"/>
                         <p className="font-BeVietnamBold text-sm mt-2">Track 6 Triple White</p>
                         <p className="font-BeVietnamRegular text-sm mt-2">990.000 VNĐ</p>
-                        <div className="mt-2 mb-4"><Button label="Mua ngay" onClick={() => {
+                        <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
                         }}/></div>
                     </div>
 
@@ -99,7 +99,7 @@ function Home() {
                             className="absolute top-0 left-0 bg-Ananas px-4 py-2 text-sm text-white font-BeVietnamBold">
                             Limited Edition
                         </div>
-                        <div className="mt-2 mb-4"><Button label="Mua ngay" onClick={() => {
+                        <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
                         }}/></div>
                     </div>
 
@@ -107,7 +107,7 @@ function Home() {
                         <img src={track6suedewinterize} alt="Track 6 Bluewash" className="h-[240px] aspect-square"/>
                         <p className="font-BeVietnamBold text-sm mt-2">Track 6 Moonphase - Winterize</p>
                         <p className="font-BeVietnamRegular text-sm mt-2">1.290.000 VNĐ</p>
-                        <div className="mt-2 mb-4"><Button label="Mua ngay" onClick={() => {
+                        <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
                         }}/></div>
                     </div>
 
@@ -119,7 +119,7 @@ function Home() {
                         </div>
                         <p className="font-BeVietnamBold text-sm mt-2">Track 6 I.S.E.E</p>
                         <p className="font-BeVietnamRegular text-sm mt-2">1.490.000 VNĐ</p>
-                        <div className="mt-2 mb-4"><Button label="Hết hàng" onClick={() => {
+                        <div className="mt-2 mb-4 text-sm"><Button label="Hết hàng" onClick={() => {
                         }}/></div>
                     </div>
 
@@ -127,7 +127,7 @@ function Home() {
                         <img src={track6navyblue} alt="Track 6 Bluewash" className="h-[240px] aspect-square"/>
                         <p className="font-BeVietnamBold text-sm mt-2">Track 6 2.Blues - Navy Blue</p>
                         <p className="font-BeVietnamRegular text-sm mt-2">990.000 VNĐ</p>
-                        <div className="mt-2 mb-4"><Button label="Mua ngay" onClick={() => {
+                        <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
                         }}/></div>
                     </div>
                 </div>

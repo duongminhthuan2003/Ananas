@@ -1,5 +1,5 @@
-import product1 from "../assets/index/Pro_AV00123_1.jpg";
-import product2 from "../assets/index/Pro_AV00150_1.jpg";
+import saleoff1 from "../assets/index/pro_AV00101_1.jpg";
+import saleoff2 from "../assets/index/Pro_AV00210_1.jpg";
 import {motion} from "motion/react";
 import HeartIcon from "../assets/svgicons/HeartIcon.tsx";
 import {useState} from "react";
@@ -7,14 +7,14 @@ import Footer from "../components/Footer.tsx";
 import {HugeiconsIcon} from "@hugeicons/react";
 import {ArrowLeft01Icon, ArrowRight01Icon, FilterHorizontalIcon} from "@hugeicons/core-free-icons";
 
-function Product() {
+function SaleOff() {
     const [liked, setLiked] = useState(false);
 
     return (
         <div>
             <div className="h-14"></div>
             <div className="mx-8 mt-8 flex flex-row items-center">
-                <p className="text-xl font-BeVietnamBold">SẢN PHẨM</p>
+                <p className="text-xl font-BeVietnamBold">SALE OFF</p>
                 <div className="flex-1"></div>
                 <div className="flex flex-row gap-2 border-2 px-2 py-1 rounded-full items-center">
                     <HugeiconsIcon icon={FilterHorizontalIcon} size={20}/>
@@ -23,11 +23,33 @@ function Product() {
             </div>
 
             <div className="flex flex-col mx-8 my-8">
-                {Array.from({length: 6}).map((_, index) => (
+                {Array.from({length: 4}).map((_, index) => (
                     <div key={index} className="flex flex-col">
                         <div className="flex flex-row gap-5">
                             <div className="flex flex-col">
-                                <img src={product1} alt=""/>
+                                <img src={saleoff1} alt=""/>
+                                <div className="my-3 flex flex-col gap-1">
+                                    <div className="flex flex-row">
+                                        <p className="w-2/3 font-BeVietnamBold text-sm">Basas Workaday - High top</p>
+                                        <div className="flex-1"></div>
+                                        <motion.div
+                                            onClick={() => setLiked(!liked)}
+                                            transition={{duration: 0.25, ease: "easeInOut"}}
+                                        >
+                                            <HeartIcon liked={liked}/>
+                                        </motion.div>
+                                    </div>
+                                    <p className="font-BeVietnamRegular text-sm -mt-1 text-gray-400">Wooden Brown</p>
+                                    <div className="flex flex-row gap-2">
+                                        <p className="font-BeVietnamRegular line-through text-sm text-gray-400">790.000 VNĐ</p>
+                                        <p className="flex justify-center items-center bg-gray-400 text-white px-2 text-[12px] rounded font-BeVietnamRegular">-20%</p>
+                                    </div>
+                                    <p className="font-BeVietnamBold text-sm">632.000 VNĐ</p>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col">
+                                <img src={saleoff2} alt=""/>
                                 <div className="my-3 flex flex-col gap-1">
                                     <div className="flex flex-row">
                                         <p className="w-2/3 font-BeVietnamBold text-sm">Basas Day Slide - Slip on</p>
@@ -39,26 +61,12 @@ function Product() {
                                             <HeartIcon liked={liked}/>
                                         </motion.div>
                                     </div>
-                                    <p className="font-BeVietnamRegular text-sm -mt-1 text-gray-400">Carviar Black</p>
-                                    <p className="font-BeVietnamRegular text-sm">550.000 VNĐ</p>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col">
-                                <img src={product2} alt=""/>
-                                <div className="my-3 flex flex-col gap-1">
-                                    <div className="flex flex-row">
-                                        <p className="w-2/3 font-BeVietnamBold text-sm">Basas Day Slide - Low top</p>
-                                        <div className="flex-1"></div>
-                                        <motion.div
-                                            onClick={() => setLiked(!liked)}
-                                            transition={{duration: 0.25, ease: "easeInOut"}}
-                                        >
-                                            <HeartIcon liked={liked}/>
-                                        </motion.div>
+                                    <p className="font-BeVietnamRegular text-sm -mt-1 text-gray-400">Shining Beige</p>
+                                    <div className="flex flex-row gap-2">
+                                        <p className="font-BeVietnamRegular line-through text-sm text-gray-400">550.000 VNĐ</p>
+                                        <p className="flex justify-center items-center bg-gray-400 text-white px-2 text-[12px] rounded font-BeVietnamRegular">-50%</p>
                                     </div>
-                                    <p className="font-BeVietnamRegular text-sm -mt-1 text-gray-400">Ocean Blue</p>
-                                    <p className="font-BeVietnamRegular text-sm">650.000 VNĐ</p>
+                                    <p className="font-BeVietnamBold text-sm">275.000 VNĐ</p>
                                 </div>
                             </div>
                         </div>
@@ -70,8 +78,6 @@ function Product() {
                 <HugeiconsIcon icon={ArrowLeft01Icon} />
                 <p className="flex justify-center items-center bg-Ananas aspect-square w-8 rounded-md text-white">1</p>
                 <p>2</p>
-                <p>3</p>
-                <p>4</p>
                 <HugeiconsIcon icon={ArrowRight01Icon} />
             </div>
 
@@ -80,4 +86,4 @@ function Product() {
     );
 }
 
-export default Product;
+export default SaleOff;

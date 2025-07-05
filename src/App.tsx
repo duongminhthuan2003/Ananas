@@ -8,6 +8,7 @@ import {useState} from "react";
 import MenuIcon from "./assets/svgicons/MenuIcon.tsx"
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Search01Icon } from "@hugeicons/core-free-icons";
+import SaleOff from "./pages/SaleOff.tsx";
 
 function App() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -43,7 +44,7 @@ function App() {
                         SẢN PHẨM
                     </Link>
                     <Link
-                        to="/product"
+                        to="/saleoff"
                         className="font-BeVietnamBold text-gray-800 hover:text-[#F15E2C] transition-colors my-2"
                         onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -101,6 +102,7 @@ function App() {
                     <Route path="/product" element={<Product/>}/>
                     <Route path="/news" element={<News/>} />
                     <Route path="/productdetail" element={<ProductDetail/>}/>
+                    <Route path="/saleoff" element={<SaleOff/>} />
                 </Routes>
             </div>
         </div>
