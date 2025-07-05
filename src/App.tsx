@@ -3,6 +3,7 @@ import Home from './pages/Home.tsx';
 import Product from './pages/Product.tsx';
 import ProductDetail from './pages/ProductDetail.tsx';
 import News from './pages/News.tsx';
+import Intro from './pages/Introduction.tsx'
 import logo from './assets/logo-black.png'
 import {useState} from "react";
 import MenuIcon from "./assets/svgicons/MenuIcon.tsx"
@@ -35,7 +36,7 @@ function App() {
                 className={`fixed top-0 left-0 w-full h-[calc(100vh-3.5rem)] navbar shadow-lg z-50 md:hidden transition-transform duration-600 ease-in-out ${
                     isMobileMenuOpen ? 'transform translate-y-14' : 'transform -translate-y-full shadow-none'
                 }`}>
-                <div className="flex flex-col h-full p-8 text-md gap-6">
+                <div className="flex flex-col h-full p-8 text-md gap-5">
                     <Link
                         to="/product"
                         className="font-BeVietnamBold text-gray-800 hover:text-[#F15E2C] transition-colors my-2"
@@ -58,7 +59,7 @@ function App() {
                         TIN TỨC
                     </Link>
                     <Link
-                        to="/product"
+                        to="/introduction"
                         className="font-BeVietnamBold text-gray-800 hover:text-[#F15E2C] transition-colors my-2"
                         onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -74,7 +75,7 @@ function App() {
                         </Link>
                         <Link
                             to="/product"
-                            className="w-1/2 text-center items-center font-BeVietnamRegular text-white py-3 bg-Ananas rounded-lg transition-colors my-2"
+                            className="flex w-1/2 justify-center items-center font-BeVietnamRegular text-white py-3 bg-Ananas rounded-lg transition-colors my-2"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Đăng nhập
@@ -103,6 +104,7 @@ function App() {
                     <Route path="/news" element={<News/>} />
                     <Route path="/productdetail" element={<ProductDetail/>}/>
                     <Route path="/saleoff" element={<SaleOff/>} />
+                    <Route path="/introduction" element={<Intro/>} />
                 </Routes>
             </div>
         </div>
