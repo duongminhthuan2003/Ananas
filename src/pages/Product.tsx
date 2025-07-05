@@ -16,21 +16,21 @@ function Product() {
             <div className="mx-8 mt-8 flex flex-row items-center">
                 <p className="text-xl font-BeVietnamBold">SẢN PHẨM</p>
                 <div className="flex-1"></div>
-                <div className="flex flex-row gap-2 border-2 px-2 py-1 rounded-full items-center">
+                <div className="flex flex-row gap-2 border-[1.8px] px-2 py-1 rounded-full items-center">
                     <HugeiconsIcon icon={FilterHorizontalIcon} size={20}/>
                     <p className="font-BeVietnamRegular text-sm">Lọc</p>
                 </div>
             </div>
 
-            <div className="flex flex-col mx-8 my-8">
+            <div className="flex flex-col mx-7 my-8">
                 {Array.from({length: 6}).map((_, index) => (
                     <div key={index} className="flex flex-col">
-                        <div className="flex flex-row gap-5">
+                        <div className="flex flex-row gap-3">
                             <div className="flex flex-col">
                                 <img src={product1} alt=""/>
                                 <div className="my-3 flex flex-col gap-1">
-                                    <div className="flex flex-row">
-                                        <p className="w-2/3 font-BeVietnamBold text-sm">Basas Day Slide - Slip on</p>
+                                    <div className="flex flex-row gap-2">
+                                        <p className="font-BeVietnamBold text-[13px]">Basas Day Slide - Slip on</p>
                                         <div className="flex-1"></div>
                                         <motion.div
                                             onClick={() => setLiked(!liked)}
@@ -39,16 +39,16 @@ function Product() {
                                             <HeartIcon liked={liked}/>
                                         </motion.div>
                                     </div>
-                                    <p className="font-BeVietnamRegular text-sm -mt-1 text-gray-400">Carviar Black</p>
-                                    <p className="font-BeVietnamRegular text-sm">550.000 VNĐ</p>
+                                    <p className="font-BeVietnamRegular text-[13px] -mt-1 text-gray-400">Carviar Black</p>
+                                    <p className="font-BeVietnamRegular text-[13px]">550.000 VNĐ</p>
                                 </div>
                             </div>
 
                             <div className="flex flex-col">
                                 <img src={product2} alt=""/>
                                 <div className="my-3 flex flex-col gap-1">
-                                    <div className="flex flex-row">
-                                        <p className="w-2/3 font-BeVietnamBold text-sm">Basas Day Slide - Low top</p>
+                                    <div className="flex flex-row gap-2">
+                                        <p className="font-BeVietnamBold text-[13px]">Basas Day Slide - Low top</p>
                                         <div className="flex-1"></div>
                                         <motion.div
                                             onClick={() => setLiked(!liked)}
@@ -57,8 +57,8 @@ function Product() {
                                             <HeartIcon liked={liked}/>
                                         </motion.div>
                                     </div>
-                                    <p className="font-BeVietnamRegular text-sm -mt-1 text-gray-400">Ocean Blue</p>
-                                    <p className="font-BeVietnamRegular text-sm">650.000 VNĐ</p>
+                                    <p className="font-BeVietnamRegular text-[13px] -mt-1 text-gray-400">Ocean Blue</p>
+                                    <p className="font-BeVietnamRegular text-[13px]">650.000 VNĐ</p>
                                 </div>
                             </div>
                         </div>
