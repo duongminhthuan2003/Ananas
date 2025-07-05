@@ -22,7 +22,7 @@ function Product() {
                 </div>
             </div>
 
-            <div className="flex flex-col mx-7 my-8">
+            <div className="flex flex-col mx-4 my-6">
                 {Array.from({length: 6}).map((_, index) => (
                     <div key={index} className="flex flex-col">
                         <div className="flex flex-row gap-3">
