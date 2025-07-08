@@ -47,7 +47,7 @@ const Footer = () => {
                             <p><strong>LIÊN HỆ</strong></p>
                             <div className="flex flex-row">
                                 <input type="text" placeholder="Email"
-                                       className="border-2 border-[#CCCCCC] text-sm h-10 w-full rounded-l-md mt-2 pl-3"/>
+                                       className="border-2 border-[#CCCCCC] border-r-0 text-sm h-10 w-full rounded-l-md mt-2 pl-3"/>
                                 <div className="flex justify-center items-center h-10 w-10 mt-2 rounded-r-md aspect-square bg-Ananas">
                                     <HugeiconsIcon icon={ArrowRight02Icon} color="#FFFFFF" size={20}/>
                                 </div>

@@ -4,12 +4,15 @@ import Product from './pages/Product.tsx';
 import ProductDetail from './pages/ProductDetail.tsx';
 import News from './pages/News.tsx';
 import Intro from './pages/Introduction.tsx'
+import SettingsProfile from "./pages/SettingsProfile.tsx";
 import logo from './assets/logo-black.png'
 import {useState} from "react";
 import MenuIcon from "./assets/svgicons/MenuIcon.tsx"
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Search01Icon } from "@hugeicons/core-free-icons";
+import { Search01Icon, ShoppingBag03Icon, FavouriteIcon } from "@hugeicons/core-free-icons";
 import SaleOff from "./pages/SaleOff.tsx";
+import Login from "./pages/Login.tsx";
+import avatar from "../src/assets/account/Sequoia-Sunrise.png"
 
 function App() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,6 +20,8 @@ function App() {
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
+
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
     return (
         <div>
@@ -36,7 +41,7 @@ function App() {
                 className={`fixed top-0 left-0 w-full h-[calc(100vh-3.5rem)] navbar shadow-lg z-50 md:hidden transition-transform duration-600 ease-in-out ${
                     isMobileMenuOpen ? 'transform translate-y-14' : 'transform -translate-y-full shadow-none'
                 }`}>
-                <div className="flex flex-col h-full p-8 text-md gap-5">
+                <div className="flex flex-col h-full p-8 text-md gap-4">
                     <Link
                         to="/product"
                         className="font-BeVietnamBold text-gray-800 hover:text-[#F15E2C] transition-colors my-2"
@@ -65,28 +70,63 @@ function App() {
                     >
                         GIỚI THIỆU
                     </Link>
-                    <div className="flex flex-row gap-5">
-                        <Link
-                            to="/product"
-                            className="w-1/2 text-center border-2 shadow-lg border-[#CCCCCC] font-BeVietnamRegular text-gray-800 bg-white py-3 rounded-lg my-2"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            Đăng ký
-                        </Link>
-                        <Link
-                            to="/product"
-                            className="flex w-1/2 justify-center items-center font-BeVietnamRegular text-white py-3 bg-Ananas rounded-lg transition-colors my-2"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            Đăng nhập
-                        </Link>
-                    </div>
+                    {
+                        isLoggedIn ?
+                            <div className="flex flex-col gap-3">
+                                <Link
+                                    className="bg-white shadow-xl rounded-xl p-5 flex flex-row border-2 border-gray-300 gap-4"
+                                    to={'/settings/profile'}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    <div>
+                                        <img src={avatar} alt={"Avatar"} className="h-14 w-14 rounded-full object-cover"/>
+                                    </div>
+
+                                    <div className="flex flex-col justify-center gap-0.5">
+                                        <p className="font-BeVietnamBold">HỌ VÀ TÊN</p>
+                                        <p className="font-BeVietnamRegular text-gray-500 text-sm">Chỉnh sửa hồ sơ</p>
+                                    </div>
+                                </Link>
+
+                                <div className="flex flex-row gap-3">
+                                    <div className="bg-white shadow-xl font-BeVietnamRegular rounded-xl w-1/2 flex flex-row justify-center py-5 border-2 border-gray-300 gap-3">
+                                        <HugeiconsIcon icon={ShoppingBag03Icon} />
+                                        <p>Giỏ hàng</p>
+                                    </div>
+
+                                    <div className="bg-white shadow-xl font-BeVietnamRegular rounded-xl w-1/2 flex flex-row justify-center py-5 border-2 border-gray-300 gap-3">
+                                        <HugeiconsIcon icon={FavouriteIcon} />
+                                        <p>Yêu thích</p>
+                                    </div>
+                                </div>
+                            </div>
+                            :
+                                <div>
+                                    <div className="flex flex-row gap-5">
+                                        <Link
+                                            to="/product"
+                                            className="w-1/2 text-center border-2 shadow-lg border-[#CCCCCC] font-BeVietnamRegular text-gray-800 bg-white py-3 rounded-xl my-2"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Đăng ký
+                                        </Link>
+                                        <Link
+                                            to="/login"
+                                            className="flex w-1/2 justify-center items-center font-BeVietnamRegular text-white py-3 bg-Ananas rounded-xl transition-colors my-2"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Đăng nhập
+                                        </Link>
+                                    </div>
+                                </div>
+                    }
+
+
                     <div className="flex-1"></div>
-                    <div className="flex mb-14 flex-row font-BeVietnamRegular gap-3 items-center p-4 bg-white w-full h-14 border-2 border-[#CCCCCC] rounded-lg">
+                    <div className="flex mb-18 flex-row font-BeVietnamRegular gap-3 items-center p-4 bg-white w-full h-14 border-2 border-[#CCCCCC] rounded-xl">
                         <HugeiconsIcon icon={Search01Icon} size={24} color="black" strokeWidth={1.2} />
-                        <p className="text-gray-800">Tìm kiếm...</p>
+                        <input type="text" className="text-gray-800 font-BeVietnamRegular focus:outline-none" placeholder="Tìm kiếm..."/>
                     </div>
-                    {/* Add more navigation links here as needed */}
                 </div>
             </div>
 
@@ -105,6 +145,8 @@ function App() {
                     <Route path="/productdetail" element={<ProductDetail/>}/>
                     <Route path="/saleoff" element={<SaleOff/>} />
                     <Route path="/introduction" element={<Intro/>} />
+                    <Route path="/login" element={<Login/>} />
+                    <Route path="/settings/profile" element={<SettingsProfile/>} />
                 </Routes>
             </div>
         </div>
