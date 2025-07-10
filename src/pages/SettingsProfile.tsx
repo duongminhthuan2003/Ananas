@@ -17,11 +17,12 @@ export function ContextMenu() {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.2 }}
             className="flex flex-col navbar mx-8 rounded-xl px-3 pt-5 pb-3 gap-5 font-BeVietnamRegular items-center">
-            <div>
+            <div className="text-Ananas">
                 Hồ sơ của tôi
             </div>
-            <div>
-                [!]Đơn hàng của tôi
+            <div
+            onClick={()=>{navigate("/settings/orders")}}>
+                Đơn hàng của tôi
             </div>
             <div>
                 [!]Phương thức thanh toán
@@ -55,7 +56,7 @@ function SettingsProfile() {
                 )}
             </AnimatePresence>
 
-            <div className="flex flex-row mx-8 gap-2 mt-8 items-center" onClick={() => setIsOpen(!isOpen)}>
+            <div className="flex flex-row mx-8 gap-3 mt-8 items-center" onClick={() => setIsOpen(!isOpen)}>
                 <motion.div animate={{ rotate: isOpen ? 90 : 0 }} transition={{ duration: 0.2 }}>
                     <HugeiconsIcon icon={ArrowRight01Icon} />
                 </motion.div>
