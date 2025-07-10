@@ -67,7 +67,7 @@ function SettingsOrder() {
             </div>
 
             <div className="mx-8 space-y-3 my-5">
-                <div className="border-2 border-gray-300 px-5 py-4 rounded-xl">
+                <div className="border-2 border-gray-300 px-4 py-3 rounded-xl">
                     <div className="flex flex-row text-sm font-BeVietnamRegular">
                         <p>Mã đơn hàng: #14251</p>
                         <div className="flex-1"></div>
@@ -76,9 +76,9 @@ function SettingsOrder() {
                     <div className="flex flex-row gap-3 my-3">
                         <img src={product1} alt="Product 1"  className="w-[20vw] aspect-square rounded-lg"/>
                         <div className="flex flex-col justify-center gap-1">
-                            <p className="font-BeVietnamBold text-sm">Basas Bumper Gum EXT NE - High Top - Offwhite/Gum</p>
-                            <p className="font-BeVietnamRegular text-sm text-gray-500">650.000 VNĐ</p>
-                            <p className="font-BeVietnamRegular text-sm text-gray-500">Kích cỡ: 35</p>
+                            <p className="font-BeVietnamBold text-[13px]">Basas Bumper Gum EXT NE - High Top - Offwhite/Gum</p>
+                            <p className="font-BeVietnamRegular text-[12px] text-gray-500">650.000 VNĐ</p>
+                            <p className="font-BeVietnamRegular text-[12px] text-gray-500">Kích cỡ: 35</p>
                         </div>
                         <p className="text-sm font-BeVietnamRegular mt-[6px]">
                             x1
