@@ -74,7 +74,7 @@ function SettingsOrder() {
                         <p>Đã đặt</p>
                     </div>
                     <div className="flex flex-row gap-3 my-3">
-                        <img src={product1} alt="Product 1"  className="w-[100px] aspect-square rounded-lg"/>
+                        <img src={product1} alt="Product 1"  className="w-[20vw] aspect-square rounded-lg"/>
                         <div className="flex flex-col justify-center gap-1">
                             <p className="font-BeVietnamBold text-sm">Basas Bumper Gum EXT NE - High Top - Offwhite/Gum</p>
                             <p className="font-BeVietnamRegular text-sm text-gray-500">650.000 VNĐ</p>
@@ -96,7 +96,7 @@ function SettingsOrder() {
                         <p>Đã đặt</p>
                     </div>
                     <div className="flex flex-row gap-3 my-3">
-                        <img src={product1} alt="Product 1"  className="w-[100px] aspect-square rounded-lg"/>
+                        <img src={product1} alt="Product 1"  className="w-[20vw] aspect-square rounded-lg"/>
                         <div className="flex flex-col justify-center gap-1">
                             <p className="font-BeVietnamBold text-sm">Basas Bumper Gum EXT NE - High Top - Offwhite/Gum</p>
                             <p className="font-BeVietnamRegular text-sm text-gray-500">650.000 VNĐ</p>
@@ -114,7 +114,7 @@ function SettingsOrder() {
                         <p>Đã đặt</p>
                     </div>
                     <div className="flex flex-row gap-3 my-3">
-                        <img src={product1} alt="Product 1"  className="w-[100px] aspect-square rounded-lg"/>
+                        <img src={product1} alt="Product 1"  className="w-[20vw] aspect-square rounded-lg"/>
                         <div className="flex flex-col justify-center gap-1">
                             <p className="font-BeVietnamBold text-sm">Basas Bumper Gum EXT NE - High Top - Offwhite/Gum</p>
                             <p className="font-BeVietnamRegular text-sm text-gray-500">650.000 VNĐ</p>
