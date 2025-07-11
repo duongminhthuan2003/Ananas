@@ -79,7 +79,7 @@ function ProductDetail() {
                         </div>
 
                         {showSizePopup && (
-                            <div className="absolute w-[250px] z-50 mt-2 grid grid-cols-4 gap-2  p-4 rounded-lg navbar">
+                            <div className="absolute w-[250px] z-50 mt-2 grid grid-cols-4 gap-2 p-2 py-3 rounded-lg navbar">
                                 {sizes.map((size) => (
                                     <div
                                         key={size}
@@ -107,7 +107,7 @@ function ProductDetail() {
                             -
                         </button>
 
-                        <span className="w-8 text-center">{quantity}</span>
+                        <span className="w-7 text-center">{quantity}</span>
 
                         <button
                             onClick={() => setQuantity(q => q + 1)}

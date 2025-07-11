@@ -68,18 +68,18 @@ function SettingsPayment() {
             <div className="mx-8 font-BeVietnamRegular space-y-5 my-8">
                 <div className="flex flex-row">
                     <input type="text" placeholder="Email"
-                           className="border-2 border-[#CCCCCC] border-r-0 text-sm h-10 w-full rounded-l-md pl-3"/>
+                           className="border-1 border-[#CCCCCC] border-r-0 text-sm h-10 w-full rounded-l-md pl-3"/>
                     <div className="h-10 w-25 text-white flex items-center text-sm justify-center rounded-r-md bg-Ananas">
                         Gửi mã
                     </div>
                 </div>
                 <input type="text" placeholder="Mã xác nhận"
-                       className="border-2 border-[#CCCCCC] text-sm h-10 w-full rounded-md pl-3"/>
+                       className="border-1 border-[#CCCCCC] text-sm h-10 w-full rounded-md pl-3"/>
                 <input type="text" placeholder="Mật khẩu mới"
-                       className="border-2 border-[#CCCCCC] text-sm h-10 w-full rounded-md pl-3"/>
+                       className="border-1 border-[#CCCCCC] text-sm h-10 w-full rounded-md pl-3"/>
             </div>
 
-            <div className="flex flex-row">
+            <div className="flex flex-row items-center justify-center">
                 <Button label="Lưu" onClick={()=>{}} />
             </div>
             <Footer />
