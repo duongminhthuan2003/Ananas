@@ -23,11 +23,11 @@ export function ContextMenu() {
                 className="text-Ananas">
                 Đơn hàng của tôi
             </div>
-            <div>
-                [!]Phương thức thanh toán
+            <div onClick={()=>{navigate("/settings/payment")}}>
+                Phương thức thanh toán
             </div>
-            <div>
-                [!]Đổi mật khẩu
+            <div onClick={()=>{navigate("/settings/password")}}>
+                Đổi mật khẩu
             </div>
             <div className="bg-red-500 text-white w-full flex items-center justify-center py-3 rounded-lg"
                  onClick={() => {
@@ -76,9 +76,9 @@ function SettingsOrder() {
                     <div className="flex flex-row gap-3 my-3">
                         <img src={product1} alt="Product 1"  className="w-[20vw] aspect-square rounded-lg"/>
                         <div className="flex flex-col justify-center gap-1">
-                            <p className="font-BeVietnamBold text-[13px]">Basas Bumper Gum EXT NE - High Top - Offwhite/Gum</p>
-                            <p className="font-BeVietnamRegular text-[12px] text-gray-500">650.000 VNĐ</p>
-                            <p className="font-BeVietnamRegular text-[12px] text-gray-500">Kích cỡ: 35</p>
+                            <p className="font-BeVietnamBold text-sm line-clamp-2">Basas Bumper Gum EXT NE - High Top - Offwhite/Gum</p>
+                            <p className="font-BeVietnamRegular text-[13px] text-gray-500">650.000 VNĐ</p>
+                            <p className="font-BeVietnamRegular text-[13px] text-gray-500">Kích cỡ: 35</p>
                         </div>
                         <p className="text-sm font-BeVietnamRegular mt-[6px]">
                             x1
@@ -93,14 +93,14 @@ function SettingsOrder() {
                     <div className="flex flex-row text-sm font-BeVietnamRegular">
                         <p>Mã đơn hàng: #60903</p>
                         <div className="flex-1"></div>
-                        <p>Đã đặt</p>
+                        <p>Đang giao</p>
                     </div>
                     <div className="flex flex-row gap-3 my-3">
                         <img src={product1} alt="Product 1"  className="w-[20vw] aspect-square rounded-lg"/>
                         <div className="flex flex-col justify-center gap-1">
-                            <p className="font-BeVietnamBold text-sm">Basas Bumper Gum EXT NE - High Top - Offwhite/Gum</p>
-                            <p className="font-BeVietnamRegular text-sm text-gray-500">650.000 VNĐ</p>
-                            <p className="font-BeVietnamRegular text-sm text-gray-500">Kích cỡ: 35</p>
+                            <p className="font-BeVietnamBold text-sm line-clamp-2">Basas Bumper Gum EXT NE - High Top - Offwhite/Gum</p>
+                            <p className="font-BeVietnamRegular text-[13px] text-gray-500">650.000 VNĐ</p>
+                            <p className="font-BeVietnamRegular text-[13px] text-gray-500">Kích cỡ: 35</p>
                         </div>
                         <p className="text-sm font-BeVietnamRegular mt-[6px]">
                             x1
@@ -111,14 +111,14 @@ function SettingsOrder() {
                     <div className="flex flex-row text-sm font-BeVietnamRegular">
                         <p>Mã đơn hàng: #38012</p>
                         <div className="flex-1"></div>
-                        <p>Đã đặt</p>
+                        <p>Đã giao</p>
                     </div>
                     <div className="flex flex-row gap-3 my-3">
                         <img src={product1} alt="Product 1"  className="w-[20vw] aspect-square rounded-lg"/>
                         <div className="flex flex-col justify-center gap-1">
-                            <p className="font-BeVietnamBold text-sm">Basas Bumper Gum EXT NE - High Top - Offwhite/Gum</p>
-                            <p className="font-BeVietnamRegular text-sm text-gray-500">650.000 VNĐ</p>
-                            <p className="font-BeVietnamRegular text-sm text-gray-500">Kích cỡ: 35</p>
+                            <p className="font-BeVietnamBold text-sm line-clamp-2">Basas Bumper Gum EXT NE - High Top - Offwhite/Gum</p>
+                            <p className="font-BeVietnamRegular text-[13px] text-gray-500">650.000 VNĐ</p>
+                            <p className="font-BeVietnamRegular text-[13px] text-gray-500">Kích cỡ: 35</p>
                         </div>
                         <p className="text-sm font-BeVietnamRegular mt-[6px]">
                             x1

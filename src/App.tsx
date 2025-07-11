@@ -6,6 +6,8 @@ import News from './pages/News.tsx';
 import Intro from './pages/Introduction.tsx'
 import SettingsProfile from "./pages/SettingsProfile.tsx";
 import SettingsOrder from "./pages/SettingsOrder.tsx";
+import SettingsPayment from "./pages/SettingsPayment.tsx";
+import SettingsPassword from "./pages/SettingsPassword.tsx";
 import logo from './assets/logo-black.png'
 import {useState} from "react";
 import MenuIcon from "./assets/svgicons/MenuIcon.tsx"
@@ -149,6 +151,8 @@ function App() {
                     <Route path="/login" element={<Login/>} />
                     <Route path="/settings/profile" element={<SettingsProfile/>} />
                     <Route path="/settings/orders" element={<SettingsOrder/>} />
+                    <Route path="/settings/payment" element={<SettingsPayment />} />
+                    <Route path="/settings/password" element={<SettingsPassword />} />
                 </Routes>
             </div>
         </div>

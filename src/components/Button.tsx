@@ -7,16 +7,19 @@ interface ButtonProps {
 }
 
 const Button = ({ label, onClick }: ButtonProps) => {
-    const [isHovered, setIsHovered] = useState(false);
+    const [isActive, setIsActive] = useState(false);
 
     return (
         <motion.button
             onClick={onClick}
-            onHoverStart={() => setIsHovered(true)}
-            onHoverEnd={() => setIsHovered(false)}
+            onHoverStart={() => setIsActive(true)}
+            onHoverEnd={() => setIsActive(false)}
+            onTapStart={() => setIsActive(true)}  // 👈 hiệu ứng khi ấn (mobile)
+            onTapCancel={() => setIsActive(false)} // 👈 hủy nếu không nhấn xong
+            onTap={() => setIsActive(false)}
             className="relative font-BeVietnamRegular text-white rounded-lg md:py-3 md:px-6 py-2 px-6 z-20 overflow-hidden bg-[#F15E2C]"
             style={{
-                boxShadow: isHovered
+                boxShadow: isActive
                     ? "0 8px 20px rgba(241, 94, 44, 0.5)" // glow effect
                     : "none",
                 transition: "box-shadow 0.4s ease",
@@ -24,7 +27,7 @@ const Button = ({ label, onClick }: ButtonProps) => {
         >
             {/* Overlay gradient */}
             <motion.div
-                animate={{ opacity: isHovered ? 1 : 0 }}
+                animate={{ opacity: isActive ? 1 : 0 }}
                 transition={{ duration: 0.4 }}
                 className="absolute inset-0 bg-gradient-to-r from-[#fca144] via-[#FF6530] to-[#FF6530] rounded-lg pointer-events-none"
             />
