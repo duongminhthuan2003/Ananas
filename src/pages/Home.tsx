@@ -34,7 +34,9 @@ function Home() {
                     <p className="absolute z-10 font-Bayon text-[56px] -my-4 top-[21vh]">URBAS LOVE+ 24</p>
                     <p className="absolute font-BeVietnamRegular top-[60vh]">Giao hàng từ 01.11.2024</p>
                     <div className="flex absolute top-[60vh] mt-10 w-full justify-center">
-                        <Button label="Đặt trước" onClick={() => navigate('/productdetail')}/>
+                        <Button label="Đặt trước" onClick={() => {
+                            setTimeout(() => navigate('/productdetail'), 500); // delay 300ms
+                        }} />
                     </div>
                 </div>
             </div>

@@ -15,8 +15,12 @@ const Button = ({ label, onClick }: ButtonProps) => {
             onHoverStart={() => setIsActive(true)}
             onHoverEnd={() => setIsActive(false)}
             onTapStart={() => setIsActive(true)}  // 👈 hiệu ứng khi ấn (mobile)
-            onTapCancel={() => setIsActive(false)} // 👈 hủy nếu không nhấn xong
-            onTap={() => setIsActive(false)}
+            onTap={() => {
+                setTimeout(() => setIsActive(false), 300);
+            }}
+            onTapCancel={() => {
+                setTimeout(() => setIsActive(false), 300);
+            }}
             className="relative font-BeVietnamRegular text-white rounded-lg md:py-3 md:px-6 py-2 px-6 z-20 overflow-hidden bg-[#F15E2C]"
             style={{
                 boxShadow: isActive
