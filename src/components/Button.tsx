@@ -32,7 +32,7 @@ const Button = ({ label, onClick }: ButtonProps) => {
             {/* Overlay gradient */}
             <motion.div
                 animate={{ opacity: isActive ? 1 : 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.2 }}
                 className="absolute inset-0 bg-gradient-to-r from-[#fca144] via-[#FF6530] to-[#FF6530] rounded-lg pointer-events-none"
             />
 
