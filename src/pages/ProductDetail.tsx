@@ -12,6 +12,15 @@ import Footer from "../components/Footer";
 function ProductDetail() {
     const [liked, setLiked] = useState(false);
 
+    const [selectedColorIndex, setSelectedColorIndex] = useState<number | null>(null);
+    const colors = ["#444444", "#CCCCCC"];
+
+    const [selectedSize, setSelectedSize] = useState<number | null>(null);
+    const [showSizePopup, setShowSizePopup] = useState(false);
+    const sizes = Array.from({ length: 12 }, (_, i) => i + 35);
+
+    const [quantity, setQuantity] = useState(1);
+
     return(
         <div>
             <div className="h-14"/>
@@ -45,17 +54,68 @@ function ProductDetail() {
                 <div>
                     <p>Màu sắc</p>
                     <div className="flex flex-row gap-2 mt-2">
-                        <div className="w-7 rounded h-7 bg-[#444444]"></div>
-                        <div className="w-7 rounded h-7 bg-[#444444]"></div>
+                        {colors.map((color, index) => (
+                            <div
+                                key={index}
+                                onClick={() => setSelectedColorIndex(index)}
+                                className={`w-7 h-7 rounded cursor-pointer`}
+                                style={{
+                                    backgroundColor: color,
+                                    border: selectedColorIndex === index ? '2px solid black' : '1px solid #ccc'
+                                }}
+                            />
+                        ))}
                     </div>
                 </div>
                 <div className="flex flex-1"></div>
                 <div>
                     <p>Kích cỡ</p>
+                    <div className="relative">
+                        <div
+                            onClick={() => setShowSizePopup(true)}
+                            className="flex justify-center items-center shadow-lg border border-gray-200 rounded cursor-pointer w-16 h-7 mt-2 text-center"
+                        >
+                            {selectedSize ?? "-"}
+                        </div>
+
+                        {showSizePopup && (
+                            <div className="absolute w-[250px] z-50 mt-2 grid grid-cols-4 gap-2  p-4 rounded-lg navbar">
+                                {sizes.map((size) => (
+                                    <div
+                                        key={size}
+                                        onClick={() => {
+                                            setSelectedSize(size);
+                                            setShowSizePopup(false);
+                                        }}
+                                        className="flex items-center justify-center border border-gray-300 h-7 w-12 rounded-lg text-center bg-white cursor-pointer hover:bg-gray-200"
+                                    >
+                                        {size}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <div className="flex flex-1"></div>
                 <div>
                     <p>Số lượng</p>
+                    <div className="flex items-center gap-1 mt-2 border-1 rounded shadow-lg border-gray-200">
+                        <button
+                            onClick={() => setQuantity(q => Math.max(1, q - 1))}
+                            className="w-7 h-7 flex items-center justify-center text-lg"
+                        >
+                            -
+                        </button>
+
+                        <span className="w-8 text-center">{quantity}</span>
+
+                        <button
+                            onClick={() => setQuantity(q => q + 1)}
+                            className="w-7 h-7 flex items-center justify-center text-lg"
+                        >
+                            +
+                        </button>
+                    </div>
                 </div>
             </div>
 
