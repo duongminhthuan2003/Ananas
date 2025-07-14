@@ -8,6 +8,7 @@ import SettingsProfile from "./pages/SettingsProfile.tsx";
 import SettingsOrder from "./pages/SettingsOrder.tsx";
 import SettingsPayment from "./pages/SettingsPayment.tsx";
 import SettingsPassword from "./pages/SettingsPassword.tsx";
+import Cart from "./pages/Cart.tsx"
 import logo from './assets/logo-black.png'
 import {useState} from "react";
 import MenuIcon from "./assets/svgicons/MenuIcon.tsx"
@@ -92,10 +93,13 @@ function App() {
                                 </Link>
 
                                 <div className="flex flex-row gap-3">
-                                    <div className="bg-white shadow-xl font-BeVietnamRegular rounded-xl w-1/2 flex flex-row justify-center py-5 border-2 border-gray-300 gap-3">
+                                    <Link
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        to={"/cart"}
+                                        className="bg-white shadow-xl font-BeVietnamRegular rounded-xl w-1/2 flex flex-row justify-center py-5 border-2 border-gray-300 gap-3">
                                         <HugeiconsIcon icon={ShoppingBag03Icon} />
                                         <p>Giỏ hàng</p>
-                                    </div>
+                                    </Link>
 
                                     <div className="bg-white shadow-xl font-BeVietnamRegular rounded-xl w-1/2 flex flex-row justify-center py-5 border-2 border-gray-300 gap-3">
                                         <HugeiconsIcon icon={FavouriteIcon} />
@@ -153,6 +157,7 @@ function App() {
                     <Route path="/settings/orders" element={<SettingsOrder/>} />
                     <Route path="/settings/payment" element={<SettingsPayment />} />
                     <Route path="/settings/password" element={<SettingsPassword />} />
+                    <Route path={"/cart"} element={<Cart/>} />
                 </Routes>
             </div>
         </div>

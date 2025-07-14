@@ -8,7 +8,23 @@ import {useState} from "react";
 import { motion } from "motion/react";
 import {StarRating} from "../assets/svgicons/StarRating.tsx"
 import Footer from "../components/Footer";
+import { AnimatePresence } from "framer-motion";
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ShoppingCartCheck02Icon } from '@hugeicons/core-free-icons';
 
+export function AddToCartPopup(){
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.3 }}
+            className="flex flex-row popup mx-8 rounded-xl pl-6 py-6 gap-5 font-BeVietnamRegular">
+            <HugeiconsIcon icon={ShoppingCartCheck02Icon} size={24} color="#FFFFFF"/>
+            <p className="text-white">Đã thêm vào giỏ hàng</p>
+        </motion.div>
+    )
+}
 function ProductDetail() {
     const [liked, setLiked] = useState(false);
 
@@ -21,8 +37,20 @@ function ProductDetail() {
 
     const [quantity, setQuantity] = useState(1);
 
+    const [showAddToCartPopup, setShowAddToCartPopup] = useState(false);
+
     return(
         <div>
+            <AnimatePresence>
+                {
+                    showAddToCartPopup && (
+                        <div className="z-50 top-20 w-full fixed">
+                            <AddToCartPopup/>
+                        </div>
+                    )
+                }
+            </AnimatePresence>
+
             <div className="h-14"/>
             {/* để chừa khoảng tránh navbar fixed */}
             <div className="mx-8 mt-8 mb-0 flex flex-col gap-3">
@@ -79,7 +107,7 @@ function ProductDetail() {
                         </div>
 
                         {showSizePopup && (
-                            <div className="absolute w-[250px] z-50 mt-2 grid grid-cols-4 gap-2 p-2 py-3 rounded-lg navbar">
+                            <div className="absolute -left-23 w-[250px] z-50 mt-2 grid grid-cols-4 gap-2 p-2 py-3 rounded-lg navbar">
                                 {sizes.map((size) => (
                                     <div
                                         key={size}
@@ -99,7 +127,7 @@ function ProductDetail() {
                 <div className="flex flex-1"></div>
                 <div>
                     <p>Số lượng</p>
-                    <div className="flex items-center gap-1 mt-2 border-1 rounded shadow-lg border-gray-200">
+                    <div className="flex items-center h-7 gap-1 mt-2 border-1 rounded shadow-lg border-gray-200">
                         <button
                             onClick={() => setQuantity(q => Math.max(1, q - 1))}
                             className="w-7 h-7 flex items-center justify-center text-lg"
@@ -121,7 +149,10 @@ function ProductDetail() {
 
             <div className="flex flex-row h-12 gap-2 mx-8 my-8">
                 <Button label="Thêm vào giỏ hàng" onClick={() => {
+                    setShowAddToCartPopup(true);
+                    setTimeout(() => setShowAddToCartPopup(false), 3000); // ẩn sau 3 giây
                 }}/>
+
 
                 <motion.div
                     className={`h-12 w-12 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 ${

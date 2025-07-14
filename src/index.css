@@ -57,6 +57,15 @@
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+.popup {
+    /* From https://css.glass */
+    background: rgba(241, 94, 44, 0.45);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
 .track6-list {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */

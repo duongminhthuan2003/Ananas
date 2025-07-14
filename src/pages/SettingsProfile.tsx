@@ -50,7 +50,7 @@ function SettingsProfile() {
 
             <AnimatePresence>
                 {isOpen && (
-                    <div className="absolute z-50 top-36 w-full">
+                    <div className="absolute z-10 top-36 w-full">
                         <ContextMenu />
                     </div>
                 )}
