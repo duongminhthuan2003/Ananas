@@ -7,7 +7,17 @@ import accessory3 from "../assets/index/ALB006_1-1.jpg"
 import {useState} from "react";
 import Button from "../components/Button.tsx";
 import Footer from "../components/Footer.tsx";
-import Product from "./Product.tsx";
+
+// Add this interface definition
+interface CartProduct {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+    size: number;
+    quantity: number;
+    showSizePopup: boolean;
+}
 
 function Cart() {
     const cartProducts = [
@@ -60,7 +70,8 @@ function Cart() {
         },
     ];
 
-    const updateProduct = (id: number, changes) => {
+    // Fix the updateProduct function with proper typing
+    const updateProduct = (id: number, changes: Partial<CartProduct>) => {
         setProducts(prev =>
             prev.map(p =>
                 p.id === id ? { ...p, ...changes } : p
@@ -143,55 +154,55 @@ function Cart() {
                 ))}
 
 
-            <div className="mx-8 mt-8">
-                <p className="font-BeVietnamBold mb-3">Đề xuất</p>
-                <div className="flex flex-row overflow-x-scroll gap-4 track6-list">
-                    {accessories.map((item, index) => (
-                        <div
-                            key={index}
-                            className="min-w-[300px] rounded-lg flex flex-row items-center gap-4"
-                        >
-                            <img src={item.image} className="h-28 rounded-lg" />
-                            <div className="flex flex-col gap-1">
-                                <p className="text-sm font-BeVietnamBold mt-2 line-clamp-2">{item.name}</p>
-                                <p className="text-sm font-BeVietnamRegular text-gray-400">{item.price}</p>
-                                <div className="w-full text-sm">
-                                    <Button label="Thêm" onClick={() => {}} />
+                <div className="mx-8 mt-8">
+                    <p className="font-BeVietnamBold mb-3">Đề xuất</p>
+                    <div className="flex flex-row overflow-x-scroll gap-4 track6-list">
+                        {accessories.map((item, index) => (
+                            <div
+                                key={index}
+                                className="min-w-[300px] rounded-lg flex flex-row items-center gap-4"
+                            >
+                                <img src={item.image} className="h-28 rounded-lg" alt="Accessory Image" />
+                                <div className="flex flex-col gap-1">
+                                    <p className="text-sm font-BeVietnamBold mt-2 line-clamp-2">{item.name}</p>
+                                    <p className="text-sm font-BeVietnamRegular text-gray-400">{item.price}</p>
+                                    <div className="w-full text-sm">
+                                        <Button label="Thêm" onClick={() => {}} />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
+
+                <div className="z-50 fixed h-64 navbar bottom-0 w-full flex flex-col px-10 py-9">
+                    <div className="flex flex-row items-center font-BeVietnamRegular">
+                        <p>Tạm tính:</p>
+                        <div className="flex-1"/>
+                        <p>650.000 VNĐ</p>
+                    </div>
+                    <div className="flex-1" />
+                    <div className="flex flex-row items-center font-BeVietnamRegular">
+                        <p>Giảm giá:</p>
+                        <div className="flex-1"/>
+                        <p>0 VNĐ</p>
+                    </div>
+
+                    <div className="flex-1" />
+                    <div className="flex flex-row items-center font-BeVietnamBold">
+                        <p>Tổng thanh toán:</p>
+                        <div className="flex-1"/>
+                        <p className="text-Ananas">650.000 VNĐ</p>
+                    </div>
+
+                    <div className="flex-1" />
+                    <Button label="Thanh toán" onClick={() => {}} />
+                </div>
+
+                <Footer />
+
+                <div className="h-64"></div>
             </div>
-
-            <div className="z-50 fixed h-64 navbar bottom-0 w-full flex flex-col px-10 py-9">
-                <div className="flex flex-row items-center font-BeVietnamRegular">
-                    <p>Tạm tính:</p>
-                    <div className="flex-1"/>
-                    <p>650.000 VNĐ</p>
-                </div>
-                <div className="flex-1" />
-                <div className="flex flex-row items-center font-BeVietnamRegular">
-                    <p>Giảm giá:</p>
-                    <div className="flex-1"/>
-                    <p>0 VNĐ</p>
-                </div>
-
-                <div className="flex-1" />
-                <div className="flex flex-row items-center font-BeVietnamBold">
-                    <p>Tổng thanh toán:</p>
-                    <div className="flex-1"/>
-                    <p className="text-Ananas">650.000 VNĐ</p>
-                </div>
-
-                <div className="flex-1" />
-                <Button label="Thanh toán" onClick={() => {}} />
-            </div>
-
-            <Footer />
-
-            <div className="h-64"></div>
-        </div>
         </div>
     );
 }
