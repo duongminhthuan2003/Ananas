@@ -7,6 +7,7 @@ import accessory3 from "../assets/index/ALB006_1-1.jpg"
 import {useState} from "react";
 import Button from "../components/Button.tsx";
 import Footer from "../components/Footer.tsx";
+import Product from "./Product.tsx";
 
 function Cart() {
     const cartProducts = [
@@ -59,7 +60,7 @@ function Cart() {
         },
     ];
 
-    const updateProduct = (id, changes) => {
+    const updateProduct = (id: number, changes) => {
         setProducts(prev =>
             prev.map(p =>
                 p.id === id ? { ...p, ...changes } : p

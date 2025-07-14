@@ -17,6 +17,7 @@ import { Search01Icon, ShoppingBag03Icon, FavouriteIcon } from "@hugeicons/core-
 import SaleOff from "./pages/SaleOff.tsx";
 import Login from "./pages/Login.tsx";
 import avatar from "../src/assets/account/Sequoia-Sunrise.png"
+import {useNavigate} from "react-router-dom";
 
 function App() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,6 +25,8 @@ function App() {
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
+
+    const navigate = useNavigate();
 
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
@@ -94,7 +97,10 @@ function App() {
 
                                 <div className="flex flex-row gap-3">
                                     <Link
-                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        onClick={() => {
+                                            setIsMobileMenuOpen(false)
+                                            navigate("/cart")
+                                        }}
                                         to={"/cart"}
                                         className="bg-white shadow-xl font-BeVietnamRegular rounded-xl w-1/2 flex flex-row justify-center py-5 border-2 border-gray-300 gap-3">
                                         <HugeiconsIcon icon={ShoppingBag03Icon} />
