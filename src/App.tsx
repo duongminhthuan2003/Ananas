@@ -3,19 +3,22 @@ import Home from './pages/Home.tsx';
 import Product from './pages/Product.tsx';
 import ProductDetail from './pages/ProductDetail.tsx';
 import News from './pages/News.tsx';
+import SaleOff from "./pages/SaleOff.tsx";
+import Login from "./pages/Login.tsx";
 import Intro from './pages/Introduction.tsx'
 import SettingsProfile from "./pages/SettingsProfile.tsx";
 import SettingsOrder from "./pages/SettingsOrder.tsx";
 import SettingsPayment from "./pages/SettingsPayment.tsx";
 import SettingsPassword from "./pages/SettingsPassword.tsx";
 import Cart from "./pages/Cart.tsx"
+import Payment from "./pages/Payment.tsx"
+import Confirmation from "./pages/Confirmation.tsx";
 import logo from './assets/logo-black.png'
 import {useState} from "react";
 import MenuIcon from "./assets/svgicons/MenuIcon.tsx"
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Search01Icon, ShoppingBag03Icon, FavouriteIcon } from "@hugeicons/core-free-icons";
-import SaleOff from "./pages/SaleOff.tsx";
-import Login from "./pages/Login.tsx";
+
 import avatar from "../src/assets/account/Sequoia-Sunrise.png"
 import {useNavigate} from "react-router-dom";
 
@@ -33,9 +36,10 @@ function App() {
     return (
         <div>
             <nav className={`fixed h-14 flex flex-row w-full z-60 navbar px-3
-            ${isMobileMenuOpen ? '' : 'shadow-none border-none'}
+            ${isMobileMenuOpen ? '' : 'shadow-none border-none'}    
             `}>
-                <Link to="/" className="m-0"><img src={logo} alt='Logo' className="h-14"                         onClick={() => setIsMobileMenuOpen(false)}
+                <Link to="/" className="m-0"><img src={logo} alt='Logo' className="h-14"  
+                onClick={() => setIsMobileMenuOpen(false)}
                 /></Link>
                 <div className="flex-1 m-0"/>
                 <MenuIcon
@@ -164,6 +168,8 @@ function App() {
                     <Route path="/settings/payment" element={<SettingsPayment />} />
                     <Route path="/settings/password" element={<SettingsPassword />} />
                     <Route path={"/cart"} element={<Cart/>} />
+                    <Route path={"/payment"} element={<Payment />} />
+                    <Route path={"/confirmation"} element={<Confirmation />} />
                 </Routes>
             </div>
         </div>

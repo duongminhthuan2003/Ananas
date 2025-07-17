@@ -7,6 +7,7 @@ import accessory3 from "../assets/index/ALB006_1-1.jpg"
 import {useState} from "react";
 import Button from "../components/Button.tsx";
 import Footer from "../components/Footer.tsx";
+import {useNavigate} from "react-router-dom";
 
 // Add this interface definition
 interface CartProduct {
@@ -20,10 +21,12 @@ interface CartProduct {
 }
 
 function Cart() {
+    const navigate = useNavigate();
+
     const cartProducts = [
         {
             id: 1,
-            name: "Basas Bumper Gum EXT NE - High Top - Offwhite/Gum",
+            name: "Pattas Tomo - Mule - Primrose Yellow",
             price: 650000,
             image: product1,
             size: 42,
@@ -175,28 +178,27 @@ function Cart() {
                     </div>
                 </div>
 
-                <div className="z-50 fixed h-64 navbar bottom-0 w-full flex flex-col px-10 py-9">
+                <div className="z-50 fixed gap-4 navbar bottom-0 w-full flex flex-col px-8 py-7">
                     <div className="flex flex-row items-center font-BeVietnamRegular">
                         <p>Tạm tính:</p>
                         <div className="flex-1"/>
                         <p>650.000 VNĐ</p>
                     </div>
-                    <div className="flex-1" />
                     <div className="flex flex-row items-center font-BeVietnamRegular">
                         <p>Giảm giá:</p>
                         <div className="flex-1"/>
                         <p>0 VNĐ</p>
                     </div>
 
-                    <div className="flex-1" />
                     <div className="flex flex-row items-center font-BeVietnamBold">
                         <p>Tổng thanh toán:</p>
                         <div className="flex-1"/>
                         <p className="text-Ananas">650.000 VNĐ</p>
                     </div>
 
-                    <div className="flex-1" />
-                    <Button label="Thanh toán" onClick={() => {}} />
+                    <Button label="Thanh toán" onClick={() => {
+                        navigate("/payment");
+                    }} height="large"/>
                 </div>
 
                 <Footer />
