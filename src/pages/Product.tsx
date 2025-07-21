@@ -1,5 +1,4 @@
-import product1 from "../assets/index/Pro_AV00123_1.jpg";
-import product2 from "../assets/index/Pro_AV00150_1.jpg";
+import { products } from "../data/product.ts"; // chỉnh đúng path thật
 import {motion} from "motion/react";
 import HeartIcon from "../assets/svgicons/HeartIcon.tsx";
 import {useState} from "react";
@@ -8,7 +7,13 @@ import {HugeiconsIcon} from "@hugeicons/react";
 import {ArrowLeft01Icon, ArrowRight01Icon, FilterHorizontalIcon} from "@hugeicons/core-free-icons";
 
 function Product() {
-    const [liked, setLiked] = useState(false);
+    const [liked, setLiked] = useState<string[]>([]);
+
+    const toggleLike = (id: string) => {
+        setLiked(prev =>
+            prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
+        );
+    };
 
     return (
         <div>
@@ -22,49 +27,34 @@ function Product() {
                 </div>
             </div>
 
-            <div className="flex flex-col mx-4 my-6">
-                {Array.from({length: 6}).map((_, index) => (
-                    <div key={index} className="flex flex-col">
-                        <div className="flex flex-row gap-3">
-                            <div className="flex flex-col">
-                                <img src={product1} alt=""/>
-                                <div className="my-3 flex flex-col gap-1">
-                                    <div className="flex flex-row gap-2">
-                                        <p className="font-BeVietnamBold text-[13px]">Basas Day Slide - Slip on</p>
-                                        <div className="flex-1"></div>
-                                        <motion.div
-                                            onClick={() => setLiked(!liked)}
-                                            transition={{duration: 0.25, ease: "easeInOut"}}
-                                        >
-                                            <HeartIcon liked={liked}/>
-                                        </motion.div>
-                                    </div>
-                                    <p className="font-BeVietnamRegular text-[13px] -mt-1 text-gray-400">Carviar Black</p>
-                                    <p className="font-BeVietnamRegular text-[13px]">550.000 VNĐ</p>
+            <div className="flex flex-col mx-6 my-6">
+                <div className="grid grid-cols-2 gap-4">
+                    {products.map(product => (
+                        <div key={product.id} className="flex flex-col">
+                            <img src={`/assets/index/${product.thumbnail}`} alt={product.name} />
+                            <div className="my-3 flex flex-col gap-1">
+                                <div className="flex flex-row gap-2">
+                                    <p className="font-BeVietnamBold text-sm line-clamp-2">{product.name}</p>
+                                    <div className="flex-1"></div>
+                                    <motion.div
+                                        onClick={() => toggleLike(product.id)}
+                                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                                    >
+                                        <HeartIcon liked={liked.includes(product.id)} />
+                                    </motion.div>
                                 </div>
-                            </div>
-
-                            <div className="flex flex-col">
-                                <img src={product2} alt=""/>
-                                <div className="my-3 flex flex-col gap-1">
-                                    <div className="flex flex-row gap-2">
-                                        <p className="font-BeVietnamBold text-[13px]">Basas Day Slide - Low top</p>
-                                        <div className="flex-1"></div>
-                                        <motion.div
-                                            onClick={() => setLiked(!liked)}
-                                            transition={{duration: 0.25, ease: "easeInOut"}}
-                                        >
-                                            <HeartIcon liked={liked}/>
-                                        </motion.div>
-                                    </div>
-                                    <p className="font-BeVietnamRegular text-[13px] -mt-1 text-gray-400">Ocean Blue</p>
-                                    <p className="font-BeVietnamRegular text-[13px]">650.000 VNĐ</p>
-                                </div>
+                                <p className="font-BeVietnamRegular text-[13px] text-gray-400">
+                                    {product.colors[0]?.name}
+                                </p>
+                                <p className="font-BeVietnamRegular text-[13px]">
+                                    {product.price.toLocaleString("vi-VN")} VNĐ
+                                </p>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
+
 
             <div className="flex flex-row gap-7 h-8 font-BeVietnamRegular justify-center items-center">
                 <HugeiconsIcon icon={ArrowLeft01Icon} />
