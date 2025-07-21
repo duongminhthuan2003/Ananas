@@ -19,12 +19,12 @@ export const products: ProductType[] = [
         category: "Basas",
         available: true,
         limited: false,
-        thumbnail: "../../public/assets/images/urbaslove24/1.webp",
+        thumbnail: "../images/urbaslove24/1.webp",
         images: [
-            "../../public/assets/images/urbaslove24/1.webp",
-            "../../public/assets/images/urbaslove24/2.webp",
-            "../../public/assets/images/urbaslove24/3.webp",
-            "../../public/assets/images/urbaslove24/4.webp"
+            "/assets/images/urbaslove24/1.webp",
+            "/assets/images/urbaslove24/2.webp",
+            "/assets/images/urbaslove24/3.webp",
+            "/assets/images/urbaslove24/4.webp"
         ]
     },
     {
@@ -35,12 +35,12 @@ export const products: ProductType[] = [
         category: "Vintas",
         available: true,
         limited: true,
-        thumbnail: "../../public/assets/images/vintasvivu/1.jpeg",
+        thumbnail: "../images/vintasvivu/1.jpeg",
         images: [
-            "../../public/assets/images/vintasvivu/1.jpeg",
-            "../../public/assets/images/vintasvivu/2.jpeg",
-            "../../public/assets/images/vintasvivu/3.jpeg",
-            "../../public/assets/images/vintasvivu/4.jpeg"
+            "/assets/images/vintasvivu/1.jpeg",
+            "/assets/images/vintasvivu/2.jpeg",
+            "/assets/images/vintasvivu/3.jpeg",
+            "/assets/images/vintasvivu/4.jpeg"
         ]
     }
 ];
