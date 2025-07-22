@@ -32,7 +32,7 @@ function Product() {
                     {products.map(product => (
                         <div key={product.id} className="flex flex-col relative">
                             {
-                                product.limited ? <div className={'absolute text-[12px] bg-Ananas px-4 z-20 py-2 text-sm text-white font-BeVietnamBold'}>
+                                product.limited ? <div className={'absolute text-[10px] bg-Ananas px-4 z-20 py-2 text-sm text-white font-BeVietnamBold'}>
                                     Limited Edition
                                 </div> : <div></div>
                             }
@@ -45,7 +45,7 @@ function Product() {
                             <img src={`/assets/index/${product.thumbnail}`} alt={product.name} />
                             <div className="my-3 flex flex-col gap-1">
                                 <div className="flex flex-row gap-1">
-                                    <p className="font-BeVietnamBold text-sm line-clamp-2">{product.name}</p>
+                                    <p className="font-BeVietnamBold text-[13px] line-clamp-2">{product.name}</p>
                                     <div className="flex-1"></div>
                                     <motion.div
                                         onClick={() => toggleLike(product.id)}
@@ -54,7 +54,7 @@ function Product() {
                                         <HeartIcon liked={liked.includes(product.id)} />
                                     </motion.div>
                                 </div>
-                                <p className="font-BeVietnamRegular -mt-0.5 text-[13px] text-gray-400">
+                                <p className="font-BeVietnamRegular -mt-1.5 text-[13px] text-gray-400">
                                     {product.colors[0]?.name}
                                 </p>
                                 <p className="font-BeVietnamRegular text-[13px]">
