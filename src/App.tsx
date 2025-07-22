@@ -35,10 +35,10 @@ function App() {
 
     return (
         <div>
-            <nav className={`fixed h-14 flex flex-row w-full z-60 navbar px-3
+            <nav className={`fixed h-14 flex flex-row w-full z-50 navbar px-3
             ${isMobileMenuOpen ? '' : 'shadow-none border-none'}    
             `}>
-                <Link to="/" className="m-0"><img src={logo} alt='Logo' className="h-14"  
+                <Link to="/" className="m-0"><img src={logo} alt='Logo' className="h-14"
                 onClick={() => setIsMobileMenuOpen(false)}
                 /></Link>
                 <div className="flex-1 m-0"/>
@@ -49,7 +49,7 @@ function App() {
             </nav>
 
             <div
-                className={`fixed top-0 left-0 w-full h-[calc(100vh-3.5rem)] navbar shadow-lg z-50 md:hidden transition-transform duration-600 ease-in-out ${
+                className={`fixed top-0 left-0 w-full h-[calc(100vh-3.5rem)] navbar shadow-lg z-40 md:hidden transition-transform duration-600 ease-in-out ${
                     isMobileMenuOpen ? 'transform translate-y-14' : 'transform -translate-y-full shadow-none'
                 }`}>
                 <div className="flex flex-col h-full p-8 text-md gap-4">

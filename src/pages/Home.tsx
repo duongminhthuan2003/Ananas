@@ -7,7 +7,7 @@ import track6triplewhite from '../assets/index/pro_track6_A6T002_1.jpg'
 import track6unamedno1 from '../assets/index/pro_A6T011_1.jpg'
 import track6suedewinterize from '../assets/index/pro_A6T007_1.jpg'
 import track6isee from '../assets/index/Pro_A6T012_1.jpg'
-import track6navyblue from '../assets/index/Pro_A6T014_1.jpeg'
+import track6og from '../assets/index/pro_track6og.webp'
 import logowhite from '../assets/logo-white.png'
 import vintasvivu from '../assets/index/vintas_vivu1.jpg'
 import basasraw1 from '../assets/index/raw1.jpg'
@@ -76,7 +76,19 @@ function Home() {
                 <p className="font-BeVietnamRegular my-5 text-md">Dòng sản phẩm <span className="font-BeVietnamBold">Track 6</span>
                 </p>
 
-                <div className="flex flex-row mx-auto overflow-x-scroll mt-6 -mb-6 -ml-6 h-auto space-x-5 track6-list pb-6 pl-6">
+                <div className="flex flex-row overflow-x-scroll mt-6 -mb-6 h-auto space-x-5 track6-list pb-6">
+                    <div className="flex-none relative h-auto">
+                        <img src={track6og} alt="Track 6 Bluewash" className="h-[240px] aspect-square"/>
+                        <div
+                            className="absolute top-0 left-0 w-[240px] h-[240px] bg-black/40 flex justify-center items-center">
+                            <div className="text-white font-BeVietnamBold text-lg">HẾT HÀNG</div>
+                        </div>
+                        <p className="font-BeVietnamBold text-sm mt-2">Track 6 OG</p>
+                        <p className="font-BeVietnamRegular text-sm mt-2">990.000 VNĐ</p>
+                        <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
+                        }}/></div>
+                    </div>
+
                     <div className="flex-none h-auto">
                         <img src={track6bluewash} alt="Track 6 Bluewash" className="h-[240px] aspect-square"/>
                         <p className="font-BeVietnamBold text-[14px] mt-2">Track 6 2.Blues - Bluewash</p>
@@ -85,8 +97,9 @@ function Home() {
                         }}/></div>
                     </div>
 
-                    <div className="flex-none h-auto">
+                    <div className="flex-none relative h-auto">
                         <img src={track6triplewhite} alt="Track 6 Bluewash" className="h-[240px] aspect-square"/>
+
                         <p className="font-BeVietnamBold text-sm mt-2">Track 6 Triple White</p>
                         <p className="font-BeVietnamRegular text-sm mt-2">990.000 VNĐ</p>
                         <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
@@ -105,16 +118,12 @@ function Home() {
                         }}/></div>
                     </div>
 
-                    <div className="flex-none h-auto">
-                        <img src={track6suedewinterize} alt="Track 6 Bluewash" className="h-[240px] aspect-square"/>
-                        <p className="font-BeVietnamBold text-sm mt-2">Track 6 Moonphase - Winterize</p>
-                        <p className="font-BeVietnamRegular text-sm mt-2">1.290.000 VNĐ</p>
-                        <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
-                        }}/></div>
-                    </div>
-
                     <div className="flex-none relative h-auto">
                         <img src={track6isee} alt="Track 6 Bluewash" className="h-[240px] aspect-square"/>
+                        <div
+                            className="absolute top-0 left-0 z-50 bg-Ananas px-4 py-2 text-sm text-white font-BeVietnamBold">
+                            Limited Edition
+                        </div>
                         <div
                             className="absolute top-0 left-0 w-[240px] h-[240px] bg-black/40 flex justify-center items-center">
                             <div className="text-white font-BeVietnamBold text-lg">HẾT HÀNG</div>
@@ -126,9 +135,9 @@ function Home() {
                     </div>
 
                     <div className="flex-none h-auto">
-                        <img src={track6navyblue} alt="Track 6 Bluewash" className="h-[240px] aspect-square"/>
-                        <p className="font-BeVietnamBold text-sm mt-2">Track 6 2.Blues - Navy Blue</p>
-                        <p className="font-BeVietnamRegular text-sm mt-2">990.000 VNĐ</p>
+                        <img src={track6suedewinterize} alt="Track 6 Bluewash" className="h-[240px] aspect-square"/>
+                        <p className="font-BeVietnamBold text-sm mt-2">Track 6 Moonphase - Winterize</p>
+                        <p className="font-BeVietnamRegular text-sm mt-2">1.290.000 VNĐ</p>
                         <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
                         }}/></div>
                     </div>
