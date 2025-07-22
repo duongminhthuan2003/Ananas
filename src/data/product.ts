@@ -156,7 +156,7 @@ export const products: ProductType[] = [
         ]
     },
     {
-        id: "AV00186",
+        id: "AVDORA0",
         name: "Ananas x Doraemon 50 Years Pattas",
         price: 890000,
         colors: [{ name: "White/Corydalis 50th", code: "#001F3F" }],

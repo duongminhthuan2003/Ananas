@@ -59,7 +59,7 @@
 
 .popup {
     /* From https://css.glass */
-    background: rgba(241, 94, 44, 0.45);
+    background: rgba(241, 94, 44, 1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);

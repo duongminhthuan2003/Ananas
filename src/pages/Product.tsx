@@ -5,6 +5,7 @@ import {useState} from "react";
 import Footer from "../components/Footer.tsx";
 import {HugeiconsIcon} from "@hugeicons/react";
 import {ArrowLeft01Icon, ArrowRight01Icon, FilterHorizontalIcon} from "@hugeicons/core-free-icons";
+import {useNavigate} from "react-router-dom";
 
 function Product() {
     const [liked, setLiked] = useState<string[]>([]);
@@ -14,6 +15,8 @@ function Product() {
             prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
         );
     };
+
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -30,7 +33,7 @@ function Product() {
             <div className="flex flex-col mx-6 my-6">
                 <div className="grid grid-cols-2 gap-y-0 gap-x-4">
                     {products.map(product => (
-                        <div key={product.id} className="flex flex-col relative">
+                        <div key={product.id} className="flex flex-col relative" onClick={() => {navigate(`/product/${product.id}`)}}>
                             {
                                 product.limited ? <div className={'absolute text-[10px] bg-Ananas px-4 z-20 py-2 text-sm text-white font-BeVietnamBold'}>
                                     Limited Edition
@@ -43,7 +46,7 @@ function Product() {
                                 </div>
                             )}
                             <img src={`/assets/index/${product.thumbnail}`} alt={product.name} />
-                            <div className="my-3 flex flex-col gap-1">
+                            <div className="mt-2 mb-3 flex flex-col gap-1">
                                 <div className="flex flex-row gap-1">
                                     <p className="font-BeVietnamBold text-[13px] line-clamp-2">{product.name}</p>
                                     <div className="flex-1"></div>
@@ -54,7 +57,7 @@ function Product() {
                                         <HeartIcon liked={liked.includes(product.id)} />
                                     </motion.div>
                                 </div>
-                                <p className="font-BeVietnamRegular -mt-1.5 text-[13px] text-gray-400">
+                                <p className="font-BeVietnamRegular text-[13px] text-gray-400">
                                     {product.colors[0]?.name}
                                 </p>
                                 <p className="font-BeVietnamRegular text-[13px]">

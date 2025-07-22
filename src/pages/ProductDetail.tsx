@@ -1,7 +1,3 @@
-import img4 from "../../public/assets/images/urbaslove24/1.webp"
-import img2 from "../../public/assets/images/urbaslove24/2.webp"
-import img1 from "../../public/assets/images/urbaslove24/3.webp"
-import img3 from "../../public/assets/images/urbaslove24/4.webp"
 import Button from "../components/Button.tsx";
 import HeartIcon from "../assets/svgicons/HeartIcon";
 import {useState} from "react";
@@ -11,6 +7,8 @@ import Footer from "../components/Footer";
 import { AnimatePresence } from "framer-motion";
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ShoppingCartCheck02Icon } from '@hugeicons/core-free-icons';
+import { useParams } from "react-router-dom";
+import { products } from "../data/product.ts"
 
 export function AddToCartPopup(){
     return (
@@ -39,6 +37,15 @@ function ProductDetail() {
 
     const [showAddToCartPopup, setShowAddToCartPopup] = useState(false);
 
+    const { productId } = useParams();
+    const product = products.find((p: { id: string | undefined; }) => p.id === productId);
+    if (!product) return(
+        <div>
+            <div className="h-14"></div>
+            <p className="m-8">Không tìm thấy sản phẩm.</p>
+        </div>
+    )
+
     return(
         <div>
             <AnimatePresence>
@@ -56,26 +63,34 @@ function ProductDetail() {
             <div className="mx-8 mt-8 mb-0 flex flex-col gap-3">
                 <div className="flex gap-3">
                     {/* Cột bên trái - ảnh lớn */}
-                    <img src={img1} alt="Urbas Love+ 24 1" className="w-2/3 h-auto object-cover"/>
+                    <img src={product.images[1]} alt="Urbas Love+ 24 1" className="w-2/3 h-auto object-cover"/>
 
                     {/* Cột bên phải - 2 ảnh nhỏ xếp dọc */}
                     <div className="flex flex-col gap-3 w-1/3">
-                        <img src={img2} alt="Urbas Love+ 24 2" className="w-full h-full object-cover"/>
-                        <img src={img3} alt="Urbas Love+ 24 3" className="w-full h-full object-cover"/>
+                        <img src={product.images[2]} alt="Urbas Love+ 24 2" className="w-full h-full object-cover"/>
+                        <img src={product.images[3]} alt="Urbas Love+ 24 3" className="w-full h-full object-cover"/>
                     </div>
                 </div>
 
-                <img src={img4} alt="Urbas Love+ 24 4" className="w-full h-[25vh] object-cover"/>
+                <img src={product.images[0]} alt="Urbas Love+ 24 4" className="w-full h-[25vh] object-cover"/>
             </div>
 
             <div className="mx-8 mt-3">
-                <p className="font-BeVietnamRegular text-sm"><span className="text-gray-400">Sản phẩm {">"} Track 6 {">"}</span> Track 6 2.Blues</p>
+                <p className="font-BeVietnamRegular text-sm"><span className="text-gray-400">Sản phẩm {">"} {product.category} {">"}</span> {product.name}</p>
             </div>
 
+
             <div className="flex gap-1 flex-col mx-8 my-6">
-                <p className="font-BeVietnamBold text-lg">TRACK 6 2.BLUES - LOW TOP</p>
-                <p className="font-BeVietnamRegular text-gray-400">Màu sắc: Bluewash</p>
-                <p className="font-BeVietnamBold text-lg text-Ananas">1.290.000 VNĐ</p>
+                {
+                    product.limited ?
+                        <div className="flex w-fit px-3 py-1 rounded bg-Ananas text-[12px] text-white font-BeVietnamRegular">Limited Edition</div>
+                        : <div></div>
+                }
+                <p className="font-BeVietnamBold text-lg">{
+                    product.name.toUpperCase()
+                }</p>
+                <p className="font-BeVietnamRegular text-gray-400">Màu sắc: {product.colors[selectedColorIndex ?? 0]?.name}</p>
+                <p className="font-BeVietnamBold text-lg text-Ananas">{product.price.toLocaleString("vi-VN")}</p>
             </div>
 
             <div className="flex flex-row mx-8 my-3 font-BeVietnamRegular text-sm">
@@ -148,14 +163,19 @@ function ProductDetail() {
             </div>
 
             <div className="flex flex-row h-12 gap-2 mx-8 my-8">
-                <Button label="Thêm vào giỏ hàng" onClick={() => {
-                    setShowAddToCartPopup(true);
-                    setTimeout(() => setShowAddToCartPopup(false), 3000); // ẩn sau 3 giây
-                }}/>
+                {
+                    product.available ?
+                        <Button label="Thêm vào giỏ hàng" onClick={() => {
+                            setShowAddToCartPopup(true);
+                            setTimeout(() => setShowAddToCartPopup(false), 3000); // ẩn sau 3 giây
+                        }}
+                        customClasses={"w-full"}/> :
+                        <Button label={"Hết hàng"} onClick={() => {}} customClasses={"w-full opacity-25"}/>
+                }
 
 
                 <motion.div
-                    className={`h-12 w-12 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 ${
+                    className={`h-12 w-12 rounded-lg aspect-square flex items-center justify-center cursor-pointer transition-all duration-300 ${
                         liked ? "border-2 border-[#FFF0EA] bg-[#FFF0EA]" : "border-2 border-[#CCCCCC] bg-white"
                     }`}
                     onClick={() => setLiked(!liked)}

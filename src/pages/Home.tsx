@@ -35,7 +35,7 @@ function Home() {
                     <p className="absolute font-BeVietnamRegular top-[60vh]">Giao hàng từ 01.11.2024</p>
                     <div className="flex absolute top-[60vh] mt-10 w-full justify-center">
                         <Button label="Đặt trước" onClick={() => {
-                            setTimeout(() => navigate('/productdetail'), 500); // delay 300ms
+                            setTimeout(() => navigate('/product/ALP2402'), 500); // delay 300ms
                         }} />
                     </div>
                 </div>
@@ -50,7 +50,8 @@ function Home() {
                             <p className="text-white font-BeVietnamBold">URBAS SC - CORN SILK</p>
                             <div className="w-40 text-sm">
                                 <Button label="Mua ngay" onClick={() => {
-                                }}/>
+                                    setTimeout(() => navigate('/product/AV00186'), 500); // delay 300ms
+                                }} />
                             </div>
                         </div>
                         <img src={featuredbackground} alt="featured background" className="absolute w-full h-64"/>
@@ -63,6 +64,7 @@ function Home() {
                             <p className="text-white font-BeVietnamBold">ANANAS x DORAEMON</p>
                             <div className="w-40 text-sm">
                                 <Button label="Mua ngay" onClick={() => {
+                                    setTimeout(() => navigate('/product/AVDORA0'), 500);
                                 }}/>
                             </div>
                         </div>
@@ -86,6 +88,7 @@ function Home() {
                         <p className="font-BeVietnamBold text-sm mt-2">Track 6 OG</p>
                         <p className="font-BeVietnamRegular text-sm mt-2">990.000 VNĐ</p>
                         <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
+                            setTimeout(() => navigate('/product/T600001'), 500);
                         }}/></div>
                     </div>
 
@@ -94,6 +97,7 @@ function Home() {
                         <p className="font-BeVietnamBold text-[14px] mt-2">Track 6 2.Blues - Bluewash</p>
                         <p className="font-BeVietnamRegular text-sm mt-2">1.290.000 VNĐ</p>
                         <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
+                            setTimeout(() => navigate('/product/T600002'), 500);
                         }}/></div>
                     </div>
 
@@ -103,6 +107,7 @@ function Home() {
                         <p className="font-BeVietnamBold text-sm mt-2">Track 6 Triple White</p>
                         <p className="font-BeVietnamRegular text-sm mt-2">990.000 VNĐ</p>
                         <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
+                            setTimeout(() => navigate('/product/T600003'), 500);
                         }}/></div>
                     </div>
 
@@ -115,6 +120,7 @@ function Home() {
                             Limited Edition
                         </div>
                         <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
+                            setTimeout(() => navigate('/product/T600004'), 500);
                         }}/></div>
                     </div>
 
@@ -130,7 +136,8 @@ function Home() {
                         </div>
                         <p className="font-BeVietnamBold text-sm mt-2">Track 6 I.S.E.E</p>
                         <p className="font-BeVietnamRegular text-sm mt-2">1.490.000 VNĐ</p>
-                        <div className="mt-2 mb-4 text-sm"><Button label="Hết hàng" onClick={() => {
+                        <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
+                            setTimeout(() => navigate('/product/T600005'), 500);
                         }}/></div>
                     </div>
 
@@ -139,6 +146,7 @@ function Home() {
                         <p className="font-BeVietnamBold text-sm mt-2">Track 6 Moonphase - Winterize</p>
                         <p className="font-BeVietnamRegular text-sm mt-2">1.290.000 VNĐ</p>
                         <div className="mt-2 mb-4 text-sm"><Button label="Mua ngay" onClick={() => {
+                            setTimeout(() => navigate('/product/T600006'), 500);
                         }}/></div>
                     </div>
                 </div>
@@ -150,6 +158,7 @@ function Home() {
                     <p className="font-Bayon text-white text-7xl -mt-3">VINTAS VIVU</p>
                     <p className="font-BeVietnamRegular text-white mb-3">Giá chỉ từ: 620.000 VNĐ</p>
                     <div><Button label="Mua ngay" onClick={() => {
+                        setTimeout(() => navigate('/product/AV00206'), 500);
                     }}/></div>
                 </div>
                 <div className="flex h-5/12">
@@ -173,6 +182,7 @@ function Home() {
                         CHÂN</p>
                     <p className="font-BeVietnamRegular text-sm">Giá chỉ từ: 610.000 VNĐ</p>
                     <div><Button label="Mua ngay" onClick={() => {
+                        setTimeout(() => navigate('/product/AV00135'), 500);
                     }}/></div>
                 </div>
             </div>
