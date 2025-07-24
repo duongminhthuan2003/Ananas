@@ -75,7 +75,9 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="h-10 md:mt-0 mt-12 w-full bg-[#F15E2C]"></div>
+            <p className="text-[11px] italic text-gray-400 mx-8">*Đây không phải là trang web chính thức của Ananas</p>
+
+            <div className="h-10 md:mt-0 mt-10 w-full bg-[#F15E2C]"></div>
         </footer>
     );
 };

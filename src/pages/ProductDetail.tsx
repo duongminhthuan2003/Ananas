@@ -6,7 +6,7 @@ import {StarRating} from "../assets/svgicons/StarRating.tsx"
 import Footer from "../components/Footer";
 import { AnimatePresence } from "framer-motion";
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ShoppingCartCheck02Icon, CancelCircleIcon } from '@hugeicons/core-free-icons';
+import { ShoppingCartCheck02Icon, CancelCircleIcon, Cancel01Icon } from '@hugeicons/core-free-icons';
 import { useParams } from "react-router-dom";
 import { products } from "../data/product.ts"
 
@@ -38,6 +38,80 @@ export function FailedPopup({ notification }: { notification: string }) {
     )
 }
 
+export function CommentSection({ onClose }: { onClose: () => void }) {
+    return (
+            <motion.div
+                className="fixed inset-0 z-[60] flex items-center justify-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+            >
+                <motion.div
+                    className="absolute inset-0 bg-black z-[60]"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.6 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                ></motion.div>
+
+                <motion.div
+                    className="relative w-[calc(100vw-4rem)] h-[calc(100vh-4rem)] bg-white z-[70] rounded-lg overflow-y-auto shadow-lg p-8"
+                        initial={{ opacity: 0, y: 1500 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 1500 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                    >
+                    <div className="m-3 flex flex-col gap-8 ">
+                        <p className="font-BeVietnamBold">ĐÁNH GIÁ</p>
+                        <div className="flex flex-row gap-8 font-BeVietnamBold justify-center -mt-2"><StarRating rating={4.5} size={24}/> 4.5/5 </div>
+
+                        <div className="text-[15px]">
+                            <div className="flex flex-row">
+                                <p className="font-BeVietnamBold">arunm470108683</p>
+                                <div className="flex-1"></div>
+                                <StarRating rating={5} size={20}/>
+                            </div>
+                            <p className="font-BeVietnamRegular text-gray-400">19.10.2024</p>
+                            <p className="font-BeVietnamRegular">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+
+                        <div className="text-[15px]">
+                            <div className="flex flex-row">
+                                <p className="font-BeVietnamBold">Shay37</p>
+                                <div className="flex-1"></div>
+                                <StarRating rating={4} size={20}/>
+                            </div>
+                            <p className="font-BeVietnamRegular text-gray-400">28.09.2024</p>
+                            <p className="font-BeVietnamRegular">Vivamus dolor massa, sodales sit amet libero quis, pulvinar
+                                dictum justo. Fusce congue tempor leo
+                                efficitur efficitur.</p>
+                        </div>
+
+                        <div className="text-[15px] ">
+                            <div className="flex flex-row">
+                                <p className="font-BeVietnamBold">Cairnsy</p>
+                                <div className="flex-1"></div>
+                                <StarRating rating={5} size={20}/>
+                            </div>
+                            <p className="font-BeVietnamRegular text-gray-400">23.09.2024</p>
+                            <p className="font-BeVietnamRegular">Maecenas id augue diam. Vivamus cursus finibus nunc, id ornare
+                                metus aliquam sed.</p>
+                        </div>
+
+                        <div className="flex justify-center">
+                            <div
+                                className="absolute bottom-8 p-3 rounded-full bg-Ananas"
+                                onClick={onClose}
+                            >
+                                <HugeiconsIcon icon={Cancel01Icon} size={24} color="#FFFFFF"/>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
+            </motion.div>
+    )
+}
+
 function ProductDetail() {
     // Scroll to top when component mounts
     useEffect(() => {
@@ -62,6 +136,19 @@ function ProductDetail() {
     const [showAddToCartPopup, setShowAddToCartPopup] = useState(false);
     const [showFailedPopup, setShowFailedPopup] = useState(false);
     const [failedMessage, setFailedMessage] = useState("");
+
+    const [showComment, setShowComment] = useState(false);
+    useEffect(() => {
+        if (showComment) {
+            document.body.classList.add("overflow-hidden");
+        } else {
+            document.body.classList.remove("overflow-hidden");
+        }
+
+        return () => {
+            document.body.classList.remove("overflow-hidden");
+        };
+    }, [showComment]);
 
     const { productId } = useParams();
     const product = products.find((p: { id: string | undefined; }) => p.id === productId);
@@ -112,6 +199,11 @@ function ProductDetail() {
                 <p className="font-BeVietnamRegular text-sm"><span className="text-gray-400">Sản phẩm {">"} {product.category} {">"}</span> {product.name}</p>
             </div>
 
+            <AnimatePresence>
+                {
+                    showComment && <CommentSection onClose={() => setShowComment(false)} />
+                }
+            </AnimatePresence>
 
             <div className="flex gap-1 flex-col mx-8 my-6">
                 {
@@ -125,12 +217,13 @@ function ProductDetail() {
                 <p className="font-BeVietnamRegular text-gray-400">Màu sắc: {product.colors[selectedColorIndex ?? 0]?.name}</p>
                 {
                     product.discount ?
-                        <div>
-                            <div className="flex flex-row gap-2 mt-4">
+                        <div className="flex flex-row items-center gap-5">
+                            <p className="font-BeVietnamBold text-xl text-Ananas">{(product.price * ((100 - product.discount)/100)).toLocaleString("vi-VN")}</p>
+
+                            <div className="flex flex-row gap-2">
                                 <p className="line-through font-BeVietnamRegular text-sm text-gray-400">{product.price.toLocaleString("vi-VN")}</p>
                                 <p className="px-2 bg-gray-400 w-fit rounded text-white text-sm font-BeVietnamRegular">{product.discount}%</p>
                             </div>
-                            <p className="font-BeVietnamBold text-xl mt-1 text-Ananas">{(product.price * ((100 - product.discount)/100)).toLocaleString("vi-VN")}</p>
                         </div>
                         :
                         <p className="font-BeVietnamBold text-xl text-Ananas">{product.price.toLocaleString("vi-VN")}</p>
@@ -242,11 +335,20 @@ function ProductDetail() {
                                 return;
                             }
 
-                            if (selectedSize === null) {
-                                setFailedMessage("Hãy chọn một kích cỡ")
-                                setShowFailedPopup(true)
-                                setTimeout(() => {setShowFailedPopup(false)}, 3000)
-                                return;
+                            if(product.category !== "Accessories") {
+                                if (selectedSize === null) {
+                                    setFailedMessage("Hãy chọn một kích cỡ")
+                                    setShowFailedPopup(true)
+                                    setTimeout(() => {setShowFailedPopup(false)}, 3000)
+                                    return;
+                                }
+                            } else {
+                                if (selectedAccSize === null) {
+                                    setFailedMessage("Hãy chọn một kích cỡ")
+                                    setShowFailedPopup(true)
+                                    setTimeout(() => {setShowFailedPopup(false)}, 3000)
+                                    return;
+                                }
                             }
 
                             setShowAddToCartPopup(true)
@@ -328,6 +430,7 @@ function ProductDetail() {
 
                 <div className="flex justify-center">
                     <Button label="Hiển thị thêm" onClick={() => {
+                        setShowComment(true);
                     }}/>
                 </div>
             </div>
