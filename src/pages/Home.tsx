@@ -1,19 +1,19 @@
-import urbaslove24 from '../assets/index/IMG_7284.png'
-import urbassc from '../assets/index/urbas_sc.jpg'
-import urbasdora from '../assets/index/ananas_dora.jpg'
-import featuredbackground from '../assets/index/ftr_back.png'
-import track6bluewash from '../assets/index/Pro_A6T015_1.jpeg'
-import track6triplewhite from '../assets/index/pro_track6_A6T002_1.jpg'
-import track6unamedno1 from '../assets/index/pro_A6T011_1.jpg'
-import track6suedewinterize from '../assets/index/pro_A6T007_1.jpg'
-import track6isee from '../assets/index/Pro_A6T012_1.jpg'
+import urbaslove24 from '../assets/index/IMG_7284.webp'
+import urbassc from '../assets/index/urbas_sc.webp'
+import urbasdora from '../assets/index/ananas_dora.webp'
+import featuredbackground from '../assets/index/ftr_back.webp'
+import track6bluewash from '../assets/index/Pro_A6T015_1.webp'
+import track6triplewhite from '../assets/index/pro_track6_A6T002_1.webp'
+import track6unamedno1 from '../assets/index/pro_A6T011_1.webp'
+import track6suedewinterize from '../assets/index/pro_A6T007_1.webp'
+import track6isee from '../assets/index/Pro_A6T012_1.webp'
 import track6og from '../assets/index/pro_track6og.webp'
-import logowhite from '../assets/logo-white.png'
-import vintasvivu from '../assets/index/vintas_vivu1.jpg'
-import basasraw1 from '../assets/index/raw1.jpg'
-import basasraw2 from '../assets/index/raw2.jpg'
-import basasraw3 from '../assets/index/raw3.jpg'
-import saleoff from '../assets/index/saleoff.jpg'
+import logowhite from '../assets/logo-white.webp'
+import vintasvivu from '../assets/index/vintas_vivu1.webp'
+import basasraw1 from '../assets/index/raw1.webp'
+import basasraw2 from '../assets/index/raw2.webp'
+import basasraw3 from '../assets/index/raw3.webp'
+import saleoff from '../assets/index/saleoff.webp'
 import Button from "../components/Button.tsx";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
@@ -172,9 +172,9 @@ function Home() {
 
             <div className="bg-[#ECE4D7] w-full h-[650px] flex flex-row">
                 <div className="flex flex-col justify-center w-1/2 px-3 py-3 gap-3">
-                    <img src={basasraw1} className="h-1/3 object-cover"/>
-                    <img src={basasraw2} className="h-1/3 object-cover"/>
-                    <img src={basasraw3} className="h-1/3 object-cover"/>
+                    <img src={basasraw1} className="h-1/3 object-cover" alt="Basas RAW"/>
+                    <img src={basasraw2} className="h-1/3 object-cover" alt="Basas RAW"/>
+                    <img src={basasraw3} className="h-1/3 object-cover" alt="Basas RAW"/>
                 </div>
                 <div className="w-1/2 flex flex-col justify-center items-center gap-5">
                     <p className="font-BeVietnamBold text-sm">ANANAS BASAS RAW</p>

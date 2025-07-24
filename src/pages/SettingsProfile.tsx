@@ -1,6 +1,6 @@
 import {HugeiconsIcon} from "@hugeicons/react";
 import {ArrowRight01Icon} from "@hugeicons/core-free-icons";
-import avatar from "../assets/account/Sequoia-Sunrise.png"
+import avatar from "../assets/account/Sequoia-Sunrise.webp"
 import Button from "../components/Button.tsx";
 import Footer from "../components/Footer.tsx";
 import {AnimatePresence, motion } from "framer-motion";

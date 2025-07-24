@@ -32,7 +32,7 @@ function Product() {
 
             <div className="flex flex-col mx-6 my-6">
                 <div className="grid grid-cols-2 gap-y-0 gap-x-4">
-                    {products.map(product => (
+                    {products.filter(product => !product.discount).map(product => (
                         <div key={product.id} className="flex flex-col relative" onClick={() => {navigate(`/product/${product.id}`)}}>
                             {
                                 product.limited ? <div className={'absolute text-[10px] bg-Ananas px-4 z-20 py-2 text-sm text-white font-BeVietnamBold'}>

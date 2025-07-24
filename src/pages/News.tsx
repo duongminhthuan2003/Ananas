@@ -1,6 +1,6 @@
-import urbaslove24news from "../assets/news/urbas_love_24.jpg"
-import blog1980s from "../assets/news/Blog-1980s_1.jpg"
-import newsthumb from "../assets/news/urbas_love_23.jpg"
+import urbaslove24news from "../assets/news/urbas_love_24.webp"
+import blog1980s from "../assets/news/Blog-1980s_1.webp"
+import newsthumb from "../assets/news/urbas_love_23.webp"
 import Button from "../components/Button.tsx";
 import Footer from "../components/Footer.tsx";
 

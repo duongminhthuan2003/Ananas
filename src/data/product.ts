@@ -4,6 +4,7 @@ export interface ProductType {
     price: number;
     colors: { name: string; code: string }[];
     category: string;
+    discount?: number;
     available: boolean;
     limited: boolean;
     thumbnail: string;
@@ -11,6 +12,7 @@ export interface ProductType {
 }
 
 export const products: ProductType[] = [
+    //Sản phẩm không discount
     {
         id: "ALP2402",
         name: "Basas Love+ 24 - Low top",
@@ -79,7 +81,7 @@ export const products: ProductType[] = [
         id: "T600003",
         name: "Track 6 Triple White - Low top",
         price: 1290000,
-        colors: [{ name: "Triple White", code: "#001F3F" }],
+        colors: [{ name: "Triple White", code: "#FFFFFF" }],
         category: "Track 6",
         available: true,
         limited: false,
@@ -191,7 +193,7 @@ export const products: ProductType[] = [
         id: "AV00011",
         name: "Basas Hook N'Loop NE - Low top",
         price: 520000,
-        colors: [{ name: "Whtie", code: "#001F3F" }],
+        colors: [{ name: "White", code: "#001F3F" }],
         category: "Basas",
         available: true,
         limited: false,
@@ -201,6 +203,169 @@ export const products: ProductType[] = [
             "/assets/images/basashooknloop/2.webp",
             "/assets/images/basashooknloop/3.webp",
             "/assets/images/basashooknloop/4.webp"
+        ]
+    },
+
+
+    //Sản phẩm có discount
+    {
+        id: "AV00126",
+        name: "Urbas Ruler - Low top",
+        price: 590000,
+        colors: [
+            { name: "Silver Pink", code: "#DCB4B3" },
+            { name: "Graphite Green", code: "#84A295" },
+            { name: "Icelandic Blues", code: "#B0B3C7" },
+        ],
+        category: "Urbas",
+        available: true,
+        limited: false,
+        discount: 50,
+        thumbnail: "../images/urbasruler/1.webp",
+        images: [
+            "/assets/images/urbasruler/1.webp",
+            "/assets/images/urbasruler/2.webp",
+            "/assets/images/urbasruler/3.webp",
+            "/assets/images/urbasruler/4.webp"
+        ]
+    },
+    {
+        id: "AV00128",
+        name: "Urbas Retrorespective - Low top",
+        price: 650000,
+        colors: [
+            { name: "Popular Blue", code: "#D1D4CD" },
+            { name: "The Woods", code: "#7D5446" },
+            { name: "Yellow Submarine", code: "#DCD067" },
+        ],
+        category: "Urbas",
+        available: true,
+        limited: false,
+        discount: 45,
+        thumbnail: "../images/urbasretrospective/1.webp",
+        images: [
+            "/assets/images/urbasretrospective/1.webp",
+            "/assets/images/urbasretrospective/2.webp",
+            "/assets/images/urbasretrospective/3.webp",
+            "/assets/images/urbasretrospective/4.webp"
+        ]
+    },
+    {
+        id: "AV00159",
+        name: "Pattas Polka Dots - Low top",
+        price: 720000,
+        colors: [
+            { name: "Corol Rose", code: "#D1D4CD" },
+            { name: "True Blue", code: "#7D5446" },
+            { name: "Black", code: "#DCD067" },
+        ],
+        category: "Pattas",
+        available: true,
+        limited: false,
+        discount: 40,
+        thumbnail: "../images/pattaspolkadots/1.webp",
+        images: [
+            "/assets/images/pattaspolkadots/1.webp",
+            "/assets/images/pattaspolkadots/2.webp",
+            "/assets/images/pattaspolkadots/3.webp",
+            "/assets/images/pattaspolkadots/4.webp"
+        ]
+    },
+    {
+        id: "ASTB002",
+        name: 'Ananas "Copy" Store Bag 002',
+        price: 290000,
+        colors: [
+            { name: "Carviar Black", code: "#333333" },
+        ],
+        category: "Accessories",
+        available: false,
+        limited: false,
+        discount: 30,
+        thumbnail: "../images/copystorebag002/1.webp",
+        images: [
+            "/assets/images/copystorebag002/1.webp",
+            "/assets/images/copystorebag002/2.webp",
+            "/assets/images/copystorebag002/3.webp",
+            "/assets/images/copystorebag002/4.webp"
+        ]
+    },
+    {
+        id: "AV00117",
+        name: "Vintas Flannel - Low top",
+        price: 600000,
+        colors: [
+            { name: "Cement", code: "#333333" },
+        ],
+        category: "Vintas",
+        available: true,
+        limited: false,
+        discount: 40,
+        thumbnail: "../images/vintasflannel/1.webp",
+        images: [
+            "/assets/images/vintasflannel/1.webp",
+            "/assets/images/vintasflannel/2.webp",
+            "/assets/images/vintasflannel/3.webp",
+            "/assets/images/vintasflannel/4.webp"
+        ]
+    },
+    {
+        id: "AHP002",
+        name: "Hip Pack - Ananas Global Goal",
+        price: 275000,
+        colors: [
+            { name: "Purple Sage", code: "#333333" },
+            { name: "Climbing Ivy", code: "#333333" },
+            { name: "Blue Berry", code: "#333333" },
+        ],
+        category: "Accessories",
+        available: true,
+        limited: false,
+        discount: 20,
+        thumbnail: "../images/hippackananasglobalgoal/1.webp",
+        images: [
+            "/assets/images/hippackananasglobalgoal/1.webp",
+            "/assets/images/hippackananasglobalgoal/2.webp",
+            "/assets/images/hippackananasglobalgoal/3.webp",
+            "/assets/images/hippackananasglobalgoal/4.webp"
+        ]
+    },
+    {
+        id: "AV00149",
+        name: "Basas Workaday - Low Top",
+        price: 580000,
+        colors: [
+            { name: "Black", code: "#333333" }
+        ],
+        category: "Basas",
+        available: true,
+        limited: false,
+        discount: 50,
+        thumbnail: "../images/basasworkaday/1.webp",
+        images: [
+            "/assets/images/basasworkaday/1.webp",
+            "/assets/images/basasworkaday/2.webp",
+            "/assets/images/basasworkaday/3.webp",
+            "/assets/images/basasworkaday/4.webp"
+        ]
+    },
+    {
+        id: "AV00174",
+        name: "Vintas Jazico - High Top",
+        price: 780000,
+        colors: [
+            { name: "Royal White", code: "#333333" }
+        ],
+        category: "Vintas",
+        available: true,
+        limited: false,
+        discount: 60,
+        thumbnail: "../images/vintasjazico/1.webp",
+        images: [
+            "/assets/images/vintasjazico/1.webp",
+            "/assets/images/vintasjazico/2.webp",
+            "/assets/images/vintasjazico/3.webp",
+            "/assets/images/vintasjazico/4.webp"
         ]
     },
 ];

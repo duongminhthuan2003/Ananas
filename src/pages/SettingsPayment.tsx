@@ -4,9 +4,9 @@ import Footer from "../components/Footer.tsx";
 import {AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
-import visa from "../assets/account/Visa.png"
-import mc from "../assets/account/MC.png"
-import techcombank from "../assets/account/Techcombank.png"
+import visa from "../assets/account/Visa.webp"
+import mc from "../assets/account/MC.webp"
+import techcombank from "../assets/account/Techcombank.webp"
 
 export function ContextMenu() {
     const navigate = useNavigate();

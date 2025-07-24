@@ -1,8 +1,8 @@
-import ananaslogo from "../assets/Logo_Ananas.png"
-import ananaslogoblack from "../assets/logo-black.png"
-import fbicon from "../assets/index/fb_icon.png"
-import igicon from "../assets/index/ig_icon.png"
-import yticon from "../assets/index/yt_icon.png"
+import ananaslogo from "../assets/Logo_Ananas.webp"
+import ananaslogoblack from "../assets/logo-black.webp"
+import fbicon from "../assets/index/fb_icon.webp"
+import igicon from "../assets/index/ig_icon.webp"
+import yticon from "../assets/index/yt_icon.webp"
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
 

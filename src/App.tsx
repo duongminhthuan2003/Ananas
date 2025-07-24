@@ -13,13 +13,13 @@ import SettingsPassword from "./pages/SettingsPassword.tsx";
 import Cart from "./pages/Cart.tsx"
 import Payment from "./pages/Payment.tsx"
 import Confirmation from "./pages/Confirmation.tsx";
-import logo from './assets/logo-black.png'
+import logo from './assets/logo-black.webp'
 import {useState} from "react";
 import MenuIcon from "./assets/svgicons/MenuIcon.tsx"
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Search01Icon, ShoppingBag03Icon, FavouriteIcon } from "@hugeicons/core-free-icons";
 
-import avatar from "../src/assets/account/Sequoia-Sunrise.png"
+import avatar from "../src/assets/account/Sequoia-Sunrise.webp"
 import {useNavigate} from "react-router-dom";
 
 function App() {

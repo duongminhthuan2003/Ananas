@@ -1,12 +1,12 @@
 import Button from "../components/Button.tsx";
 import HeartIcon from "../assets/svgicons/HeartIcon";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import { motion } from "motion/react";
 import {StarRating} from "../assets/svgicons/StarRating.tsx"
 import Footer from "../components/Footer";
 import { AnimatePresence } from "framer-motion";
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ShoppingCartCheck02Icon } from '@hugeicons/core-free-icons';
+import { ShoppingCartCheck02Icon, CancelCircleIcon } from '@hugeicons/core-free-icons';
 import { useParams } from "react-router-dom";
 import { products } from "../data/product.ts"
 
@@ -17,25 +17,51 @@ export function AddToCartPopup(){
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-row popup mx-8 rounded-xl pl-6 py-6 gap-5 font-BeVietnamRegular">
+            className="flex flex-row popup mx-8 rounded-xl p-6 gap-5 font-BeVietnamRegular">
             <HugeiconsIcon icon={ShoppingCartCheck02Icon} size={24} color="#FFFFFF"/>
             <p className="text-white">Đã thêm vào giỏ hàng</p>
         </motion.div>
     )
 }
+
+export function FailedPopup({ notification }: { notification: string }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.3 }}
+            className={"flex flex-row bg-red-500 p-6 rounded-xl shadow-lg shadow-red-200 mx-8 gap-5 font-BeVietnamRegular items-center"}>
+            <HugeiconsIcon icon={CancelCircleIcon} size={24} color="#FFFFFF"/>
+            <p className={"text-white"}>{notification}</p>
+        </motion.div>
+    )
+}
+
 function ProductDetail() {
+    // Scroll to top when component mounts
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
     const [liked, setLiked] = useState(false);
 
-    const [selectedColorIndex, setSelectedColorIndex] = useState<number | null>(null);
-    const colors = ["#444444", "#CCCCCC"];
+    const [selectedColorIndex, setSelectedColorIndex] = useState<number | null>(0);
 
     const [selectedSize, setSelectedSize] = useState<number | null>(null);
+    const [selectedAccSize, setSelectedAccSize] = useState<string | null>(null);
     const [showSizePopup, setShowSizePopup] = useState(false);
+    const [showAccSize, setShowAccSize] = useState(false);
     const sizes = Array.from({ length: 12 }, (_, i) => i + 35);
+    const accessorySizes = ["S", "M", "L"];
 
     const [quantity, setQuantity] = useState(1);
 
     const [showAddToCartPopup, setShowAddToCartPopup] = useState(false);
+    const [showFailedPopup, setShowFailedPopup] = useState(false);
+    const [failedMessage, setFailedMessage] = useState("");
 
     const { productId } = useParams();
     const product = products.find((p: { id: string | undefined; }) => p.id === productId);
@@ -51,8 +77,15 @@ function ProductDetail() {
             <AnimatePresence>
                 {
                     showAddToCartPopup && (
-                        <div className="z-50 top-20 w-full fixed">
+                        <div className="z-30 top-20 w-full fixed">
                             <AddToCartPopup/>
+                        </div>
+                    )
+                }
+                {
+                    showFailedPopup && (
+                        <div className="z-30 top-20 w-full fixed">
+                            <FailedPopup notification={failedMessage} />
                         </div>
                     )
                 }
@@ -90,21 +123,32 @@ function ProductDetail() {
                     product.name.toUpperCase()
                 }</p>
                 <p className="font-BeVietnamRegular text-gray-400">Màu sắc: {product.colors[selectedColorIndex ?? 0]?.name}</p>
-                <p className="font-BeVietnamBold text-lg text-Ananas">{product.price.toLocaleString("vi-VN")}</p>
+                {
+                    product.discount ?
+                        <div>
+                            <div className="flex flex-row gap-2 mt-4">
+                                <p className="line-through font-BeVietnamRegular text-sm text-gray-400">{product.price.toLocaleString("vi-VN")}</p>
+                                <p className="px-2 bg-gray-400 w-fit rounded text-white text-sm font-BeVietnamRegular">{product.discount}%</p>
+                            </div>
+                            <p className="font-BeVietnamBold text-xl mt-1 text-Ananas">{(product.price * ((100 - product.discount)/100)).toLocaleString("vi-VN")}</p>
+                        </div>
+                        :
+                        <p className="font-BeVietnamBold text-xl text-Ananas">{product.price.toLocaleString("vi-VN")}</p>
+                }
             </div>
 
             <div className="flex flex-row mx-8 my-3 font-BeVietnamRegular text-sm">
                 <div>
                     <p>Màu sắc</p>
                     <div className="flex flex-row gap-2 mt-2">
-                        {colors.map((color, index) => (
+                        {product.colors.map((color, index) => (
                             <div
                                 key={index}
                                 onClick={() => setSelectedColorIndex(index)}
                                 className={`w-7 h-7 rounded cursor-pointer`}
                                 style={{
-                                    backgroundColor: color,
-                                    border: selectedColorIndex === index ? '2px solid black' : '1px solid #ccc'
+                                    backgroundColor: color.code,
+                                    border: selectedColorIndex === index ? '2px solid #F15E2C' : '1px solid #ccc'
                                 }}
                             />
                         ))}
@@ -115,14 +159,19 @@ function ProductDetail() {
                     <p>Kích cỡ</p>
                     <div className="relative">
                         <div
-                            onClick={() => setShowSizePopup(true)}
+                            onClick={
+                                product.category === "Accessories" ? () => setShowAccSize(true) : () => setShowSizePopup(true)
+                            }
                             className="flex justify-center items-center shadow-lg border border-gray-200 rounded cursor-pointer w-16 h-7 mt-2 text-center"
                         >
-                            {selectedSize ?? "-"}
+                            {
+                                product.category === "Accessories" ? (selectedAccSize ?? "-") : (selectedSize ?? "-")
+                            }
                         </div>
 
+                        {/*Pop up chọn size cho giày*/}
                         {showSizePopup && (
-                            <div className="absolute -left-23 w-[250px] z-50 mt-2 grid grid-cols-4 gap-2 p-2 py-3 rounded-lg navbar">
+                            <div className="absolute -left-23 w-[250px] z-30 mt-2 grid grid-cols-4 gap-2 p-2 py-3 rounded-lg navbar">
                                 {sizes.map((size) => (
                                     <div
                                         key={size}
@@ -137,6 +186,26 @@ function ProductDetail() {
                                 ))}
                             </div>
                         )}
+
+                        {/*Pop up chọn size cho phụ kiện*/}
+                        {showAccSize && (
+                            <div className="flex flex-row absolute w-fit z-30 p-2 gap-2 mt-2 rounded-lg navbar">
+                                {accessorySizes.map((size) => (
+                                    <div
+                                        key={size}
+                                        onClick={() => {
+                                            setSelectedAccSize(size);
+                                            setShowAccSize(false);
+                                        }}
+                                        className="flex items-center justify-center border border-gray-300 h-7 w-12 rounded-lg text-center bg-white cursor-pointer hover:bg-gray-200"
+                                    >
+                                        {size}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+
                     </div>
                 </div>
                 <div className="flex flex-1"></div>
@@ -166,8 +235,22 @@ function ProductDetail() {
                 {
                     product.available ?
                         <Button label="Thêm vào giỏ hàng" onClick={() => {
-                            setShowAddToCartPopup(true);
-                            setTimeout(() => setShowAddToCartPopup(false), 3000); // ẩn sau 3 giây
+                            if (!isLoggedIn) {
+                                setFailedMessage("Hãy đăng nhập để thêm vào giỏ hàng")
+                                setShowFailedPopup(true)
+                                setTimeout(() => {setShowFailedPopup(false)}, 3000)
+                                return;
+                            }
+
+                            if (selectedSize === null) {
+                                setFailedMessage("Hãy chọn một kích cỡ")
+                                setShowFailedPopup(true)
+                                setTimeout(() => {setShowFailedPopup(false)}, 3000)
+                                return;
+                            }
+
+                            setShowAddToCartPopup(true)
+                            setTimeout(()=> setShowAddToCartPopup(false), 3000)
                         }}
                         customClasses={"w-full"}/> :
                         <Button label={"Hết hàng"} onClick={() => {}} customClasses={"w-full opacity-25"}/>

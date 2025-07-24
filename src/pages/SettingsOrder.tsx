@@ -4,7 +4,7 @@ import Footer from "../components/Footer.tsx";
 import {AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
-import product1 from "../assets/index/Pro_AV00122_1.jpg"
+import product1 from "../assets/index/Pro_AV00122_1.webp"
 
 export function ContextMenu() {
     const navigate = useNavigate();

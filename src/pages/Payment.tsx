@@ -1,8 +1,8 @@
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import product1 from "../assets/index/Pro_AV00181_1.jpeg"
-import product2 from "../assets/index/Pro_AV00209_1.jpg"
-import product3 from "../assets/index/Pro_AV00202_1.jpg"
+import product1 from "../assets/index/Pro_AV00181_1.webp"
+import product2 from "../assets/index/Pro_AV00209_1.webp"
+import product3 from "../assets/index/Pro_AV00202_1.webp"
 import Button from "../components/Button.tsx";
 import Footer from "../components/Footer.tsx";
 
