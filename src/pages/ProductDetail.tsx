@@ -55,7 +55,7 @@ export function CommentSection({ onClose }: { onClose: () => void }) {
                 ></motion.div>
 
                 <motion.div
-                    className="relative w-[calc(100vw-4rem)] h-[calc(100vh-4rem)] bg-white z-[70] rounded-lg overflow-y-auto shadow-lg p-8"
+                    className="relative w-[calc(100vw-3rem)] h-[calc(100vh-3rem)] bg-white z-[70] rounded-lg overflow-y-auto shadow-lg p-4"
                         initial={{ opacity: 0, y: 1500 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 1500 }}
@@ -65,7 +65,7 @@ export function CommentSection({ onClose }: { onClose: () => void }) {
                         <p className="font-BeVietnamBold">ĐÁNH GIÁ</p>
                         <div className="flex flex-row gap-8 font-BeVietnamBold justify-center -mt-2"><StarRating rating={4.5} size={24}/> 4.5/5 </div>
 
-                        <div className="text-[15px]">
+                        <div className="text-sm">
                             <div className="flex flex-row">
                                 <p className="font-BeVietnamBold">arunm470108683</p>
                                 <div className="flex-1"></div>
@@ -75,7 +75,7 @@ export function CommentSection({ onClose }: { onClose: () => void }) {
                             <p className="font-BeVietnamRegular">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
 
-                        <div className="text-[15px]">
+                        <div className="text-sm">
                             <div className="flex flex-row">
                                 <p className="font-BeVietnamBold">Shay37</p>
                                 <div className="flex-1"></div>
@@ -87,7 +87,7 @@ export function CommentSection({ onClose }: { onClose: () => void }) {
                                 efficitur efficitur.</p>
                         </div>
 
-                        <div className="text-[15px] ">
+                        <div className="text-sm ">
                             <div className="flex flex-row">
                                 <p className="font-BeVietnamBold">Cairnsy</p>
                                 <div className="flex-1"></div>
