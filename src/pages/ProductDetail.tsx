@@ -43,28 +43,30 @@ export function FailedPopup({ notification }: { notification: string }) {
 
 export function CommentSection({ onClose }: { onClose: () => void }) {
     return (
+        <motion.div
+            className="fixed inset-0 z-[60] flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+        >
             <motion.div
-                className="fixed inset-0 z-[60] flex items-center justify-center"
+                className="absolute inset-0 bg-black z-[60]"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={{ opacity: 0.6 }}
                 exit={{ opacity: 0 }}
-            >
-                <motion.div
-                    className="absolute inset-0 bg-black z-[60]"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.6 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                ></motion.div>
+                transition={{ duration: 0.5 }}
+            ></motion.div>
 
-                <motion.div
-                    className="relative w-[calc(100vw-3rem)] h-[calc(100vh-3rem)] bg-white z-[70] rounded-lg overflow-y-auto shadow-lg p-4"
-                        initial={{ opacity: 0, y: 1500 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 1500 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                    >
-                    <div className="m-3 flex flex-col gap-8 ">
+            <motion.div
+                className="relative w-[calc(100vw-3rem)] h-[calc(100vh-3rem)] bg-white z-[70] rounded-lg shadow-lg flex flex-col"
+                initial={{ opacity: 0, y: 1500 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 1500 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+                {/* Scrollable content */}
+                <div className="flex-1 overflow-y-auto p-4">
+                    <div className="m-3 flex flex-col gap-8 relative">
                         <p className="font-BeVietnamBold">ĐÁNH GIÁ</p>
                         <div className="flex flex-col gap-2 items-center justify-center">
                             <StarRating rating={4.5} size={24}/>
@@ -145,7 +147,7 @@ export function CommentSection({ onClose }: { onClose: () => void }) {
                             <div className="flex flex-row">
                                 <p className="font-BeVietnamBold">Cairnsy</p>
                                 <div className="flex-1"></div>
-                                <StarRating rating={5} size={20}/>
+                                <StarRating rating={4} size={20}/>
                             </div>
                             <p className="font-BeVietnamRegular my-1 text-gray-400">07.09.2024</p>
                             <p className="font-BeVietnamRegular">Maecenas id augue diam. Vivamus cursus finibus nunc, id ornare
@@ -161,7 +163,7 @@ export function CommentSection({ onClose }: { onClose: () => void }) {
                             <div className="flex flex-row">
                                 <p className="font-BeVietnamBold">Cairnsy</p>
                                 <div className="flex-1"></div>
-                                <StarRating rating={5} size={20}/>
+                                <StarRating rating={4} size={20}/>
                             </div>
                             <p className="font-BeVietnamRegular my-1 text-gray-400">02.09.2024</p>
                             <p className="font-BeVietnamRegular">Maecenas id augue diam. Vivamus cursus finibus nunc, id ornare
@@ -173,18 +175,22 @@ export function CommentSection({ onClose }: { onClose: () => void }) {
                             </div>
                         </div>
 
-                        <div className="h-8"></div>
-                        <div className="flex fixed bottom-12 left-1/2 transform -translate-x-1/2">
-                            <div
-                                className="p-3 shadow-lg shadow-Ananas rounded-full bg-Ananas"
-                                onClick={onClose}
-                            >
-                                <HugeiconsIcon icon={Cancel01Icon} size={24} color="#FFFFFF"/>
-                            </div>
-                        </div>
+                        {/* Thêm padding bottom để tránh bị che bởi nút close */}
+                        <div className="h-10"></div>
                     </div>
-                </motion.div>
+                </div>
+
+                {/* Nút close cố định ở dưới cùng */}
+                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10">
+                    <div
+                        className="p-3 shadow-lg shadow-Ananas rounded-full bg-Ananas cursor-pointer hover:scale-105 transition-transform"
+                        onClick={onClose}
+                    >
+                        <HugeiconsIcon icon={Cancel01Icon} size={24} color="#FFFFFF"/>
+                    </div>
+                </div>
             </motion.div>
+        </motion.div>
     )
 }
 

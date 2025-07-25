@@ -3,8 +3,11 @@ import blog1980s from "../assets/news/Blog-1980s_1.webp"
 import newsthumb from "../assets/news/urbas_love_23.webp"
 import Button from "../components/Button.tsx";
 import Footer from "../components/Footer.tsx";
+import {useNavigate} from "react-router-dom";
 
 function News() {
+    const navigate = useNavigate();
+
     return (
         <div>
             <div className="h-14"></div>
@@ -12,7 +15,7 @@ function News() {
 
             <div className="flex flex-col items-center justify-center mx-8 my-4">
                 <div className="flex flex-col mx-auto w-10/12">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col" onClick={() => navigate("/newsdetail")}>
                         <div className="flex flex-col gap-2 my-3">
                             <p className="font-BeVietnamBold">HIỂU THẬT SÂU MỖI NGƯỜI <br/> VỚI URBAS LOVE+ 24</p>
                             <p className="font-BeVietnamRegular text-gray-400 text-sm">Lấy cảm hứng từ cụm từ "Inside
@@ -41,7 +44,7 @@ function News() {
 
             <div className="m-8 flex flex-col gap-8">
                 {Array.from({length: 8}).map((_, index) => (
-                    <div key={index} className="rounded-lg border-2 border-[#CCCCCC]">
+                    <div key={index} className="rounded-lg border-2 border-[#CCCCCC]" onClick={()=>{navigate("/newsdetail")}}>
                         <img src={newsthumb} alt="Thumbnail for News"
                              className="rounded-t-lg w-full object-cover h-52"/>
                         <div className="m-5">

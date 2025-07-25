@@ -13,17 +13,23 @@ import SettingsPassword from "./pages/SettingsPassword.tsx";
 import Cart from "./pages/Cart.tsx"
 import Payment from "./pages/Payment.tsx"
 import Confirmation from "./pages/Confirmation.tsx";
+import NewsDetail from "./pages/NewsDetail.tsx";
+import SignUp from "./pages/SignUp.tsx";
 import logo from './assets/logo-black.webp'
 import {useState, useEffect} from "react";
 import MenuIcon from "./assets/svgicons/MenuIcon.tsx"
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Search01Icon, ShoppingBag03Icon, FavouriteIcon } from "@hugeicons/core-free-icons";
+import { AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 import avatar from "../src/assets/account/Sequoia-Sunrise.webp"
 import {useNavigate} from "react-router-dom";
 
 function App() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const location = useLocation();
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -135,7 +141,7 @@ function App() {
                                 <div>
                                     <div className="flex flex-row gap-5">
                                         <Link
-                                            to="/product"
+                                            to="/signup"
                                             className="w-1/2 text-center border-2 shadow-lg border-[#CCCCCC] font-BeVietnamRegular text-gray-800 bg-white py-3 rounded-xl my-2"
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >
@@ -169,22 +175,26 @@ function App() {
             )}
 
             <div>
-                <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/product" element={<Product/>}/>
-                    <Route path="/news" element={<News/>} />
-                    <Route path="/product/:productId" element={<ProductDetail/>}/>
-                    <Route path="/saleoff" element={<SaleOff/>} />
-                    <Route path="/introduction" element={<Intro/>} />
-                    <Route path="/login" element={<Login/>} />
-                    <Route path="/settings/profile" element={<SettingsProfile/>} />
-                    <Route path="/settings/orders" element={<SettingsOrder/>} />
-                    <Route path="/settings/payment" element={<SettingsPayment />} />
-                    <Route path="/settings/password" element={<SettingsPassword />} />
-                    <Route path={"/cart"} element={<Cart/>} />
-                    <Route path={"/payment"} element={<Payment />} />
-                    <Route path={"/confirmation"} element={<Confirmation />} />
-                </Routes>
+                <AnimatePresence mode="wait">
+                    <Routes location={location} key={location.pathname}>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/product" element={<Product />} />
+                        <Route path="/news" element={<News />} />
+                        <Route path="/product/:productId" element={<ProductDetail />} />
+                        <Route path="/saleoff" element={<SaleOff />} />
+                        <Route path="/introduction" element={<Intro />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/settings/profile" element={<SettingsProfile />} />
+                        <Route path="/settings/orders" element={<SettingsOrder />} />
+                        <Route path="/settings/payment" element={<SettingsPayment />} />
+                        <Route path="/settings/password" element={<SettingsPassword />} />
+                        <Route path="/cart" element={<Cart />} />
+                        <Route path="/payment" element={<Payment />} />
+                        <Route path="/confirmation" element={<Confirmation />} />
+                        <Route path="/newsdetail" element={<NewsDetail />} />
+                        <Route path="/signup" element={<SignUp />} />
+                    </Routes>
+                </AnimatePresence>
             </div>
         </div>
     )
