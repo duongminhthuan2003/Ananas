@@ -6,9 +6,12 @@ import {StarRating} from "../assets/svgicons/StarRating.tsx"
 import Footer from "../components/Footer";
 import { AnimatePresence } from "framer-motion";
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ShoppingCartCheck02Icon, CancelCircleIcon, Cancel01Icon } from '@hugeicons/core-free-icons';
+import { ShoppingCartCheck02Icon, CancelCircleIcon, Cancel01Icon, ThumbsUpIcon, ThumbsDownIcon, Flag02Icon } from '@hugeicons/core-free-icons';
 import { useParams } from "react-router-dom";
 import { products } from "../data/product.ts"
+import review1 from "../assets/index/review1.webp"
+import review2 from "../assets/index/review2.webp"
+import review3 from "../assets/index/review3.webp"
 
 export function AddToCartPopup(){
     return (
@@ -63,7 +66,11 @@ export function CommentSection({ onClose }: { onClose: () => void }) {
                     >
                     <div className="m-3 flex flex-col gap-8 ">
                         <p className="font-BeVietnamBold">ĐÁNH GIÁ</p>
-                        <div className="flex flex-row gap-8 font-BeVietnamBold justify-center -mt-2"><StarRating rating={4.5} size={24}/> 4.5/5 </div>
+                        <div className="flex flex-col gap-2 items-center justify-center">
+                            <StarRating rating={4.5} size={24}/>
+                            <p className="font-BeVietnamBold">4.5/5</p>
+                            <p className="font-BeVietnamRegular -mt-1 text-gray-500">6 đánh giá</p>
+                        </div>
 
                         <div className="text-sm">
                             <div className="flex flex-row">
@@ -71,8 +78,13 @@ export function CommentSection({ onClose }: { onClose: () => void }) {
                                 <div className="flex-1"></div>
                                 <StarRating rating={5} size={20}/>
                             </div>
-                            <p className="font-BeVietnamRegular text-gray-400">19.10.2024</p>
+                            <p className="font-BeVietnamRegular text-gray-400 my-1">19.10.2024</p>
                             <p className="font-BeVietnamRegular">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div className="flex flex-row gap-3 mt-3 font-BeVietnamRegular items-center">
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={ThumbsUpIcon} strokeWidth={1.2}/><p>5</p></div>
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={ThumbsDownIcon} strokeWidth={1.2}/><p>0</p></div>
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={Flag02Icon} strokeWidth={1.2}/><p>Báo cáo</p></div>
+                            </div>
                         </div>
 
                         <div className="text-sm">
@@ -81,10 +93,15 @@ export function CommentSection({ onClose }: { onClose: () => void }) {
                                 <div className="flex-1"></div>
                                 <StarRating rating={4} size={20}/>
                             </div>
-                            <p className="font-BeVietnamRegular text-gray-400">28.09.2024</p>
+                            <p className="font-BeVietnamRegular text-gray-400 my-1">28.09.2024</p>
                             <p className="font-BeVietnamRegular">Vivamus dolor massa, sodales sit amet libero quis, pulvinar
                                 dictum justo. Fusce congue tempor leo
                                 efficitur efficitur.</p>
+                            <div className="flex flex-row gap-3 mt-3 font-BeVietnamRegular items-center">
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={ThumbsUpIcon} strokeWidth={1.2}/><p>5</p></div>
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={ThumbsDownIcon} strokeWidth={1.2}/><p>0</p></div>
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={Flag02Icon} strokeWidth={1.2}/><p>Báo cáo</p></div>
+                            </div>
                         </div>
 
                         <div className="text-sm ">
@@ -93,14 +110,73 @@ export function CommentSection({ onClose }: { onClose: () => void }) {
                                 <div className="flex-1"></div>
                                 <StarRating rating={5} size={20}/>
                             </div>
-                            <p className="font-BeVietnamRegular text-gray-400">23.09.2024</p>
+                            <p className="font-BeVietnamRegular text-gray-400 my-1">23.09.2024</p>
                             <p className="font-BeVietnamRegular">Maecenas id augue diam. Vivamus cursus finibus nunc, id ornare
                                 metus aliquam sed.</p>
+                            <div className="flex flex-row gap-3 mt-3 font-BeVietnamRegular items-center">
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={ThumbsUpIcon} strokeWidth={1.2}/><p>5</p></div>
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={ThumbsDownIcon} strokeWidth={1.2}/><p>0</p></div>
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={Flag02Icon} strokeWidth={1.2}/><p>Báo cáo</p></div>
+                            </div>
                         </div>
 
-                        <div className="flex justify-center">
+                        <div className="text-sm ">
+                            <div className="flex flex-row">
+                                <p className="font-BeVietnamBold">lazydaisy</p>
+                                <div className="flex-1"></div>
+                                <StarRating rating={5} size={20}/>
+                            </div>
+                            <p className="font-BeVietnamRegular my-1 text-gray-400">15.09.2024</p>
+                            <p className="font-BeVietnamRegular">Quisque ut purus libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam erat volutpat.
+                                Maecenas molestie sodales dui, sed tristique lectus varius id.</p>
+                            <div className="flex flex-row gap-3 mt-3">
+                                <img src={review1} alt="Ảnh đánh giá sản phẩm 1" className="rounded aspect-square w-20 object-cover"/>
+                                <img src={review2} alt="Ảnh đánh giá sản phẩm 2" className="rounded aspect-square w-20 object-cover"/>
+                                <img src={review3} alt="Ảnh đánh giá sản phẩm 3" className="rounded aspect-square w-20 object-cover"/>
+                            </div>
+                            <div className="flex flex-row gap-3 mt-3 font-BeVietnamRegular items-center">
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={ThumbsUpIcon} strokeWidth={1.2}/><p>5</p></div>
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={ThumbsDownIcon} strokeWidth={1.2}/><p>0</p></div>
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={Flag02Icon} strokeWidth={1.2}/><p>Báo cáo</p></div>
+                            </div>
+                        </div>
+
+                        <div className="text-sm ">
+                            <div className="flex flex-row">
+                                <p className="font-BeVietnamBold">Cairnsy</p>
+                                <div className="flex-1"></div>
+                                <StarRating rating={5} size={20}/>
+                            </div>
+                            <p className="font-BeVietnamRegular my-1 text-gray-400">07.09.2024</p>
+                            <p className="font-BeVietnamRegular">Maecenas id augue diam. Vivamus cursus finibus nunc, id ornare
+                                metus aliquam sed.</p>
+                            <div className="flex flex-row gap-3 mt-3 font-BeVietnamRegular items-center">
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={ThumbsUpIcon} strokeWidth={1.2}/><p>5</p></div>
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={ThumbsDownIcon} strokeWidth={1.2}/><p>0</p></div>
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={Flag02Icon} strokeWidth={1.2}/><p>Báo cáo</p></div>
+                            </div>
+                        </div>
+
+                        <div className="text-sm ">
+                            <div className="flex flex-row">
+                                <p className="font-BeVietnamBold">Cairnsy</p>
+                                <div className="flex-1"></div>
+                                <StarRating rating={5} size={20}/>
+                            </div>
+                            <p className="font-BeVietnamRegular my-1 text-gray-400">02.09.2024</p>
+                            <p className="font-BeVietnamRegular">Maecenas id augue diam. Vivamus cursus finibus nunc, id ornare
+                                metus aliquam sed.</p>
+                            <div className="flex flex-row gap-3 mt-3 font-BeVietnamRegular items-center">
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={ThumbsUpIcon} strokeWidth={1.2}/><p>5</p></div>
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={ThumbsDownIcon} strokeWidth={1.2}/><p>0</p></div>
+                                <div className="flex items-center gap-2"><HugeiconsIcon icon={Flag02Icon} strokeWidth={1.2}/><p>Báo cáo</p></div>
+                            </div>
+                        </div>
+
+                        <div className="h-8"></div>
+                        <div className="flex fixed bottom-12 left-1/2 transform -translate-x-1/2">
                             <div
-                                className="absolute bottom-8 p-3 rounded-full bg-Ananas"
+                                className="p-3 shadow-lg shadow-Ananas rounded-full bg-Ananas"
                                 onClick={onClose}
                             >
                                 <HugeiconsIcon icon={Cancel01Icon} size={24} color="#FFFFFF"/>
