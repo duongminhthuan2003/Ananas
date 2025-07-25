@@ -14,7 +14,7 @@ import Cart from "./pages/Cart.tsx"
 import Payment from "./pages/Payment.tsx"
 import Confirmation from "./pages/Confirmation.tsx";
 import logo from './assets/logo-black.webp'
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import MenuIcon from "./assets/svgicons/MenuIcon.tsx"
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Search01Icon, ShoppingBag03Icon, FavouriteIcon } from "@hugeicons/core-free-icons";
@@ -32,6 +32,20 @@ function App() {
     const navigate = useNavigate();
 
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+
+    useEffect(()=> {
+        if (isMobileMenuOpen) {
+            document.body.classList.add("overflow-hidden");
+        }
+        else {
+            document.body.classList.remove("overflow-hidden");
+        }
+
+        return () => {
+            document.body.classList.remove("overflow-hidden");
+        }
+    }, [isMobileMenuOpen]);
 
     return (
         <div>
