@@ -68,7 +68,11 @@ function SettingsPayment() {
             </div>
 
             <div className="mx-8 my-8 space-y-4">
-                <p className="text-sm font-BeVietnamBold">Thẻ tín dụng & thẻ ghi nợ</p>
+                <div className="flex flex-row">
+                    <p className="text-sm font-BeVietnamBold">Thẻ tín dụng & thẻ ghi nợ</p>
+                    <div className="flex-1"></div>
+                    <p className="bg-Ananas font-BeVietnamRegular px-2 py-0.5 text-sm text-white rounded"> Thêm</p>
+                </div>
                 <div className="flex flex-row font-BeVietnamRegular text-sm items-center">
                     <div className="flex flex-row items-center gap-3">
                         <img src={visa} alt="Visa" className="w-14 p-2 border-1 rounded border-gray-400"/>
@@ -78,7 +82,7 @@ function SettingsPayment() {
                     <div className="flex-1"></div>
                     <div className="flex flex-row items-center">
                         <p>**** 7091</p>
-                        <HugeiconsIcon icon={MoreHorizontalIcon} />
+                        <HugeiconsIcon icon={MoreHorizontalIcon} className="ml-1"/>
                     </div>
                 </div>
 
@@ -90,14 +94,17 @@ function SettingsPayment() {
                     <div className="flex-1"></div>
                     <div className="flex flex-row font-BeVietnamRegular items-center">
                         <p>**** 1574</p>
-                        <HugeiconsIcon icon={MoreHorizontalIcon} />
+                        <HugeiconsIcon icon={MoreHorizontalIcon} className="ml-1"/>
                     </div>
                 </div>
             </div>
 
             <div className="mx-8 my-8 space-y-4 text-sm">
-                <p className="font-BeVietnamBold">Liên kết ngân hàng</p>
                 <div className="flex flex-row">
+                    <p className="text-sm font-BeVietnamBold">Liên kết ngân hàng</p>
+                    <div className="flex-1"></div>
+                    <p className="bg-Ananas font-BeVietnamRegular px-2 py-0.5 text-sm text-white rounded"> Thêm</p>
+                </div>                <div className="flex flex-row">
                     <div className="flex flex-row gap-3 font-BeVietnamRegular items-center">
                         <img src={techcombank} alt="Visa" className="w-14 p-2 border-1 rounded border-gray-400"/>
                         <div>
@@ -107,7 +114,7 @@ function SettingsPayment() {
                     <div className="flex-1"></div>
                     <div className="flex flex-row font-BeVietnamRegular items-center">
                         <p>**** 6184</p>
-                        <HugeiconsIcon icon={MoreHorizontalIcon} />
+                        <HugeiconsIcon icon={MoreHorizontalIcon} className="ml-1"/>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import urbaslove24 from '../assets/index/IMG_7284.webp'
 import urbassc from '../assets/index/urbas_sc.webp'
 import urbasdora from '../assets/index/ananas_dora.webp'
+import track6iseebanner from '../assets/index/isee.webp'
 import featuredbackground from '../assets/index/ftr_back.webp'
 import track6bluewash from '../assets/index/Pro_A6T015_1.webp'
 import track6triplewhite from '../assets/index/pro_track6_A6T002_1.webp'
@@ -10,6 +11,7 @@ import track6isee from '../assets/index/Pro_A6T012_1.webp'
 import track6og from '../assets/index/pro_track6og.webp'
 import logowhite from '../assets/logo-white.webp'
 import vintasvivu from '../assets/index/vintas_vivu1.webp'
+import vintasvivu2 from '../assets/index/vintas_vivu2.webp'
 import basasraw1 from '../assets/index/raw1.webp'
 import basasraw2 from '../assets/index/raw2.webp'
 import basasraw3 from '../assets/index/raw3.webp'
@@ -27,13 +29,13 @@ function Home() {
                 <div className="w-full h-[80vh] md:h-screen flex justify-center relative overflow-hidden">
                     <img
                         src={urbaslove24}
-                        className="absolute w-full h-full object-cover object-center transform scale-[1.5] top-0 left-0"
+                        className="absolute w-full h-full object-cover object-center transform scale-[1.5] md:scale-[1.25] top-0 left-0"
                         alt="urbanlove24"
                     />
-                    <p className="absolute z-10 font-BeVietnamRegular text-Ananas top-[17vh] text-sm">Mới ra mắt</p>
-                    <p className="absolute z-10 font-Bayon text-[56px] -my-4 top-[21vh]">URBAS LOVE+ 24</p>
-                    <p className="absolute font-BeVietnamRegular top-[60vh]">Giao hàng từ 01.11.2024</p>
-                    <div className="flex absolute top-[60vh] mt-10 w-full justify-center">
+                    <p className="absolute z-10 font-BeVietnamRegular text-Ananas top-[18vh] md:top-44 text-sm">Mới ra mắt</p>
+                    <p className="absolute z-10 font-Bayon text-[56px] md:text-[84px] -my-4 top-[21vh] md:top-48">URBAS LOVE+ 24</p>
+                    <p className="absolute font-BeVietnamRegular top-[60vh] md:top-[75vh]">Giao hàng từ 01.11.2024</p>
+                    <div className="flex absolute top-[60vh] md:top-[75vh] mt-10 w-full justify-center">
                         <Button label="Đặt trước" onClick={() => {
                             setTimeout(() => navigate('/product/ALP2402'), 500); // delay 300ms
                         }} />
@@ -41,10 +43,10 @@ function Home() {
                 </div>
             </div>
 
-            <div className="items-center justify-center relative w-10/12 mt-7 mx-auto">
+            <div className="items-center justify-center relative w-10/12 md:w-9/12 mt-7 mx-auto">
                 <p className="font-BeVietnamBold my-5 text-lg">Nổi bật</p>
-                <div className="flex flex-col w-full gap-6">
-                    <div className="w-full h-64 relative">
+                <div className="flex flex-col md:flex-row w-full gap-6">
+                    <div className="w-full h-64 md:h-[500px] relative">
                         <div className="absolute bottom-0 z-20 p-5 flex flex-col gap-2">
                             <p className="text-white font-BeVietnamRegular">Your daily drive</p>
                             <p className="text-white font-BeVietnamBold">URBAS SC - CORN SILK</p>
@@ -54,11 +56,11 @@ function Home() {
                                 }} />
                             </div>
                         </div>
-                        <img src={featuredbackground} alt="featured background" className="absolute w-full h-64"/>
+                        <img src={featuredbackground} alt="featured background" className="absolute w-full h-64 md:h-[500px]"/>
                         <img src={urbassc} alt="urbassc" className=" w-full h-full object-cover"/>
                     </div>
 
-                    <div className="w-full h-64 relative">
+                    <div className="w-full h-64 md:h-[500px] relative">
                         <div className="absolute bottom-0 z-20 p-5 flex flex-col gap-2">
                             <p className="text-white font-BeVietnamRegular">Chong chóng tre nè Nobita!</p>
                             <p className="text-white font-BeVietnamBold">ANANAS x DORAEMON</p>
@@ -68,13 +70,27 @@ function Home() {
                                 }}/>
                             </div>
                         </div>
-                        <img src={featuredbackground} alt="featured background" className="absolute w-full h-64"/>
+                        <img src={featuredbackground} alt="featured background" className="absolute w-full h-64 md:h-[500px]"/>
                         <img src={urbasdora} alt="urbasdora" className="w-full h-full object-cover"/>
+                    </div>
+
+                    <div className="w-full h-64 md:h-[500px] relative">
+                        <div className="absolute bottom-0 z-20 p-5 flex flex-col gap-2">
+                            <p className="text-white font-BeVietnamRegular">I.S.E.E that I'm icy</p>
+                            <p className="text-white font-BeVietnamBold">TRACK 6 I.S.E.E</p>
+                            <div className="w-40 text-sm">
+                                <Button label="Mua ngay" onClick={() => {
+                                    setTimeout(() => navigate('/product/T600005'), 500);
+                                }}/>
+                            </div>
+                        </div>
+                        <img src={featuredbackground} alt="featured background" className="absolute w-full h-64 md:h-[500px]"/>
+                        <img src={track6iseebanner} alt="urbasdora" className="w-full h-full object-cover"/>
                     </div>
                 </div>
             </div>
 
-            <div className="items-center justify-center relative w-10/12 mt-7 mx-auto">
+            <div className="items-center justify-center relative w-10/12 md:w-9/12 mt-7 mx-auto">
                 <p className="font-BeVietnamRegular my-5 text-md">Dòng sản phẩm <span className="font-BeVietnamBold">Track 6</span>
                 </p>
 
@@ -152,7 +168,7 @@ function Home() {
                 </div>
             </div>
 
-            <div className="flex bg-[#BCA984] h-[650px] mt-8 flex-col">
+            <div className="flex md:hidden bg-[#BCA984] h-[650px] mt-8 flex-col">
                 <div className="flex flex-col items-center h-7/12 justify-center">
                     <img src={logowhite} alt="Logo White" className="h-16"/>
                     <p className="font-Bayon text-white text-7xl -mt-3">VINTAS VIVU</p>
@@ -170,13 +186,41 @@ function Home() {
                 </div>
             </div>
 
-            <div className="bg-[#ECE4D7] w-full h-[650px] flex flex-row">
-                <div className="flex flex-col justify-center w-1/2 px-3 py-3 gap-3">
+            <div className="hidden md:flex flex-row bg-[#BCA984] md:h-[700px] lg:h-[800px] xl:h-[900px] w-full mt-8">
+                <div className="h-full w-5/12">
+                    <img src={vintasvivu} className="h-full w-full object-cover"/> {/*Ảnh lớn bên trái*/}
+                </div>
+                <div className="flex flex-col w-7/12"> {/*Thông tin bên phải*/}
+                    <div className="w-full h-7/12">
+                        <img src={vintasvivu2} className="h-full w-full object-cover"/> {/*Ảnh nhỏ bên trên*/}
+                    </div>
+                    <div className="flex flex-row h-5/12 flex-1">
+                        <div className="flex flex-col justify-end m-8">
+                            <div>
+                                <img src={logowhite} alt="Logo White" className="h-16"/>
+                            </div>
+                            <p className="font-Bayon text-white text-[60px] leading-[1] lg:text-8xl xl:text-9xl -mt-3">VINTAS VIVU</p>
+                            <p className="font-BeVietnamRegular text-white mb-3">Giá chỉ từ: 620.000 VNĐ</p>
+                            <div><Button label="Mua ngay" onClick={() => {
+                                setTimeout(() => navigate('/product/AV00206'), 500);
+                            }}/></div>
+                        </div>
+                        <div className="flex-1"></div>
+                        <div className="w-[120px] flex flex-col h-full">
+                            <div className="bg-[#646F84] w-full flex-1"></div>
+                            <div className="bg-[#9A855C] w-full aspect-square"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="bg-[#ECE4D7] w-full h-[650px] md:h-[700px] lg:h-[800px] xl:h-[900px] flex flex-row md:flex-col">
+                <div className="flex flex-col md:flex-row justify-center w-1/2 md:w-full px-3 md:px-6 py-6 md:py-3 gap-3">
                     <img src={basasraw1} className="h-1/3 object-cover" alt="Basas RAW"/>
                     <img src={basasraw2} className="h-1/3 object-cover" alt="Basas RAW"/>
                     <img src={basasraw3} className="h-1/3 object-cover" alt="Basas RAW"/>
                 </div>
-                <div className="w-1/2 flex flex-col justify-center items-center gap-5">
+                <div className="w-1/2 md:w-full flex flex-col justify-center items-center gap-5">
                     <p className="font-BeVietnamBold text-sm">ANANAS BASAS RAW</p>
                     <p className="font-AntonSC text-center text-4xl leading-normal">NGUYÊN BẢN<br/>TRONG TỪNG<br/>BƯỚC
                         CHÂN</p>

@@ -25,6 +25,7 @@ import { useLocation } from "react-router-dom";
 
 import avatar from "../src/assets/account/Sequoia-Sunrise.webp"
 import {useNavigate} from "react-router-dom";
+import Button from "./components/Button.tsx";
 
 function App() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -62,6 +63,46 @@ function App() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 /></Link>
                 <div className="flex-1 m-0"/>
+
+                <div className="hidden md:flex absolute flex-row gap-8 text-sm font-BeVietnamRegular left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2">
+                    <Link
+                        to="/product"
+                        className=" hover:text-[#F15E2C] transition-colors"
+                    >
+                        SẢN PHẨM
+                    </Link>
+                    <Link
+                        to="/saleoff"
+                        className=" hover:text-[#F15E2C] transition-colors"
+                    >
+                        SALEOFF
+                    </Link>
+                    <Link
+                        to="/news"
+                        className=" hover:text-[#F15E2C] transition-colors"
+                    >
+                        TIN TỨC
+                    </Link>
+                    <Link
+                        to="/introduction"
+                        className=" hover:text-[#F15E2C] transition-colors"
+                    >
+                        GIỚI THIỆU
+                    </Link>
+                </div>
+
+                {isLoggedIn ?
+                    <div>
+
+                    </div>
+                    :
+                    <div className="md:flex flex-row hidden items-center m-0">
+                        <Link to="/signup" className="text-sm font-BeVietnamRegular">
+                            Đăng ký
+                        </Link>
+                        <Button label="Đăng nhập" customClasses="text-sm px-3 py-2 ml-3" onClick={() => navigate("/login")}/>
+                    </div>
+                }
                 <MenuIcon
                     isOpen={isMobileMenuOpen}
                     onClick={toggleMobileMenu}
@@ -101,6 +142,7 @@ function App() {
                     >
                         GIỚI THIỆU
                     </Link>
+
                     {
                         isLoggedIn ?
                             <div className="flex flex-col gap-3">
