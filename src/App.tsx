@@ -28,6 +28,8 @@ import {useNavigate} from "react-router-dom";
 import Button from "./components/Button.tsx";
 
 function App() {
+
+
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const location = useLocation();
@@ -64,7 +66,7 @@ function App() {
                 /></Link>
                 <div className="flex-1 m-0"/>
 
-                <div className="hidden md:flex absolute flex-row gap-8 text-sm font-BeVietnamRegular left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2">
+                <div className="hidden md:flex absolute flex-row gap-8 lg:gap-14 text-sm font-BeVietnamRegular left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2">
                     <Link
                         to="/product"
                         className=" hover:text-[#F15E2C] transition-colors"
@@ -92,8 +94,14 @@ function App() {
                 </div>
 
                 {isLoggedIn ?
-                    <div>
-
+                    <div className="md:flex flex-row hidden items-center m-0">
+                        <p
+                            onClick={() => {
+                                localStorage.setItem('isLoggedIn', 'false');
+                                localStorage.setItem('userData', JSON.stringify({name: '', email: ''}));
+                                navigate('/');
+                            }}
+                        >Đăng xuất</p>
                     </div>
                     :
                     <div className="md:flex flex-row hidden items-center m-0">
@@ -110,7 +118,7 @@ function App() {
             </nav>
 
             <div
-                className={`fixed top-0 left-0 w-full h-[calc(100vh-3.5rem)] navbar shadow-lg z-40 md:hidden transition-transform duration-600 ease-in-out ${
+                className={`fixed -top-30 left-0 w-full h-[calc(100vh-3.5rem)] navbar shadow-lg z-40 md:hidden transition-transform duration-600 ease-in-out ${
                     isMobileMenuOpen ? 'transform translate-y-14' : 'transform -translate-y-full shadow-none'
                 }`}>
                 <div className="flex flex-col h-full p-8 text-md gap-4">
