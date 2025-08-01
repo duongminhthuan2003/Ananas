@@ -108,6 +108,7 @@ function SettingsOrder() {
                                 <p className="font-BeVietnamRegular text-[13px] text-gray-500">650.000 VNĐ</p>
                                 <p className="font-BeVietnamRegular text-[13px] text-gray-500">Kích cỡ: 35</p>
                             </div>
+                            <div className="flex-1 hidden md:block"></div>
                             <p className="text-sm font-BeVietnamRegular mt-[6px]">
                                 x1
                             </p>
@@ -131,6 +132,7 @@ function SettingsOrder() {
                                 <p className="font-BeVietnamRegular text-[13px] text-gray-500">650.000 VNĐ</p>
                                 <p className="font-BeVietnamRegular text-[13px] text-gray-500">Kích cỡ: 35</p>
                             </div>
+                            <div className="flex-1 hidden md:block"></div>
                             <p className="text-sm font-BeVietnamRegular mt-[6px]">
                                 x1
                             </p>
@@ -149,6 +151,8 @@ function SettingsOrder() {
                                 <p className="font-BeVietnamRegular text-[13px] text-gray-500">650.000 VNĐ</p>
                                 <p className="font-BeVietnamRegular text-[13px] text-gray-500">Kích cỡ: 35</p>
                             </div>
+                            <div className="flex-1 hidden md:block"></div>
+
                             <p className="text-sm font-BeVietnamRegular mt-[6px]">
                                 x1
                             </p>
