@@ -11,38 +11,43 @@ function News() {
     return (
         <div>
             <div className="h-14"></div>
-            <p className="mx-8 mt-8 text-xl font-BeVietnamBold">TIN TỨC</p>
+            <div className="mx-8 md:mx-auto md:my-12 md:w-10/12 lg:w-8/12 mt-8 flex flex-row items-center">
+                <p className="text-xl font-BeVietnamBold">TIN TỨC</p>
+                <div className="flex-1"></div>
+            </div>
 
-            <div className="flex flex-col items-center justify-center mx-8 my-4">
-                <div className="flex flex-col mx-auto w-10/12">
-                    <div className="flex flex-col" onClick={() => navigate("/newsdetail")}>
-                        <div className="flex flex-col gap-2 my-3">
-                            <p className="font-BeVietnamBold">HIỂU THẬT SÂU MỖI NGƯỜI <br/> VỚI URBAS LOVE+ 24</p>
-                            <p className="font-BeVietnamRegular text-gray-400 text-sm">Lấy cảm hứng từ cụm từ "Inside
-                                Out", Ananas tạo ra 2 phiên bản thiết kế cổ thấp (có dây và
-                                quai dán) cho bộ sưu tập Urbas Love+ 24.</p>
-                            <p className="font-BeVietnamRegular">01.10.2024</p>
+            <div className="flex justify-center items-center md:w-9/12 lg:w-11/12 md:mx-auto">
+                <div className="flex flex-col items-center justify-center mx-8 my-4">
+                    <div className="flex flex-col lg:relative lg:flex-row mx-auto w-10/12 md:w-11/12 xl:w-full">
+                        <div className="flex flex-col w-full lg:w-8/12 md:flex-row lg:relative lg:-left-[3vw] 2xl:-left-[8vw]" onClick={() => navigate("/newsdetail")}>
+                            <div className="flex flex-col m-0 md:items-end md:mr-5 md:text-right gap-2 my-3">
+                                <p className="font-BeVietnamBold">HIỂU THẬT SÂU MỖI NGƯỜI <br className="md:hidden"/> VỚI URBAS LOVE+ 24</p>
+                                <p className="font-BeVietnamRegular text-gray-400 text-sm md:line-clamp-4">Lấy cảm hứng từ cụm từ "Inside
+                                    Out", Ananas tạo ra 2 phiên bản thiết kế cổ thấp (có dây và
+                                    quai dán) cho bộ sưu tập Urbas Love+ 24.</p>
+                                <p className="font-BeVietnamRegular">01.10.2024</p>
+                            </div>
+
+                            <img src={urbaslove24news} className="h-[60vw] w-[60vw] sm:h-96 sm:w-96 object-cover rounded-xl"/>
                         </div>
 
-                        <img src={urbaslove24news} className="h-[60vw] w-[60vw] sm:h-72 sm:w-72 object-cover rounded-xl"/>
-                    </div>
+                        <div className="flex flex-col w-full lg:w-7/12 md:flex-row items-end relative lg:absolute -top-14 lg:top-72 lg:left-[39vw] 2xl:left-[32vw]">
+                            <img src={blog1980s} className="h-[36vw] w-[36vw] sm:h-64 sm:w-64 md:h-72 md:w-72 object-cover rounded-xl"/>
 
-                    <div className="flex flex-col items-end relative -top-14">
-                        <img src={blog1980s} className="h-[36vw] w-[36vw] sm:h-56 sm:w-56 object-cover rounded-xl"/>
-
-                        <div className="flex flex-col items-end gap-2 my-3">
-                            <p className="text-right font-BeVietnamBold">VINTAS SAIGON 1980s - SÀI GÒN XƯA GIỮA
-                                THỜI HIỆN ĐẠI</p>
-                            <p className="text-right font-BeVietnamRegular text-gray-400 text-sm">Saigon 1980s đem
-                                đến một lựa chọn “cũ kỹ thú vị” cho những người trẻ sống giữa thời hiện đại nhưng lại yêu nét bình dị của Sài Gòn
-                                xưa.</p>
-                            <p className="font-BeVietnamRegular">28.09.2024</p>
+                            <div className="flex flex-col items-end md:items-start text-right md:ml-5 md:text-left gap-2 my-3">
+                                <p className="font-BeVietnamBold">VINTAS SAIGON 1980s - SÀI GÒN XƯA GIỮA
+                                    THỜI HIỆN ĐẠI</p>
+                                <p className="font-BeVietnamRegular text-gray-400 text-sm line-clamp-3">Saigon 1980s đem
+                                    đến một lựa chọn “cũ kỹ thú vị” cho những người trẻ sống giữa thời hiện đại nhưng lại yêu nét bình dị của Sài Gòn
+                                    xưa.</p>
+                                <p className="font-BeVietnamRegular">28.09.2024</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="m-8 flex flex-col gap-8">
+            <div className="m-8 flex flex-col gap-8 md:grid md:grid-cols-2 xl:grid-cols-3 lg:mt-64">
                 {Array.from({length: 8}).map((_, index) => (
                     <div key={index} className="rounded-lg border-2 border-[#CCCCCC]" onClick={()=>{navigate("/newsdetail")}}>
                         <img src={newsthumb} alt="Thumbnail for News"
@@ -59,11 +64,12 @@ function News() {
                         </div>
                     </div>
                 ))}
+            </div>
 
-                <div className="flex justify-center">
-                    <Button label="Hiển thị thêm" onClick={() => {
-                    }}/>
-                </div>
+
+            <div className="flex justify-center">
+                <Button label="Hiển thị thêm" onClick={() => {
+                }}/>
             </div>
 
             <Footer/>

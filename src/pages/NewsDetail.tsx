@@ -11,7 +11,7 @@ function NewsDetail() {
     return (
         <div>
             <div className="h-14"></div>
-            <div className="flex flex-row gap-1 items-center mx-8 mt-8"
+            <div className="mx-8 md:mx-auto md:my-12 md:w-10/12 lg:w-8/12 mt-8 flex flex-row items-center"
                  onClick={() => navigate(-1)}>
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -26,14 +26,14 @@ function NewsDetail() {
                     className="font-BeVietnamBold text-xl"
                     initial={{ x: -20 }}
                     animate={{ x: 10 }}
-                    exit={{ x: -27 }}
+                    exit={{ x: -26 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
                     TIN TỨC
                 </motion.p>
             </div>
 
-            <div className="mx-8">
+            <div className="mx-8 md:mx-auto md:my-12 md:w-10/12 lg:w-8/12 ">
                 <img src={news} alt="Tin tức" className="h-56 w-full rounded-lg object-cover mt-4"/>
                 <p className="text-sm text-gray-400 font-BeVietnamRegular mt-8 mb-1">Thông cáo báo chí</p>
                 <p className="font-BeVietnamBold text-lg">HIỂU THẬT SÂU MỖI NGƯỜI VỚI URBAS LOVE+ 24</p>

@@ -21,17 +21,50 @@ function SaleOff() {
     return (
         <div>
             <div className="h-14"></div>
-            <div className="mx-8 mt-8 flex flex-row items-center">
-                <p className="text-xl font-BeVietnamBold">SALE OFF</p>
+            <div className="mx-8 md:mx-auto md:my-12 md:w-10/12 lg:w-8/12 mt-8 flex flex-row items-center">
+                <p className="text-xl font-BeVietnamBold">SALE  OFF</p>
                 <div className="flex-1"></div>
-                <div className="flex flex-row gap-2 border-[1.8px] px-2 py-1 rounded-full items-center">
+                <div className="flex md:hidden flex-row gap-2 border-[1.8px] px-2 py-1 rounded-full items-center">
                     <HugeiconsIcon icon={FilterHorizontalIcon} size={20}/>
                     <p className="font-BeVietnamRegular text-sm">Lọc</p>
                 </div>
             </div>
 
-            <div className="flex flex-col mx-6 my-6">
-                <div className="grid grid-cols-2 gap-y-0 gap-x-4">
+
+            <div className="flex font-BeVietnamRegular text-sm flex-col md:flex-row mx-6 md:mx-auto md:w-10/12 lg:w-8/12 my-6">
+                <div className="flex-1 hidden md:flex md:flex-col gap-8">
+                    <div className="flex flex-col gap-4">
+                        <p className="text-Ananas font-BeVietnamBold">Dòng sản phẩm</p>
+                        <div className="flex flex-col gap-4 ml-3">
+                            <p>Basas</p>
+                            <p>Vintas</p>
+                            <p>Urbas</p>
+                            <p>Pattas</p>
+                            <p>Track 6</p>
+                            <p>Accessories</p>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-4">
+                        <p className="text-Ananas font-BeVietnamBold">Trạng thái</p>
+                        <div className="flex flex-col gap-4 ml-3">
+                            <p>Limited Edition</p>
+                            <p>Sale off</p>
+                            <p>Pre-order</p>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-4">
+                        <p className="text-Ananas font-BeVietnamBold">Giá</p>
+                        <div className="flex flex-col gap-4 ml-3">
+                            <p>{`>`}600k</p>
+                            <p>400k-599k</p>
+                            <p>200k-399k</p>
+                            <p>{`<`}200k</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-y-0 gap-x-4 w-full md:w-9/12 lg:w-10/12">
                     {
                         products.filter(product => product.discount != null).map(product => (
                             <div key={product.id} className="flex flex-col relative" onClick={() => {navigate(`/product/${product.id}`)}}>

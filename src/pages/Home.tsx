@@ -60,22 +60,23 @@ function Home() {
                     }`}}>
                     <img
                         src={urbaslove24}
-                        className="absolute w-full h-full object-cover object-center transform scale-[1.5] md:scale-[1.25] top-0 left-0"
+                        className="absolute w-full h-full object-cover object-center transform scale-[1.5] md:scale-[1.25] lg:scale-100 top-0 left-0"
                         alt="urbanlove24"
                     />
-                    <p className="absolute z-10 font-BeVietnamRegular text-Ananas top-[18vh] md:top-44 xl:top-42 text-sm">Mới ra mắt</p>
-                    <p className={`absolute z-10 font-Bayon text-[56px] md:text-[84px] xl:text-[100px] -my-4 top-[21vh] md:top-48`}
+                    <p className="absolute z-10 font-BeVietnamRegular text-Ananas top-[18vh] md:top-44 xl:top-42 2xl:top-36 text-sm">Mới ra mắt</p>
+                    <p className={`absolute z-10 font-Bayon text-[56px] md:text-[84px] xl:text-[100px] -my-4 top-[21vh] md:top-48 2xl:top-40`}
                        style={{top: `${
                                (height<500) ? "25vh" : ""
                            }`, textShadow: `${
                                (height<500) ? "2px 2px 15px white" : ""
                            }`}}>URBAS LOVE+ 24</p>
-                    <p className="absolute font-BeVietnamRegular top-[60vh] md:top-[75vh] xl:top-[80vh]" style={{top: `${
+                    <p className="absolute font-BeVietnamRegular top-[60vh] md:top-[60vh] xl:top-[65vh]"
+                       style={{top: `${
                             (height<500) ? "76vh" : ""
                         }`, textShadow: `${
                             (height<500) ? "1px 0px 5px white, 0 0 5px white" : ""
                         }`}}>Giao hàng từ 01.11.2024</p>
-                    <div className="flex absolute top-[60vh] md:top-[75vh] xl:top-[79vh] mt-10 w-full justify-center"
+                    <div className="flex absolute top-[60vh] md:top-[60vh] xl:top-[65vh] mt-10 w-full justify-center"
                          style={{top: `${
                             (height<500) ? "75vh" : ""
                         }`

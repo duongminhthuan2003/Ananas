@@ -102,6 +102,10 @@ function App() {
                                 navigate('/');
                             }}
                         >Đăng xuất</p>
+                        <div>
+                            <img src={avatar} alt={"Avatar"} className="h-10 w-10 rounded-full object-cover"
+                            onClick={() => {navigate('/settings/profile')}} />
+                        </div>
                     </div>
                     :
                     <div className="md:flex flex-row hidden items-center m-0">
@@ -119,7 +123,7 @@ function App() {
 
             <div
                 className={`fixed -top-30 left-0 w-full h-[calc(100vh-3.5rem)] navbar shadow-lg z-40 md:hidden transition-transform duration-600 ease-in-out ${
-                    isMobileMenuOpen ? 'transform translate-y-14' : 'transform -translate-y-full shadow-none'
+                    isMobileMenuOpen ? 'transform translate-y-44' : 'transform -translate-y-full shadow-none'
                 }`}>
                 <div className="flex flex-col h-full p-8 text-md gap-4">
                     <Link
