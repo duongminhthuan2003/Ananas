@@ -108,7 +108,7 @@ function SettingsPayment() {
                                 <p className="bg-[#35A16F] text-white rounded px-2 py-0.5 text-[13px]">Mặc định</p>
                             </div>
                             <div className="flex-1"></div>
-                            <div className="flex flex-row items-center font-BeVietnamRegular gap-2">
+                            <div className="flex flex-row items-center font-BeVietnamRegular gap-2  lg:gap-4">
                                 <p>**** 7091</p>
                                 <HugeiconsIcon icon={MoreHorizontalIcon} className="md:hidden"/>
                                 <p className="text-[#35A16F] opacity-30 hidden md:block">Mặc định</p>
@@ -122,7 +122,7 @@ function SettingsPayment() {
                                 <p>Mastercard</p>
                             </div>
                             <div className="flex-1"></div>
-                            <div className="flex flex-row font-BeVietnamRegular items-center gap-2">
+                            <div className="flex flex-row font-BeVietnamRegular items-center gap-2 lg:gap-4">
                                 <p>**** 1574</p>
                                 <HugeiconsIcon icon={MoreHorizontalIcon} className="md:hidden"/>
                                 <p className="text-[#35A16F] hidden md:block">Mặc định</p>
@@ -144,7 +144,7 @@ function SettingsPayment() {
                             </div>
                         </div>
                         <div className="flex-1"></div>
-                        <div className="flex flex-row font-BeVietnamRegular items-center gap-2">
+                        <div className="flex flex-row font-BeVietnamRegular items-center gap-2 lg:gap-4">
                             <p>**** 6184</p>
                             <HugeiconsIcon icon={MoreHorizontalIcon} className="md:hidden"/>
                             <p className="text-[#35A16F] hidden md:block">Mặc định</p>

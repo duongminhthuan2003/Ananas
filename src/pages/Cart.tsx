@@ -83,102 +83,130 @@ function Cart() {
     };
 
     return (
-        <div>
-            <div className="h-14"></div>
-            <div className="mx-8 mt-8">
-                <p className="font-BeVietnamBold text-xl">GIỎ HÀNG</p>
-                <p className="font-BeVietnamRegular">3 sản phẩm</p>
+        <div className="flex flex-col h-screen">
+            <div className="mx-8 mt-24 md:mx-auto md:mt-24 md:w-10/12 lg:w-8/12 flex flex-col">
+                <p className="text-xl font-BeVietnamBold">GIỎ HÀNG</p>
+                <p className="font-BeVietnamRegular">3 sản phầm</p>
+                <div className="flex-1"></div>
             </div>
 
-            <div>
-                {products.map(product => (
-                    <div key={product.id} className="flex flex-row mx-8 mt-4 text-sm items-center gap-3">
-                        <img src={product.image} alt="Product" className="h-28 rounded-lg" />
-                        <div className="flex flex-col gap-1 h-28">
-                            <p className="font-BeVietnamBold line-clamp-2">{product.name}</p>
-                            <p className="font-BeVietnamRegular">{product.price.toLocaleString()} VNĐ</p>
-                            <div className="flex-1"></div>
-                            <div className="flex flex-row items-center gap-3 font-BeVietnamRegular">
-                                {/* Size Button */}
-                                <div
-                                    onClick={() =>
-                                        updateProduct(product.id, { showSizePopup: !product.showSizePopup })
-                                    }
-                                    className="cursor-pointer w-16 h-7 flex items-center justify-center shadow-lg rounded-lg border-1 border-gray-300"
-                                >
-                                    {product.size}
-                                </div>
-
-                                {/* Quantity */}
-                                <div className="flex items-center gap-1 h-7 shadow-lg border-1  rounded-lg border-gray-300">
-                                    <button
+            <div className="flex font-BeVietnamRegular text-sm flex-col md:flex-row mx-8 md:mx-auto md:w-10/12 lg:w-8/12 my-3 gap-6">
+                <div className="md:flex-3 lg:flex-2 p-0">
+                    {products.map(product => (
+                        <div key={product.id} className="flex flex-row mt-4 text-sm items-center gap-3">
+                            <img src={product.image} alt="Product" className="h-28 rounded-lg" />
+                            <div className="flex flex-col gap-1 h-28">
+                                <p className="font-BeVietnamBold line-clamp-2">{product.name}</p>
+                                <p className="font-BeVietnamRegular">{product.price.toLocaleString()} VNĐ</p>
+                                <div className="flex-1"></div>
+                                <div className="flex flex-row items-center gap-3 font-BeVietnamRegular">
+                                    {/* Size Button */}
+                                    <div
                                         onClick={() =>
-                                            updateProduct(product.id, {
-                                                quantity: Math.max(1, product.quantity - 1),
-                                            })
+                                            updateProduct(product.id, { showSizePopup: !product.showSizePopup })
                                         }
-                                        className="w-7 h-7"
+                                        className="cursor-pointer w-16 h-7 flex items-center justify-center shadow-lg rounded-lg border-1 border-gray-300"
                                     >
-                                        -
-                                    </button>
-                                    <span>{product.quantity}</span>
-                                    <button
-                                        onClick={() =>
-                                            updateProduct(product.id, { quantity: product.quantity + 1 })
-                                        }
-                                        className="w-7 h-7"
-                                    >
-                                        +
-                                    </button>
-                                </div>
-
-                                {/* Size Popup */}
-                                {product.showSizePopup && (
-                                    <div className="absolute mt-2 z-10 bg-white shadow p-2 rounded grid grid-cols-4 gap-1">
-                                        {Array.from({ length: 12 }, (_, i) => i + 35).map(size => (
-                                            <div
-                                                key={size}
-                                                onClick={() =>
-                                                    updateProduct(product.id, {
-                                                        size: size,
-                                                        showSizePopup: false,
-                                                    })
-                                                }
-                                                className="w-10 h-7 border text-center cursor-pointer hover:bg-gray-200"
-                                            >
-                                                {size}
-                                            </div>
-                                        ))}
+                                        {product.size}
                                     </div>
-                                )}
+
+                                    {/* Quantity */}
+                                    <div className="flex items-center gap-1 h-7 shadow-lg border-1  rounded-lg border-gray-300">
+                                        <button
+                                            onClick={() =>
+                                                updateProduct(product.id, {
+                                                    quantity: Math.max(1, product.quantity - 1),
+                                                })
+                                            }
+                                            className="w-7 h-7"
+                                        >
+                                            -
+                                        </button>
+                                        <span>{product.quantity}</span>
+                                        <button
+                                            onClick={() =>
+                                                updateProduct(product.id, { quantity: product.quantity + 1 })
+                                            }
+                                            className="w-7 h-7"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+
+                                    {/* Size Popup */}
+                                    {product.showSizePopup && (
+                                        <div className="absolute mt-2 z-10 bg-white shadow p-2 rounded grid grid-cols-4 gap-1">
+                                            {Array.from({ length: 12 }, (_, i) => i + 35).map(size => (
+                                                <div
+                                                    key={size}
+                                                    onClick={() =>
+                                                        updateProduct(product.id, {
+                                                            size: size,
+                                                            showSizePopup: false,
+                                                        })
+                                                    }
+                                                    className="w-10 h-7 border text-center cursor-pointer hover:bg-gray-200"
+                                                >
+                                                    {size}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
+                    ))}
+                </div>
+                <div className="flex-0 hidden md:flex flex-col md:flex-2 lg:flex-1 gap-6 mt-3">
+                    <div className="flex flex-row items-center font-BeVietnamRegular">
+                        <p>Tạm tính:</p>
+                        <div className="flex-1"/>
+                        <p>650.000 VNĐ</p>
                     </div>
-                ))}
+                    <div className="flex flex-row items-center font-BeVietnamRegular">
+                        <p>Giảm giá:</p>
+                        <div className="flex-1"/>
+                        <p>0 VNĐ</p>
+                    </div>
 
+                    <div className="flex flex-row items-center font-BeVietnamBold">
+                        <p>Tổng thanh toán:</p>
+                        <div className="flex-1"/>
+                        <p className="text-Ananas">650.000 VNĐ</p>
+                    </div>
 
-                <div className="mx-8 mt-8">
-                    <p className="font-BeVietnamBold mb-3">Đề xuất</p>
-                    <div className="flex flex-row overflow-x-scroll gap-4 track6-list">
-                        {accessories.map((item, index) => (
-                            <div
-                                key={index}
-                                className="min-w-[300px] rounded-lg flex flex-row items-center gap-4"
-                            >
-                                <img src={item.image} className="h-28 rounded-lg" alt="Accessory Image" />
-                                <div className="flex flex-col gap-1">
-                                    <p className="text-sm font-BeVietnamBold mt-2 line-clamp-2">{item.name}</p>
-                                    <p className="text-sm font-BeVietnamRegular text-gray-400">{item.price}</p>
-                                    <div className="w-full text-sm">
-                                        <Button label="Thêm" onClick={() => {}} />
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                    <div>
+                        <Button label="Thanh toán" onClick={() => {
+                            navigate("/payment");
+                        }}
+                        />
                     </div>
                 </div>
+            </div>
 
-                <div className="z-50 fixed gap-4 navbar bottom-0 w-full flex flex-col px-8 py-7">
+            <div className="mx-8 md:mx-auto md:w-10/12 lg:w-8/12 md:mt-8">
+                <p className="font-BeVietnamBold mb-3">Đề xuất</p>
+                <div className="flex flex-row overflow-x-scroll gap-4 track6-list">
+                    {accessories.map((item, index) => (
+                        <div
+                            key={index}
+                            className="min-w-[300px] rounded-lg flex flex-row items-center gap-4"
+                        >
+                            <img src={item.image} className="h-28 rounded-lg" alt="Accessory Image" />
+                            <div className="flex flex-col gap-1">
+                                <p className="text-sm font-BeVietnamBold mt-2 line-clamp-2">{item.name}</p>
+                                <p className="text-sm font-BeVietnamRegular text-gray-400">{item.price}</p>
+                                <div className="w-full text-sm">
+                                    <Button label="Thêm" onClick={() => {}} customClasses="px-3 py-1"/>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="mt-8">
+                <div className="z-50 fixed gap-4 navbar bottom-0 w-full flex flex-col px-8 py-7 md:hidden">
                     <div className="flex flex-row items-center font-BeVietnamRegular">
                         <p>Tạm tính:</p>
                         <div className="flex-1"/>
@@ -200,11 +228,13 @@ function Cart() {
                         navigate("/payment");
                     }} height="large"/>
                 </div>
-
-                <Footer />
-
-                <div className="h-64"></div>
             </div>
+
+            <div className="flex-1"> </div>
+            <Footer />
+
+            <div className="h-16 md:hidden"></div>
+
         </div>
     );
 }

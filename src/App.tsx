@@ -66,7 +66,7 @@ function App() {
                 /></Link>
                 <div className="flex-1 m-0"/>
 
-                <div className="hidden md:flex absolute flex-row gap-8 lg:gap-14 text-sm font-BeVietnamRegular left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2">
+                <div className="hidden md:flex absolute flex-row gap-6 lg:gap-18 text-sm font-BeVietnamRegular left-1/2 transform lg:-translate-x-1/2 md:-translate-x-[60%] md:-translate-y-1/2 top-1/2">
                     <Link
                         to="/product"
                         className=" hover:text-[#F15E2C] transition-colors"
@@ -94,25 +94,22 @@ function App() {
                 </div>
 
                 {isLoggedIn ?
-                    <div className="md:flex flex-row hidden items-center m-0">
-                        <p
-                            onClick={() => {
-                                localStorage.setItem('isLoggedIn', 'false');
-                                localStorage.setItem('userData', JSON.stringify({name: '', email: ''}));
-                                navigate('/');
-                            }}
-                        >Đăng xuất</p>
+                    <div className="md:flex flex-row hidden items-center m-0 md:gap-4 lg:gap-6">
+                        <HugeiconsIcon icon={Search01Icon} size={22} />
+                        <HugeiconsIcon icon={FavouriteIcon} size={22}/>
+                        <HugeiconsIcon icon={ShoppingBag03Icon} size={22} onClick={()=>{navigate('/cart')}}/>
                         <div>
                             <img src={avatar} alt={"Avatar"} className="h-10 w-10 rounded-full object-cover"
                             onClick={() => {navigate('/settings/profile')}} />
                         </div>
                     </div>
                     :
-                    <div className="md:flex flex-row hidden items-center m-0">
+                    <div className="md:flex flex-row hidden items-center m-0 gap-3 lg:gap-6">
+                        <HugeiconsIcon icon={Search01Icon} size={22} />
                         <Link to="/signup" className="text-sm font-BeVietnamRegular">
                             Đăng ký
                         </Link>
-                        <Button label="Đăng nhập" customClasses="text-sm px-3 py-2 ml-3" onClick={() => navigate("/login")}/>
+                        <Button label="Đăng nhập" customClasses="text-sm md:px-2 md:py-1.5 lg:px-3 lg:py-2" onClick={() => navigate("/login")}/>
                     </div>
                 }
                 <MenuIcon
@@ -194,6 +191,7 @@ function App() {
                             :
                                 <div>
                                     <div className="flex flex-row gap-5">
+
                                         <Link
                                             to="/signup"
                                             className="w-1/2 text-center border-2 shadow-lg border-[#CCCCCC] font-BeVietnamRegular text-gray-800 bg-white py-3 rounded-xl my-2"

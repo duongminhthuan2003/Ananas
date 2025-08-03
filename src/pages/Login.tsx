@@ -9,18 +9,20 @@ function Login() {
         <div className="h-screen flex flex-col">
             <div className="h-14"></div>
             <div className="flex-1 md:flex md:flex-row overflow-hidden">
-                <div className="flex flex-1 flex-col justify-center md:w-1/2 lg:w-2/5 p-8">
-                    <p className="mb-10 font-BeVietnamBold text-xl">ĐĂNG NHẬP</p>
+                <div className="flex flex-1 flex-col justify-center md:w-1/2 lg:w-2/5 mx-8 lg:mx-24">
+                    <p className="mb-10 font-BeVietnamBold text-xl md:text-2xl lg:text-3xl">ĐĂNG NHẬP</p>
 
-                    <div className="font-BeVietnamRegular">
-                        <p>Email/Số điện thoại:</p>
-                        <input type="text" placeholder="Email" defaultValue="ananas.default@gmail.com" className="w-full border-1 my-2 rounded-lg p-2 border-gray-400 focus:outline-Ananas"/>
-                    </div>
+                   <div className="flex flex-col gap-3">
+                       <div className="font-BeVietnamRegular">
+                           <p>Email/Số điện thoại:</p>
+                           <input type="text" placeholder="Email" defaultValue="ananas.default@gmail.com" className="w-full border-1 my-2 rounded-lg p-2 lg:p-4 border-gray-400 focus:outline-Ananas"/>
+                       </div>
 
-                    <div className="font-BeVietnamRegular">
-                        <p>Mật khẩu:</p>
-                        <input type="password" placeholder="Mật khẩu" defaultValue="ananas" className="w-full border-1 my-2 rounded-lg p-2 border-gray-400 focus:outline-Ananas"/>
-                    </div>
+                       <div className="font-BeVietnamRegular">
+                           <p>Mật khẩu:</p>
+                           <input type="password" placeholder="Mật khẩu" defaultValue="ananas" className="w-full border-1 my-2 rounded-lg p-2 lg:p-4 border-gray-400 focus:outline-Ananas"/>
+                       </div>
+                   </div>
 
                     <div className="my-8 justify-center flex items-center">
                         <Button label="Đăng nhập" onClick={()=>{
@@ -30,7 +32,7 @@ function Login() {
                         }} />
                     </div>
 
-                    <div className="flex flex-row mx-8 font-BeVietnamRegular">
+                    <div className="flex flex-row font-BeVietnamRegular">
                         <p>Quên mật khẩu</p>
                         <div className="flex-1"></div>
                         <p>Đăng ký</p>
