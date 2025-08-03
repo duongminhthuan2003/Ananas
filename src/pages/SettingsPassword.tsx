@@ -64,7 +64,7 @@ function SettingsPayment() {
                 </div>
             </div>
 
-            <div className="mx-8 flex flex-col md:flex-row md:mx-auto md:mt-24 md:w-10/12 lg:w-8/12 mt-8">
+            <div className="flex flex-col md:flex-row md:mx-auto md:mt-24 md:w-10/12 lg:w-8/12">
                 <div className="hidden md:flex flex-col md:w-4/12 xl:w-3/12">
                     <p className="text-xl font-BeVietnamBold">THÔNG TIN CÁ NHÂN</p>
                     <div className="flex flex-col gap-6 lg:gap-8 font-BeVietnamRegular text-sm md:text-base mt-10 ml-3">

@@ -16,10 +16,13 @@ export function ContextMenu() {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.2 }}
             className="flex flex-col navbar mx-8 rounded-xl px-3 pt-5 pb-3 gap-5 md:hidden font-BeVietnamRegular items-center">
-            <div className="text-Ananas">
+            <div
+                onClick={()=>{navigate("/settings/profile")}}
+            >
                 Hồ sơ của tôi
             </div>
             <div
+                className="text-Ananas"
                 onClick={()=>{navigate("/settings/orders")}}>
                 Đơn hàng của tôi
             </div>

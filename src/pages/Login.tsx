@@ -8,7 +8,7 @@ function Login() {
     return (
         <div className="h-screen flex flex-col">
             <div className="h-14"></div>
-            <div className="flex-1 md:flex md:flex-row overflow-hidden">
+            <div className="flex-1 mt-8 md:mt-0 md:flex md:flex-row overflow-hidden">
                 <div className="flex flex-1 flex-col justify-center md:w-1/2 lg:w-2/5 mx-8 lg:mx-24">
                     <p className="mb-10 font-BeVietnamBold text-xl md:text-2xl lg:text-3xl">ĐĂNG NHẬP</p>
 
