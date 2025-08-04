@@ -202,7 +202,7 @@ function Home() {
                     <div className="flex-none relative h-auto">
                         <img src={track6isee} alt="Track 6 Bluewash" className="h-[240px] lg:h-[300px]  aspect-square"/>
                         <div
-                            className="absolute top-0 left-0 z-50 bg-Ananas px-4 py-2 text-sm text-white font-BeVietnamBold">
+                            className="absolute top-0 left-0 z-30 bg-Ananas px-4 py-2 text-sm text-white font-BeVietnamBold">
                             Limited Edition
                         </div>
                         <div
