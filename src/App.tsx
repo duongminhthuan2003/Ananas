@@ -26,6 +26,7 @@ import { useLocation } from "react-router-dom";
 import avatar from "../src/assets/account/Sequoia-Sunrise.webp"
 import {useNavigate} from "react-router-dom";
 import Button from "./components/Button.tsx";
+import NotFound from "./pages/NotFound.tsx";
 
 function App() {
 
@@ -245,6 +246,8 @@ function App() {
                         <Route path="/confirmation" element={<Confirmation />} />
                         <Route path="/newsdetail" element={<NewsDetail />} />
                         <Route path="/signup" element={<SignUp />} />
+
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                 </AnimatePresence>
             </div>
