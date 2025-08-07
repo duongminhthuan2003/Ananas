@@ -19,20 +19,43 @@ import logo from './assets/logo-black.webp'
 import {useState, useEffect} from "react";
 import MenuIcon from "./assets/svgicons/MenuIcon.tsx"
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Search01Icon, ShoppingBag03Icon, FavouriteIcon } from "@hugeicons/core-free-icons";
-import { AnimatePresence } from "framer-motion";
+import {Search01Icon, ShoppingBag03Icon, FavouriteIcon, Cancel01Icon, ArrowRight01Icon} from "@hugeicons/core-free-icons";
+import { AnimatePresence, motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
 import avatar from "../src/assets/account/Sequoia-Sunrise.webp"
 import {useNavigate} from "react-router-dom";
 import Button from "./components/Button.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Favourite from "./pages/Favourite.tsx";
 
+export function FindOverlay() {
+    return(
+        <motion.div
+            initial={{opacity: 0, scale: 0.95}}
+            animate={{opacity: 1, scale: 1}}
+            exit={{opacity: 0, scale: 0.95}}
+            transition={{duration: 0.2}}
+            className="w-11/12 mx-auto flex"
+        >
+            <div className="flex flex-row font-BeVietnamRegular gap-3 items-center p-4 bg-white w-full h-14 border-l-2 border-t-2 border-b-2 border-[#CCCCCC] rounded-l-xl shadow-lg">
+                <HugeiconsIcon icon={Search01Icon} size={24} color="black" strokeWidth={1.2} />
+                <input
+                    type="text"
+                    className="text-gray-800 font-BeVietnamRegular focus:outline-none flex-1"
+                    placeholder="Tìm kiếm..."
+                    autoFocus
+                />
+            </div>
+            <div className="p-4 bg-Ananas rounded-r-xl">
+                <HugeiconsIcon icon={ArrowRight01Icon} color={"#FFFFFF"}/>
+            </div>
+        </motion.div>
+    )
+}
 function App() {
-
-
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+    const [isFindOverlayOpen, setIsFindOverlayOpen] = useState(false);
     const location = useLocation();
 
     const toggleMobileMenu = () => {
@@ -67,7 +90,7 @@ function App() {
                 /></Link>
                 <div className="flex-1 m-0"/>
 
-                <div className="hidden md:flex absolute flex-row gap-6 lg:gap-18 text-sm font-BeVietnamRegular left-1/2 transform lg:-translate-x-1/2 md:-translate-x-[60%] md:-translate-y-1/2 top-1/2">
+                <div className="hidden md:flex absolute flex-row gap-8 lg:gap-18 text-[13px] lg:text-sm font-BeVietnamRegular left-1/2 transform lg:-translate-x-1/2 md:-translate-x-[60%] md:-translate-y-1/2 top-1/2">
                     <Link
                         to="/product"
                         className=" hover:text-[#F15E2C] transition-colors"
@@ -96,9 +119,9 @@ function App() {
 
                 {isLoggedIn ?
                     <div className="md:flex flex-row hidden items-center m-0 md:gap-4 lg:gap-6">
-                        <HugeiconsIcon icon={Search01Icon} size={22} />
-                        <HugeiconsIcon icon={FavouriteIcon} size={22}/>
-                        <HugeiconsIcon icon={ShoppingBag03Icon} size={22} onClick={()=>{navigate('/cart')}}/>
+                        <HugeiconsIcon icon={Search01Icon} size={22} onClick={() => setIsFindOverlayOpen(!isFindOverlayOpen)} />
+                        <HugeiconsIcon icon={FavouriteIcon} size={22} onClick={()=> {navigate('/favourite')}} />
+                        <HugeiconsIcon icon={ShoppingBag03Icon} size={22} onClick={()=> {navigate('/cart')}}/>
                         <div>
                             <img src={avatar} alt={"Avatar"} className="h-10 w-10 rounded-full object-cover"
                             onClick={() => {navigate('/settings/profile')}} />
@@ -118,6 +141,25 @@ function App() {
                     onClick={toggleMobileMenu}
                 />
             </nav>
+            <AnimatePresence>
+                {isFindOverlayOpen && (
+                    <motion.div
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        exit={{opacity: 0}}
+                        transition={{duration: 0.2}}
+                        className="fixed inset-0 flex flex-col items-center justify-start pt-24 navbar z-40 gap-10"
+                    >
+                        <FindOverlay />
+
+                        <div className="flex flex-row gap-2 justify-center items-center cursor-pointer" onClick={() => setIsFindOverlayOpen(false)}>
+                            <HugeiconsIcon icon={Cancel01Icon} size={20} />
+                            <p className="font-BeVietnamRegular">Đóng</p>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
 
             <div
                 className={`fixed -top-30 left-0 w-full h-[calc(100vh-3.5rem)] navbar shadow-lg z-40 md:hidden transition-transform duration-600 ease-in-out ${
@@ -183,10 +225,12 @@ function App() {
                                         <p>Giỏ hàng</p>
                                     </Link>
 
-                                    <div className="bg-white shadow-xl font-BeVietnamRegular rounded-xl w-1/2 flex flex-row justify-center py-5 border-2 border-gray-300 gap-3">
+                                    <Link
+                                        to={"/favourite"}
+                                        className="bg-white shadow-xl font-BeVietnamRegular rounded-xl w-1/2 flex flex-row justify-center py-5 border-2 border-gray-300 gap-3">
                                         <HugeiconsIcon icon={FavouriteIcon} />
                                         <p>Yêu thích</p>
-                                    </div>
+                                    </Link>
                                 </div>
                             </div>
                             :
@@ -220,13 +264,6 @@ function App() {
                 </div>
             </div>
 
-            {isMobileMenuOpen && (
-                <div
-                    className="fixed inset-0 bg-opacity-0 z-10 md:hidden"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                ></div>
-            )}
-
             <div>
                 <AnimatePresence mode="wait">
                     <Routes location={location} key={location.pathname}>
@@ -246,7 +283,7 @@ function App() {
                         <Route path="/confirmation" element={<Confirmation />} />
                         <Route path="/newsdetail" element={<NewsDetail />} />
                         <Route path="/signup" element={<SignUp />} />
-
+                        <Route path="/favourite" element={<Favourite />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </AnimatePresence>
